@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D57E1FD7A89600020122 /* AppDelegate.swift */; };
+		AAC8D5811FD7A89600020122 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5801FD7A89600020122 /* ViewController.swift */; };
+		AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5821FD7A89600020122 /* Main.storyboard */; };
+		AAC8D5861FD7A89600020122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5851FD7A89600020122 /* Assets.xcassets */; };
+		AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */; };
+		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
+		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAC8D5901FD7A89600020122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAC8D5731FD7A89500020122 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAC8D57A1FD7A89500020122;
+			remoteInfo = Stax;
+		};
+		AAC8D59B1FD7A89600020122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAC8D5731FD7A89500020122 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAC8D57A1FD7A89500020122;
+			remoteInfo = Stax;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAC8D57B1FD7A89500020122 /* Stax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stax.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC8D57E1FD7A89600020122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAC8D5801FD7A89600020122 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAC8D5831FD7A89600020122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAC8D5851FD7A89600020122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAC8D5881FD7A89600020122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AAC8D58A1FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC8D58F1FD7A89600020122 /* StaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC8D5931FD7A89600020122 /* StaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxTests.swift; sourceTree = "<group>"; };
+		AAC8D5951FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
+		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAC8D5781FD7A89500020122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC8D58C1FD7A89600020122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC8D5971FD7A89600020122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAC8D5721FD7A89500020122 = {
+			isa = PBXGroup;
+			children = (
+				AAC8D57D1FD7A89600020122 /* Stax */,
+				AAC8D5921FD7A89600020122 /* StaxTests */,
+				AAC8D59D1FD7A89600020122 /* StaxUITests */,
+				AAC8D57C1FD7A89500020122 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAC8D57C1FD7A89500020122 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8D57B1FD7A89500020122 /* Stax.app */,
+				AAC8D58F1FD7A89600020122 /* StaxTests.xctest */,
+				AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAC8D57D1FD7A89600020122 /* Stax */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8D57E1FD7A89600020122 /* AppDelegate.swift */,
+				AAC8D5801FD7A89600020122 /* ViewController.swift */,
+				AAC8D5821FD7A89600020122 /* Main.storyboard */,
+				AAC8D5851FD7A89600020122 /* Assets.xcassets */,
+				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
+				AAC8D58A1FD7A89600020122 /* Info.plist */,
+			);
+			path = Stax;
+			sourceTree = "<group>";
+		};
+		AAC8D5921FD7A89600020122 /* StaxTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8D5931FD7A89600020122 /* StaxTests.swift */,
+				AAC8D5951FD7A89600020122 /* Info.plist */,
+			);
+			path = StaxTests;
+			sourceTree = "<group>";
+		};
+		AAC8D59D1FD7A89600020122 /* StaxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8D59E1FD7A89600020122 /* StaxUITests.swift */,
+				AAC8D5A01FD7A89600020122 /* Info.plist */,
+			);
+			path = StaxUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAC8D57A1FD7A89500020122 /* Stax */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC8D5A31FD7A89600020122 /* Build configuration list for PBXNativeTarget "Stax" */;
+			buildPhases = (
+				AAC8D5771FD7A89500020122 /* Sources */,
+				AAC8D5781FD7A89500020122 /* Frameworks */,
+				AAC8D5791FD7A89500020122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stax;
+			productName = Stax;
+			productReference = AAC8D57B1FD7A89500020122 /* Stax.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAC8D58E1FD7A89600020122 /* StaxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC8D5A61FD7A89600020122 /* Build configuration list for PBXNativeTarget "StaxTests" */;
+			buildPhases = (
+				AAC8D58B1FD7A89600020122 /* Sources */,
+				AAC8D58C1FD7A89600020122 /* Frameworks */,
+				AAC8D58D1FD7A89600020122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAC8D5911FD7A89600020122 /* PBXTargetDependency */,
+			);
+			name = StaxTests;
+			productName = StaxTests;
+			productReference = AAC8D58F1FD7A89600020122 /* StaxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AAC8D5991FD7A89600020122 /* StaxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC8D5A91FD7A89600020122 /* Build configuration list for PBXNativeTarget "StaxUITests" */;
+			buildPhases = (
+				AAC8D5961FD7A89600020122 /* Sources */,
+				AAC8D5971FD7A89600020122 /* Frameworks */,
+				AAC8D5981FD7A89600020122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAC8D59C1FD7A89600020122 /* PBXTargetDependency */,
+			);
+			name = StaxUITests;
+			productName = StaxUITests;
+			productReference = AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAC8D5731FD7A89500020122 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = icbrahimc;
+				TargetAttributes = {
+					AAC8D57A1FD7A89500020122 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					AAC8D58E1FD7A89600020122 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AAC8D57A1FD7A89500020122;
+					};
+					AAC8D5991FD7A89600020122 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AAC8D57A1FD7A89500020122;
+					};
+				};
+			};
+			buildConfigurationList = AAC8D5761FD7A89500020122 /* Build configuration list for PBXProject "Stax" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAC8D5721FD7A89500020122;
+			productRefGroup = AAC8D57C1FD7A89500020122 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAC8D57A1FD7A89500020122 /* Stax */,
+				AAC8D58E1FD7A89600020122 /* StaxTests */,
+				AAC8D5991FD7A89600020122 /* StaxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAC8D5791FD7A89500020122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */,
+				AAC8D5861FD7A89600020122 /* Assets.xcassets in Resources */,
+				AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC8D58D1FD7A89600020122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC8D5981FD7A89600020122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAC8D5771FD7A89500020122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC8D5811FD7A89600020122 /* ViewController.swift in Sources */,
+				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC8D58B1FD7A89600020122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC8D5961FD7A89600020122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAC8D5911FD7A89600020122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAC8D57A1FD7A89500020122 /* Stax */;
+			targetProxy = AAC8D5901FD7A89600020122 /* PBXContainerItemProxy */;
+		};
+		AAC8D59C1FD7A89600020122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAC8D57A1FD7A89500020122 /* Stax */;
+			targetProxy = AAC8D59B1FD7A89600020122 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAC8D5821FD7A89600020122 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAC8D5831FD7A89600020122 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAC8D5881FD7A89600020122 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAC8D5A11FD7A89600020122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAC8D5A21FD7A89600020122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAC8D5A41FD7A89600020122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				INFOPLIST_FILE = Stax/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ibrahim.Stax;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAC8D5A51FD7A89600020122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				INFOPLIST_FILE = Stax/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ibrahim.Stax;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AAC8D5A71FD7A89600020122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				INFOPLIST_FILE = StaxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ibrahim.StaxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stax.app/Stax";
+			};
+			name = Debug;
+		};
+		AAC8D5A81FD7A89600020122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				INFOPLIST_FILE = StaxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ibrahim.StaxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stax.app/Stax";
+			};
+			name = Release;
+		};
+		AAC8D5AA1FD7A89600020122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				INFOPLIST_FILE = StaxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ibrahim.StaxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Stax;
+			};
+			name = Debug;
+		};
+		AAC8D5AB1FD7A89600020122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				INFOPLIST_FILE = StaxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ibrahim.StaxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Stax;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAC8D5761FD7A89500020122 /* Build configuration list for PBXProject "Stax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC8D5A11FD7A89600020122 /* Debug */,
+				AAC8D5A21FD7A89600020122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC8D5A31FD7A89600020122 /* Build configuration list for PBXNativeTarget "Stax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC8D5A41FD7A89600020122 /* Debug */,
+				AAC8D5A51FD7A89600020122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC8D5A61FD7A89600020122 /* Build configuration list for PBXNativeTarget "StaxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC8D5A71FD7A89600020122 /* Debug */,
+				AAC8D5A81FD7A89600020122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC8D5A91FD7A89600020122 /* Build configuration list for PBXNativeTarget "StaxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC8D5AA1FD7A89600020122 /* Debug */,
+				AAC8D5AB1FD7A89600020122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAC8D5731FD7A89500020122 /* Project object */;
+}
