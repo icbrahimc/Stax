@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		137916942DDE51A06755F85E /* Pods_Stax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908CD34861562F14B9719762 /* Pods_Stax.framework */; };
+		1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */; };
+		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
 		AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D57E1FD7A89600020122 /* AppDelegate.swift */; };
 		AAC8D5811FD7A89600020122 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5801FD7A89600020122 /* ViewController.swift */; };
 		AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5821FD7A89600020122 /* Main.storyboard */; };
@@ -34,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		232D7FFE64EA02229EC65FBD /* Pods-Stax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stax.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stax/Pods-Stax.release.xcconfig"; sourceTree = "<group>"; };
+		4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		448CFB0BE1424F377730D157 /* Pods-Stax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stax.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stax/Pods-Stax.debug.xcconfig"; sourceTree = "<group>"; };
+		5131C0EE38D24EFEA87F23AD /* Pods-StaxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6D2CF005BACBAB776A869AEF /* Pods-StaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B7ADBC8C2B3D9DCB4AD17C1 /* Pods-StaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D57B1FD7A89500020122 /* Stax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D57E1FD7A89600020122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC8D5801FD7A89600020122 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,8 @@
 		AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137916942DDE51A06755F85E /* Pods_Stax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1974AA10D767C74E6495B8AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				908CD34861562F14B9719762 /* Pods_Stax.framework */,
+				BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */,
+				4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA511E22CEA649CF2AED069A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				448CFB0BE1424F377730D157 /* Pods-Stax.debug.xcconfig */,
+				232D7FFE64EA02229EC65FBD /* Pods-Stax.release.xcconfig */,
+				7B7ADBC8C2B3D9DCB4AD17C1 /* Pods-StaxTests.debug.xcconfig */,
+				6D2CF005BACBAB776A869AEF /* Pods-StaxTests.release.xcconfig */,
+				5131C0EE38D24EFEA87F23AD /* Pods-StaxUITests.debug.xcconfig */,
+				CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AAC8D5721FD7A89500020122 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +119,8 @@
 				AAC8D5921FD7A89600020122 /* StaxTests */,
 				AAC8D59D1FD7A89600020122 /* StaxUITests */,
 				AAC8D57C1FD7A89500020122 /* Products */,
+				AA511E22CEA649CF2AED069A /* Pods */,
+				1974AA10D767C74E6495B8AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAC8D5A31FD7A89600020122 /* Build configuration list for PBXNativeTarget "Stax" */;
 			buildPhases = (
+				8A8E421585AEECE317BF9C9A /* [CP] Check Pods Manifest.lock */,
 				AAC8D5771FD7A89500020122 /* Sources */,
 				AAC8D5781FD7A89500020122 /* Frameworks */,
 				AAC8D5791FD7A89500020122 /* Resources */,
+				149213EEC062E3B91DFFA668 /* [CP] Embed Pods Frameworks */,
+				65F9857E9850979ACAC003AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAC8D5A61FD7A89600020122 /* Build configuration list for PBXNativeTarget "StaxTests" */;
 			buildPhases = (
+				4E282B4369D9B75B8C7F6C30 /* [CP] Check Pods Manifest.lock */,
 				AAC8D58B1FD7A89600020122 /* Sources */,
 				AAC8D58C1FD7A89600020122 /* Frameworks */,
 				AAC8D58D1FD7A89600020122 /* Resources */,
+				C4CF43A6102B72A88A453D06 /* [CP] Embed Pods Frameworks */,
+				B45D38C12943DB1FF92517E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAC8D5A91FD7A89600020122 /* Build configuration list for PBXNativeTarget "StaxUITests" */;
 			buildPhases = (
+				846EB38A6F23927922C1BEE8 /* [CP] Check Pods Manifest.lock */,
 				AAC8D5961FD7A89600020122 /* Sources */,
 				AAC8D5971FD7A89600020122 /* Frameworks */,
 				AAC8D5981FD7A89600020122 /* Resources */,
+				CD844506306CE8A39AE15ED4 /* [CP] Embed Pods Frameworks */,
+				56776AC4FF709662C13C7F4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		149213EEC062E3B91DFFA668 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stax/Pods-Stax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E282B4369D9B75B8C7F6C30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56776AC4FF709662C13C7F4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65F9857E9850979ACAC003AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stax/Pods-Stax-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		846EB38A6F23927922C1BEE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A8E421585AEECE317BF9C9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B45D38C12943DB1FF92517E7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4CF43A6102B72A88A453D06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD844506306CE8A39AE15ED4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AAC8D5771FD7A89500020122 /* Sources */ = {
@@ -424,6 +611,7 @@
 		};
 		AAC8D5A41FD7A89600020122 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448CFB0BE1424F377730D157 /* Pods-Stax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +627,7 @@
 		};
 		AAC8D5A51FD7A89600020122 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 232D7FFE64EA02229EC65FBD /* Pods-Stax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +643,7 @@
 		};
 		AAC8D5A71FD7A89600020122 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B7ADBC8C2B3D9DCB4AD17C1 /* Pods-StaxTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +661,7 @@
 		};
 		AAC8D5A81FD7A89600020122 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D2CF005BACBAB776A869AEF /* Pods-StaxTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +679,7 @@
 		};
 		AAC8D5AA1FD7A89600020122 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5131C0EE38D24EFEA87F23AD /* Pods-StaxUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +696,7 @@
 		};
 		AAC8D5AB1FD7A89600020122 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
