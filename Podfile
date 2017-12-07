@@ -9,6 +9,7 @@ target 'Stax' do
 	pod 'FBSDKCoreKit'
     	pod 'FBSDKLoginKit'
 	pod 'Firebase'
+	pod 'FirebaseAuth'
 	pod 'FirebaseCore'	
 	pod 'GoogleSignIn'
 	pod 'PureLayout'
