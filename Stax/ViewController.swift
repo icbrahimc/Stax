@@ -14,8 +14,10 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance().signIn()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
