@@ -6,9 +6,12 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import FBSDKCoreKit
+import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import PureLayout
 import UIKit
 
 @UIApplicationMain
@@ -29,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // The main view controller for the application.
         let homeViewController = ViewController()
-//        homeViewController.view.backgroundColor = .white
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UINavigationController(rootViewController: homeViewController)
+        let navVC = UINavigationController(rootViewController: homeViewController)
+        window!.rootViewController = navVC
         window?.makeKeyAndVisible()
         return true
     }
