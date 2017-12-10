@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     }
 }
 
-extension ViewController {
+extension WelcomeViewController {
     func layout() {
         addSubviews()
         
