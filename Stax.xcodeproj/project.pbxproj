@@ -11,12 +11,13 @@
 		1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */; };
 		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
 		AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D57E1FD7A89600020122 /* AppDelegate.swift */; };
-		AAC8D5811FD7A89600020122 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5801FD7A89600020122 /* ViewController.swift */; };
+		AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */; };
 		AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5821FD7A89600020122 /* Main.storyboard */; };
 		AAC8D5861FD7A89600020122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5851FD7A89600020122 /* Assets.xcassets */; };
 		AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */; };
 		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
+		AAC8D5AD1FD7B1C000020122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,7 @@
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D57B1FD7A89500020122 /* Stax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D57E1FD7A89600020122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAC8D5801FD7A89600020122 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AAC8D5831FD7A89600020122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAC8D5851FD7A89600020122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC8D5881FD7A89600020122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,8 +139,9 @@
 		AAC8D57D1FD7A89600020122 /* Stax */ = {
 			isa = PBXGroup;
 			children = (
+				AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */,
 				AAC8D57E1FD7A89600020122 /* AppDelegate.swift */,
-				AAC8D5801FD7A89600020122 /* ViewController.swift */,
+				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 				AAC8D5821FD7A89600020122 /* Main.storyboard */,
 				AAC8D5851FD7A89600020122 /* Assets.xcassets */,
 				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
@@ -281,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC8D5AD1FD7B1C000020122 /* GoogleService-Info.plist in Resources */,
 				AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */,
 				AAC8D5861FD7A89600020122 /* Assets.xcassets in Resources */,
 				AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */,
@@ -446,7 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAC8D5811FD7A89600020122 /* ViewController.swift in Sources */,
+				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
