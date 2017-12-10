@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         // The main view controller for the application.
-        let homeViewController = ViewController()
+        let homeViewController = WelcomeViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         let navVC = UINavigationController(rootViewController: homeViewController)
         window!.rootViewController = navVC

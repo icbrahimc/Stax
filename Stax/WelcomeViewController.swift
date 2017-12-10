@@ -10,7 +10,7 @@ import Firebase
 import GoogleSignIn
 import UIKit
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     let elementSize: CGSize = CGSize(width: 300, height: 45)
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
     let googleSignInBtn = UIButton(type: UIButtonType.roundedRect)
