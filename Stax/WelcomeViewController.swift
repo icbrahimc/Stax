@@ -12,6 +12,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     let elementSize: CGSize = CGSize(width: 300, height: 45)
+    let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
     let googleSignInBtn = UIButton(type: UIButtonType.roundedRect)
     
@@ -44,12 +45,17 @@ extension WelcomeViewController {
         setupGButton()
         googleSignInBtn.autoSetDimensions(to: elementSize)
         googleSignInBtn.autoAlignAxis(toSuperviewAxis: .vertical)
-        googleSignInBtn.autoPinEdge(.bottom, to: .top, of: facebookSignInBtn, withOffset: -10)
+        googleSignInBtn.autoPinEdge(.bottom, to: .top, of: formDivider, withOffset: -10)
+        
+        formDivider.autoSetDimensions(to: elementSize)
+        formDivider.autoAlignAxis(toSuperviewAxis: .vertical)
+        formDivider.autoPinEdge(.bottom, to: .top, of: facebookSignInBtn, withOffset: -10)
     }
     
     func addSubviews() {
         view.addSubview(facebookSignInBtn)
         view.addSubview(googleSignInBtn)
+        view.addSubview(formDivider)
     }
     
     func setupFBButton() {
