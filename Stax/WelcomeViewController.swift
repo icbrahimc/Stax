@@ -44,7 +44,7 @@ extension WelcomeViewController {
         setupGButton()
         googleSignInBtn.autoSetDimensions(to: elementSize)
         googleSignInBtn.autoAlignAxis(toSuperviewAxis: .vertical)
-        googleSignInBtn.autoPinEdge(.bottom, to: .top, of: facebookSignInBtn)
+        googleSignInBtn.autoPinEdge(.bottom, to: .top, of: facebookSignInBtn, withOffset: -10)
     }
     
     func addSubviews() {
@@ -57,6 +57,8 @@ extension WelcomeViewController {
         facebookSignInBtn.setTitle("Continue with Facebook", for: .normal)
         facebookSignInBtn.setTitleColor(.white, for: .normal)
         facebookSignInBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        facebookSignInBtn.layer.cornerRadius = 5.0
+        facebookSignInBtn.layer.masksToBounds = true
     }
     
     func setupGButton() {
@@ -64,5 +66,7 @@ extension WelcomeViewController {
         googleSignInBtn.setTitle("Continue with Google", for: .normal)
         googleSignInBtn.setTitleColor(.white, for: .normal)
         googleSignInBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        googleSignInBtn.layer.cornerRadius = 5.0
+        googleSignInBtn.layer.masksToBounds = true
     }
 }
