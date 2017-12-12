@@ -116,6 +116,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AA9DAF741FE08E000052D4D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		AAC8D5721FD7A89500020122 = {
 			isa = PBXGroup;
 			children = (
@@ -141,14 +157,14 @@
 		AAC8D57D1FD7A89600020122 /* Stax */ = {
 			isa = PBXGroup;
 			children = (
+				AA9DAF751FE08E130052D4D6 /* ViewControllers */,
+				AA9DAF741FE08E000052D4D6 /* Views */,
 				AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */,
 				AAC8D57E1FD7A89600020122 /* AppDelegate.swift */,
-				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 				AAC8D5821FD7A89600020122 /* Main.storyboard */,
 				AAC8D5851FD7A89600020122 /* Assets.xcassets */,
 				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
 				AAC8D58A1FD7A89600020122 /* Info.plist */,
-				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 			);
 			path = Stax;
 			sourceTree = "<group>";
