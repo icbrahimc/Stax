@@ -11,6 +11,7 @@ import GoogleSignIn
 import UIKit
 
 class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
+    let logoDesign = UIImageView.newAutoLayout()
     let elementSize: CGSize = CGSize(width: 300, height: 45)
     let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
@@ -37,6 +38,11 @@ extension WelcomeViewController {
     func layout() {
         addSubviews()
         
+        logoDesign.image = #imageLiteral(resourceName: "plugDesign")
+        logoDesign.autoAlignAxis(toSuperviewAxis: .vertical)
+        logoDesign.autoSetDimensions(to: CGSize(width: 150, height: 50))
+        logoDesign.autoPinEdge(toSuperviewEdge: .top, withInset: 150)
+        
         setupFBButton()
         facebookSignInBtn.autoSetDimensions(to: elementSize)
         facebookSignInBtn.autoAlignAxis(toSuperviewAxis: .vertical)
@@ -53,6 +59,7 @@ extension WelcomeViewController {
     }
     
     func addSubviews() {
+        view.addSubview(logoDesign)
         view.addSubview(facebookSignInBtn)
         view.addSubview(googleSignInBtn)
         view.addSubview(formDivider)
