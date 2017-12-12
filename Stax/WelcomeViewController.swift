@@ -12,6 +12,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     let logoDesign = UIImageView.newAutoLayout()
+    let tagLineLabel = UILabel.newAutoLayout()
     let elementSize: CGSize = CGSize(width: 300, height: 45)
     let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
@@ -20,6 +21,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationController?.navigationBar.isHidden = true
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
@@ -40,8 +42,12 @@ extension WelcomeViewController {
         
         logoDesign.image = #imageLiteral(resourceName: "plugDesign")
         logoDesign.autoAlignAxis(toSuperviewAxis: .vertical)
-        logoDesign.autoSetDimensions(to: CGSize(width: 150, height: 50))
-        logoDesign.autoPinEdge(toSuperviewEdge: .top, withInset: 150)
+        logoDesign.autoSetDimensions(to: CGSize(width: 150, height: 75))
+        logoDesign.autoPinEdge(toSuperviewEdge: .top, withInset: 175)
+        
+        setupTagLabel()
+        tagLineLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        tagLineLabel.autoPinEdge(.top, to: .bottom, of: logoDesign, withOffset: 0)
         
         setupFBButton()
         facebookSignInBtn.autoSetDimensions(to: elementSize)
@@ -59,10 +65,15 @@ extension WelcomeViewController {
     }
     
     func addSubviews() {
+        view.addSubview(tagLineLabel)
         view.addSubview(logoDesign)
         view.addSubview(facebookSignInBtn)
         view.addSubview(googleSignInBtn)
         view.addSubview(formDivider)
+    }
+    
+    func setupTagLabel() {
+        tagLineLabel.text = "Collaborate. Curate. Listen."
     }
     
     func setupFBButton() {
