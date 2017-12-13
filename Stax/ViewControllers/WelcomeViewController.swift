@@ -40,13 +40,13 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func facebookSignIn() {
         print("Facebook")
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
         self.navigationController?.pushViewController(FeaturedCollectionViewController(collectionViewLayout: layout), animated: true)
     }
     
     @objc func googleSignIn() {
         print("Google")
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
         self.navigationController?.pushViewController(FeaturedCollectionViewController(collectionViewLayout: layout), animated: true)
     }
 }
