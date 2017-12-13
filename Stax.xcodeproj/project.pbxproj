@@ -12,6 +12,7 @@
 		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
 		AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */; };
 		AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */; };
+		AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */; };
 		AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D57E1FD7A89600020122 /* AppDelegate.swift */; };
 		AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */; };
 		AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5821FD7A89600020122 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDivider.swift; sourceTree = "<group>"; };
 		AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewController.swift; sourceTree = "<group>"; };
+		AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		AAC8D57B1FD7A89500020122 /* Stax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D57E1FD7A89600020122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		AA9DAF741FE08E000052D4D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 			);
 			path = Views;
@@ -476,6 +479,7 @@
 				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
 				AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */,
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
+				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
