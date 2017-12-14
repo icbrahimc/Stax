@@ -30,6 +30,13 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         return collectionView
     }()
     
+    let dividerLineView: UIView = {
+        let line = UIView()
+        line.backgroundColor = UIColor.init(white: 0.4, alpha: 0.4)
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
     func setupViews() {
         backgroundColor = .white
         
@@ -38,8 +45,15 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         
         playlistCollectionView.register(MusicCardCell.self, forCellWithReuseIdentifier: reuseIdentifierMusic)
         addSubview(playlistCollectionView)
+        addSubview(dividerLineView)
         
         playlistCollectionView.autoPinEdgesToSuperviewEdges()
+        
+        dividerLineView.autoPinEdge(.top, to: .bottom, of: playlistCollectionView)
+        dividerLineView.autoPinEdge(toSuperviewEdge: .left, withInset: 14)
+        dividerLineView.autoPinEdge(toSuperviewEdge: .right, withInset: 14)
+        dividerLineView.autoSetDimension(.height, toSize: 1)
+        dividerLineView.autoSetDimension(.width, toSize: frame.width)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -83,7 +97,7 @@ class MusicCardCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "MB3Stacks Vol. VI: Moon Care"
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 2
         return label
     }()
@@ -91,6 +105,7 @@ class MusicCardCell: UICollectionViewCell {
     let authorLabel: UILabel = {
         let label = UILabel()
         label.text = "Moonboyz3000"
+        label.font = UIFont.systemFont(ofSize: 13)
         return label
     }()
     
@@ -101,10 +116,10 @@ class MusicCardCell: UICollectionViewCell {
 
         imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.width))
         
-        titleLabel.autoPinEdge(.top, to: .bottom, of: imageView)
+        titleLabel.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 10)
         titleLabel.autoSetDimension(.width, toSize: frame.width)
         
-        authorLabel.autoPinEdge(.top, to: .bottom, of: titleLabel)
+        authorLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 2.5)
         authorLabel.autoSetDimension(.width, toSize: frame.width)
     }
 }
