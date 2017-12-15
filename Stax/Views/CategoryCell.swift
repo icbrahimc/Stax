@@ -21,6 +21,17 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         fatalError("init(coder:) has not been implemented")
     }
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Best New Playlists"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.backgroundColor = .white
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
     let playlistCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -40,14 +51,21 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     func setupViews() {
         backgroundColor = .white
         
-        playlistCollectionView.dataSource = self
-        playlistCollectionView.delegate = self
-        
-        playlistCollectionView.register(MusicCardCell.self, forCellWithReuseIdentifier: reuseIdentifierMusic)
+        addSubview(titleLabel)
         addSubview(playlistCollectionView)
         addSubview(dividerLineView)
         
-        playlistCollectionView.autoPinEdgesToSuperviewEdges()
+        titleLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 10)
+        titleLabel.autoPinEdge(toSuperviewEdge: .top)
+        titleLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        playlistCollectionView.dataSource = self
+        playlistCollectionView.delegate = self
+        playlistCollectionView.register(MusicCardCell.self, forCellWithReuseIdentifier: reuseIdentifierMusic)
+        playlistCollectionView.autoPinEdge(.top, to: .bottom, of: titleLabel)
+        playlistCollectionView.autoPinEdge(toSuperviewEdge: .left)
+        playlistCollectionView.autoPinEdge(toSuperviewEdge: .right)
+        playlistCollectionView.autoPinEdge(toSuperviewEdge: .bottom)
         
         dividerLineView.autoPinEdge(.top, to: .bottom, of: playlistCollectionView)
         dividerLineView.autoPinEdge(toSuperviewEdge: .left, withInset: 14)
@@ -67,7 +85,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: frame.height)
+        return CGSize(width: 100, height: frame.height - 32)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -115,10 +133,10 @@ class MusicCardCell: UICollectionViewCell {
         addSubview(authorLabel)
 
         imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.width))
-        
+
         titleLabel.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 10)
         titleLabel.autoSetDimension(.width, toSize: frame.width)
-        
+
         authorLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 2.5)
         authorLabel.autoSetDimension(.width, toSize: frame.width)
     }
