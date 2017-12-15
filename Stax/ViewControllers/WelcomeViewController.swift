@@ -26,6 +26,9 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         
         layout()
+        
+        facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
+        googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
 //        GIDSignIn.sharedInstance().signIn()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -33,6 +36,18 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func facebookSignIn() {
+        print("Facebook")
+        let layout = UICollectionViewFlowLayout()
+        self.navigationController?.pushViewController(FeaturedCollectionViewController(collectionViewLayout: layout), animated: true)
+    }
+    
+    @objc func googleSignIn() {
+        print("Google")
+        let layout = UICollectionViewFlowLayout()
+        self.navigationController?.pushViewController(FeaturedCollectionViewController(collectionViewLayout: layout), animated: true)
     }
 }
 
