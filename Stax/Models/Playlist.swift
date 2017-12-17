@@ -9,5 +9,10 @@
 import Foundation
 
 class Playlist: NSObject {
+    var id: NSNumber?
     var name: String?
+    var author: String?
+    var spotifyLink: String?
+    var appleLink: String?
+    var cloudLink: String?
 }
