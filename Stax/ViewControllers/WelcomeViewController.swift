@@ -21,6 +21,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
         

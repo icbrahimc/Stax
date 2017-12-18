@@ -17,6 +17,7 @@ class FeaturedCollectionViewController: UICollectionViewController, UICollection
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        title = "Featured"
         view.backgroundColor = .white
         collectionView?.backgroundColor = .white
         
