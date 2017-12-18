@@ -136,8 +136,8 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
+				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

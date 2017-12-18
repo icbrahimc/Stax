@@ -59,7 +59,7 @@ class FeaturedCollectionViewController: UICollectionViewController, UICollection
     
         // Configure the cell
     
-        cell.backgroundColor = .black
+        cell.backgroundColor = .white
         return cell
     }
     
