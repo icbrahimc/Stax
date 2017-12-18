@@ -17,6 +17,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
     let googleSignInBtn = UIButton(type: UIButtonType.roundedRect)
+    var navControllers: [UINavigationController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,21 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         
         layout()
+        
+        // Setup nav controllers for the tab controller.
+        // TODO(icbrahimc): Move this to a function or encapsulate this into a class.
+        let homeLayout = UICollectionViewFlowLayout()
+        let homeViewController = FeaturedCollectionViewController(collectionViewLayout: homeLayout)
+        let navVC = UINavigationController(rootViewController: homeViewController)
+        navVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
+        
+        let artworkLayout = UICollectionViewFlowLayout()
+        let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
+        let navVCArtwork = UINavigationController(rootViewController: artworkVC)
+        navVCArtwork.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
+        
+        navControllers.append(navVC)
+        navControllers.append(navVCArtwork)
         
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
@@ -40,14 +56,16 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func facebookSignIn() {
         print("Facebook")
-        let layout = UICollectionViewFlowLayout()
-        self.navigationController?.pushViewController(FeaturedCollectionViewController(collectionViewLayout: layout), animated: true)
+        let tabController = UITabBarController()
+        tabController.viewControllers = navControllers
+        self.navigationController?.pushViewController(tabController, animated: true)
     }
     
     @objc func googleSignIn() {
         print("Google")
-        let layout = UICollectionViewFlowLayout()
-        self.navigationController?.pushViewController(FeaturedCollectionViewController(collectionViewLayout: layout), animated: true)
+        let tabController = UITabBarController()
+        tabController.viewControllers = navControllers
+        self.navigationController?.pushViewController(tabController, animated: true)
     }
 }
 
