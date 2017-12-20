@@ -8,10 +8,11 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let artworkIdentifier = "Cell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
+    var gridLayout: GridLayout = GridLayout(numberOfColumns: 2)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,9 +22,11 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         title = "Discovery"
         collectionView?.backgroundColor = .white
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
 
         // Do any additional setup after loading the view.
+        collectionView?.collectionViewLayout = gridLayout
+        collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,19 +46,13 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+        return 30
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
     
         // Configure the cell
     
@@ -64,9 +61,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: view.frame.width / 3, height: 200)
+//    }
 
     // MARK: UICollectionViewDelegate
 

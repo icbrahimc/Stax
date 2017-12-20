@@ -11,6 +11,7 @@ import UIKit
 class ArtworkCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,6 +27,8 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     
     func setupViews() {
         addSubview(imageView)
+        
+        imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.width))
         imageView.autoPinEdgesToSuperviewMargins()
     }
 }
