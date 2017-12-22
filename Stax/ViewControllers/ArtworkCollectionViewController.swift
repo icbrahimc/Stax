@@ -11,7 +11,6 @@ import UIKit
 private let artworkIdentifier = "Cell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    var gridLayout: GridLayout = GridLayout(numberOfColumns: 2)
     var cellSpacing: CGFloat = 10
     
     override func viewDidLoad() {
