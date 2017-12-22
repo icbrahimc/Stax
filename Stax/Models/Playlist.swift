@@ -20,6 +20,7 @@ class Playlist: NSObject {
     var songs: NSMutableArray?
     var numRatings: Decimal = 0.0
     var numFavorites: Decimal = 0.0
+    var tags: NSMutableArray?
     
     func updateRating(newRating: Decimal) {
         let totalRating = self.rating * self.numRatings + newRating;

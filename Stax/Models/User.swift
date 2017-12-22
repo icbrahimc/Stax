@@ -13,8 +13,8 @@ class User: NSObject {
     var id: NSNumber?
     var favoritedPlaylists: NSMutableArray?
     
-    //not really sure how this function will work since user is not static
     func getNameFromID(id: NSNumber?) -> String? {
+        //dummy function for database
         return self.getName();
     }
     
