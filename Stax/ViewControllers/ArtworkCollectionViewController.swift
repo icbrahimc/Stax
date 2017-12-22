@@ -12,6 +12,7 @@ private let artworkIdentifier = "Cell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var gridLayout: GridLayout = GridLayout(numberOfColumns: 2)
+    var cellSpacing: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
 
         // Do any additional setup after loading the view.
-        collectionView?.collectionViewLayout = gridLayout
+//        collectionView?.collectionViewLayout = gridLayout
+        
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
     }
 
@@ -53,17 +56,28 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-    
-        // Configure the cell
-    
-        cell.backgroundColor = .black
         
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width / 3, height: 200)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
+        let height = width
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, cellSpacing, 0, cellSpacing)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 
     // MARK: UICollectionViewDelegate
 

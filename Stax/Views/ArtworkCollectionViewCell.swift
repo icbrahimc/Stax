@@ -21,14 +21,13 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView  = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "moon")
-        imageView.contentMode = .scaleAspectFill
+//        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     func setupViews() {
         addSubview(imageView)
         
-        imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.width))
-        imageView.autoPinEdgesToSuperviewMargins()
+        imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.height))
     }
 }
