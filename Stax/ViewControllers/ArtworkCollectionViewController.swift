@@ -22,12 +22,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
         title = "Discovery"
         collectionView?.backgroundColor = .white
+        
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
-
-        // Do any additional setup after loading the view.
-//        collectionView?.collectionViewLayout = gridLayout
-        
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
     }
