@@ -15,21 +15,21 @@ class Playlist: NSObject {
     var spotifyLink: String?
     var appleLink: String?
     var cloudLink: String?
-    var rating: Decimal = 0.0
+    var rating: NSNumber = 0.0
     var coverArtLink: String?
     var songs: NSMutableArray?
-    var numRatings: Decimal = 0.0
-    var numFavorites: Decimal = 0.0
+    var numRatings: NSNumber = 0.0
+    var numFavorites: NSNumber = 0.0
     var tags: NSMutableArray?
     
-    func updateRating(newRating: Decimal) {
-        let totalRating = self.rating * self.numRatings + newRating;
-        self.numRatings = self.numRatings + 1;
-        self.rating = totalRating/self.numRatings;
+    func updateRating(newRating: Double) {
+        let totalRating = self.rating.doubleValue * self.numRatings.doubleValue + newRating;
+        self.numRatings = NSNumber (value: self.numRatings.doubleValue + 1);
+        self.rating = NSNumber (value: totalRating/self.numRatings.doubleValue);
     }
     
     func incrementFavorites() {
-        self.numFavorites = self.numFavorites + 1;
+        self.numFavorites = NSNumber (value: self.numFavorites.doubleValue + 1);
     }
 }
 
