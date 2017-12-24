@@ -22,8 +22,8 @@ class Playlist: NSObject {
     var numFavorites: NSNumber = 0.0
     var tags: NSMutableArray?
     
-    func updateRating(newRating: Double) {
-        let totalRating = self.rating.doubleValue * self.numRatings.doubleValue + newRating;
+    func updateRating(newRating: NSNumber) {
+        let totalRating = self.rating.doubleValue * self.numRatings.doubleValue + newRating.doubleValue;
         self.numRatings = NSNumber (value: self.numRatings.doubleValue + 1);
         self.rating = NSNumber (value: totalRating/self.numRatings.doubleValue);
     }
