@@ -9,6 +9,7 @@
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import Firestore
 import FirebaseAuth
 import GoogleSignIn
 import PureLayout
@@ -26,6 +27,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Firebase config.
         FirebaseApp.configure()
         
+        /* start test code for testing database */
+        let db = Firestore.firestore()
+        
+        
+        db.collection("cities").document("LA").setData([
+            "name": "Los Angeles",
+            "state": "CA",
+            "country": "USA"
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        print("hey");
+        /* end test code for testing database */
+
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
@@ -35,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let navVC = UINavigationController(rootViewController: homeViewController)
         window!.rootViewController = navVC
         window?.makeKeyAndVisible()
+        //BaseAPI.sharedInstance.addHaileyPlaylist();
         return true
     }
     

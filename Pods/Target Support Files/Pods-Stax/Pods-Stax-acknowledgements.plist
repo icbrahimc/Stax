@@ -353,7 +353,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
-			<string>FirebaseFirestore</string>
+			<string>FirebaseInstanceID</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
@@ -363,7 +363,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
-			<string>FirebaseInstanceID</string>
+			<string>Firestore</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
