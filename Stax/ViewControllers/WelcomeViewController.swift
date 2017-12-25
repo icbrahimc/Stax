@@ -33,7 +33,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         
         // Setup nav controllers for the tab controller.
         // TODO(icbrahimc): Move this to a function or encapsulate this into a class.
-3
         let artworkLayout = UICollectionViewFlowLayout()
         let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
         let navVCArtwork = UINavigationController(rootViewController: artworkVC)
@@ -49,7 +48,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
-//        GIDSignIn.sharedInstance().signIn()
+//
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -107,9 +106,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func googleSignIn() {
         print("Google")
-        let tabController = UITabBarController()
-        tabController.viewControllers = navControllers
-        self.navigationController?.pushViewController(tabController, animated: true)
+        GIDSignIn.sharedInstance().signIn()
     }
 }
 
