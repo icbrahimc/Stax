@@ -54,6 +54,7 @@
 		6D2CF005BACBAB776A869AEF /* Pods-StaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B7ADBC8C2B3D9DCB4AD17C1 /* Pods-StaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +198,7 @@
 				AAC8D5851FD7A89600020122 /* Assets.xcassets */,
 				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
 				AAC8D58A1FD7A89600020122 /* Info.plist */,
+				AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */,
 			);
 			path = Stax;
 			sourceTree = "<group>";

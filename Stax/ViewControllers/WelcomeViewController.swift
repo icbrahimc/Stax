@@ -6,6 +6,8 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import FBSDKCoreKit
+import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
 import UIKit
@@ -31,7 +33,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         
         // Setup nav controllers for the tab controller.
         // TODO(icbrahimc): Move this to a function or encapsulate this into a class.
-3
         let artworkLayout = UICollectionViewFlowLayout()
         let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
         let navVCArtwork = UINavigationController(rootViewController: artworkVC)
@@ -47,7 +48,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
-//        GIDSignIn.sharedInstance().signIn()
+//
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -58,16 +59,50 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func facebookSignIn() {
         print("Facebook")
-        let tabController = UITabBarController()
-        tabController.viewControllers = navControllers
-        self.navigationController?.pushViewController(tabController, animated: true)
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self, handler: {
+            (result, err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            
+            // Get the access token and authenticate.
+            let accessToken = FBSDKAccessToken.current()
+            guard let accessTokenString = accessToken?.tokenString else {
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+            Auth.auth().signIn(with: credential) { (user, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                // If the user is signed in and authenticated, segue to a new view controller.
+                if let newUser = user {
+                    
+                    let graphPath = "me"
+                    let parameters = ["fields": "id, email, name, first_name, last_name, picture"]
+                    let graphRequest = FBSDKGraphRequest(graphPath: graphPath, parameters: parameters)
+                    let connection = FBSDKGraphRequestConnection()
+                    
+                    connection.add(graphRequest, completionHandler: { (connection, result, error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        }
+                    })
+                    connection.start()
+                }
+            }
+        })
+        
     }
     
     @objc func googleSignIn() {
         print("Google")
-        let tabController = UITabBarController()
-        tabController.viewControllers = navControllers
-        self.navigationController?.pushViewController(tabController, animated: true)
+//        GIDSignIn.sharedInstance().signIn()
     }
 }
 

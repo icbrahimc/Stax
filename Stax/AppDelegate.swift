@@ -26,7 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Firebase config.
         FirebaseApp.configure()
         
+        // FBSDK config.
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        var configureError: NSError?
+//        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
@@ -41,12 +46,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let urlString = url.absoluteString
+        if urlString.range(of: "com.facebook.sdk") != nil {
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
+                                                                         open: url,
+                                                                         sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                                         annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        }
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: [:])
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let urlString = url.absoluteString
+        if urlString.range(of: "com.facebook.sdk") != nil {
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
+                                                                         open: url,
+                                                                         sourceApplication: sourceApplication,
+                                                                         annotation: annotation)
+        }
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
