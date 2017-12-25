@@ -11,6 +11,7 @@ target 'Stax' do
 	pod 'Firebase'
 	pod 'FirebaseAuth'
 	pod 'FirebaseCore'
+	pod 'Firebase/Firestore'
 	pod 'SwiftyJSON'	
 	pod 'GoogleSignIn'
 	pod 'PureLayout'
