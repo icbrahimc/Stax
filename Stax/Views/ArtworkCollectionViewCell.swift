@@ -21,7 +21,6 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView  = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "moon")
-//        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     

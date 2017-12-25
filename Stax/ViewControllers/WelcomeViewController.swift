@@ -31,18 +31,19 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         
         // Setup nav controllers for the tab controller.
         // TODO(icbrahimc): Move this to a function or encapsulate this into a class.
-        let homeLayout = UICollectionViewFlowLayout()
-        let homeViewController = FeaturedCollectionViewController(collectionViewLayout: homeLayout)
-        let navVC = UINavigationController(rootViewController: homeViewController)
-        navVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
-        
+3
         let artworkLayout = UICollectionViewFlowLayout()
         let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
         let navVCArtwork = UINavigationController(rootViewController: artworkVC)
         navVCArtwork.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
         
-        navControllers.append(navVC)
+        let profileLayout = UICollectionViewFlowLayout()
+        let profileVC = ProfileViewController(collectionViewLayout: profileLayout)
+        let navVCProf = UINavigationController(rootViewController: profileVC)
+        navVCProf.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        
         navControllers.append(navVCArtwork)
+        navControllers.append(navVCProf)
         
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
