@@ -92,10 +92,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
                             print(error.localizedDescription)
                             return
                         }
-                        
-                        let tabController = UITabBarController()
-                        tabController.viewControllers = self.navControllers
-                        self.navigationController?.pushViewController(tabController, animated: true)
                     })
                     connection.start()
                 }
@@ -106,7 +102,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func googleSignIn() {
         print("Google")
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance().signIn()
     }
 }
 
