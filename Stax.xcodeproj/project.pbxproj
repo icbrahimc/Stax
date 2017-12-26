@@ -112,6 +112,7 @@
 		AA12BD731FEB130700209907 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				AA12BD741FEB133B00209907 /* BaseAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -173,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				AA12BD731FEB130700209907 /* API */,
-				AA12BD741FEB133B00209907 /* BaseAPI.swift */,
 				AA9DAF751FE08E130052D4D6 /* ViewControllers */,
 				AA9DAF741FE08E000052D4D6 /* Views */,
 				AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */,
