@@ -11,6 +11,7 @@
 		1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */; };
 		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
 		AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648C1FF1F785002251DC /* BaseAPI.swift */; };
+		AA0A648F1FF2316C002251DC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648E1FF2316C002251DC /* MainController.swift */; };
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
@@ -57,6 +58,7 @@
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA0A648C1FF1F785002251DC /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		AA0A648E1FF2316C002251DC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
 				AAC8D58A1FD7A89600020122 /* Info.plist */,
 				AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */,
+				AA0A648E1FF2316C002251DC /* MainController.swift */,
 			);
 			path = Stax;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
+				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
