@@ -27,8 +27,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         view.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-        
         layout()
         
         // Setup nav controllers for the tab controller.
@@ -48,6 +46,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
+        GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
 //
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -105,7 +104,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func googleSignIn() {
         print("Google")
-//        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signIn()
     }
 }
 
