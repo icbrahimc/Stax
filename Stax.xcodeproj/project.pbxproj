@@ -13,6 +13,7 @@
 		AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648C1FF1F785002251DC /* BaseAPI.swift */; };
 		AA0A648F1FF2316C002251DC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648E1FF2316C002251DC /* MainController.swift */; };
 		AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64901FF23668002251DC /* MainTabBarController.swift */; };
+		AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64931FF23E1D002251DC /* UsernameViewController.swift */; };
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
@@ -61,6 +62,7 @@
 		AA0A648C1FF1F785002251DC /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		AA0A648E1FF2316C002251DC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		AA0A64901FF23668002251DC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		AA0A64931FF23E1D002251DC /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		AA0A64921FF23C74002251DC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				AA0A64931FF23E1D002251DC /* UsernameViewController.swift */,
 				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 			);
 			path = Onboarding;
@@ -538,6 +541,7 @@
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
+				AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */,
 				AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
 				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,

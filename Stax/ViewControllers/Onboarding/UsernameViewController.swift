@@ -9,10 +9,13 @@
 import UIKit
 
 class UsernameViewController: UIViewController {
-
+    let usernameField = UITextField.newAutoLayout()
+    let submitButton = UIButton.newAutoLayout()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
+        layout()
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +23,18 @@ class UsernameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension UsernameViewController {
+    func layout() {
+        setupViews()
+        usernameField.autoSetDimension(.height, toSize: 45)
+        usernameField.autoSetDimension(.width, toSize: view.frame.width - 50)
+        usernameField.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
+        usernameField.autoAlignAxis(toSuperviewMarginAxis: .vertical)
     }
-    */
-
+    
+    func setupViews() {
+        view.addSubview(usernameField)
+    }
 }

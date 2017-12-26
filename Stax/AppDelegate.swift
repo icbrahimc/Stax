@@ -40,9 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         // The main view controller for the application.
-//        let homeViewController = WelcomeViewController()
+        let homeViewController = UsernameViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = mainController.mainViewController
+        window!.rootViewController = homeViewController
         window?.makeKeyAndVisible()
         return true
     }
