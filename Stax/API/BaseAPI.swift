@@ -23,6 +23,6 @@ class BaseAPI: NSObject {
     /* Get the top rated playlists with a certain limit */
     func getTopPlaylists(numPlaylists: Int) -> Query {
         let playlists = db.collection("playlists");
-        return playlists.order(by: "rating", descending: true).limit(to: numPlaylists);
+        return playlists.order(by: "rating", descending: true)
     }
 }
