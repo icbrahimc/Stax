@@ -47,8 +47,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
-//
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
