@@ -9,11 +9,22 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    
+    fileprivate lazy var artworkVC: UICollectionViewController = {
+        let artworkLayout = UICollectionViewFlowLayout()
+        let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
+        return artworkVC
+    }()
+    
+    fileprivate lazy var profileVC: UICollectionViewController = {
+        let profileLayout = UICollectionViewFlowLayout()
+        let profileVC = ProfileViewController(collectionViewLayout: profileLayout)
+        return profileVC
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +32,13 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setup() {
+        let navVCArtwork = UINavigationController(rootViewController: artworkVC)
+        navVCArtwork.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
+        
+        let navVCProf = UINavigationController(rootViewController: profileVC)
+        navVCProf.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        
+        viewControllers = [navVCArtwork, navVCProf]
     }
-    */
-
 }

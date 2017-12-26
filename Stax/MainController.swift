@@ -9,7 +9,7 @@
 import UIKit
 
 class MainController: NSObject, UITabBarControllerDelegate {
-    let mainTabVC: UITabBarController = UITabBarController()
+    let mainTabVC: MainTabBarController = MainTabBarController()
     
     fileprivate var didInitializeWithToken: Bool = false
     fileprivate var selectedViewController: UIViewController?
