@@ -10,15 +10,17 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
+import TTTAttributedLabel
 import UIKit
 
-class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
+class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttributedLabelDelegate {
     let logoDesign = UIImageView.newAutoLayout()
     let tagLineLabel = UILabel.newAutoLayout()
     let elementSize: CGSize = CGSize(width: 300, height: 45)
     let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
     let googleSignInBtn = UIButton(type: UIButtonType.roundedRect)
+    let logout = TTTAttributedLabel.newAutoLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +110,11 @@ extension WelcomeViewController {
         logoDesign.autoSetDimensions(to: CGSize(width: 150, height: 75))
         logoDesign.autoPinEdge(toSuperviewEdge: .top, withInset: 175)
         
+        logoutLabel()
+        logout.autoAlignAxis(toSuperviewAxis: .vertical)
+        logout.autoSetDimension(.width, toSize: view.frame.width)
+        logout.autoPinEdge(.top, to: .bottom, of: logoDesign, withOffset: 10)
+        
         setupTagLabel()
         tagLineLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         tagLineLabel.autoPinEdge(.top, to: .bottom, of: logoDesign, withOffset: 0)
@@ -133,6 +140,16 @@ extension WelcomeViewController {
         view.addSubview(facebookSignInBtn)
         view.addSubview(googleSignInBtn)
         view.addSubview(formDivider)
+        view.addSubview(logout)
+    }
+    
+    func logoutLabel() {
+        logout.textColor = .white
+        logout.textAlignment = .center
+        logout.text = "Logout"
+        logout.delegate = self
+        let linkRange = NSString(string: "Logout").range(of: "Logout")
+        logout.addLink(to: URL(string: "forgot password"), with: linkRange)
     }
     
     func setupTagLabel() {
@@ -155,5 +172,19 @@ extension WelcomeViewController {
         googleSignInBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         googleSignInBtn.layer.cornerRadius = 5.0
         googleSignInBtn.layer.masksToBounds = true
+    }
+    
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        if label == logout {
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                GIDSignIn.sharedInstance().signOut()
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut() // this is an instance function
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }
     }
 }
