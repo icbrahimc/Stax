@@ -8,8 +8,9 @@
 
 import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 import GoogleSignIn
 import PureLayout
 import UIKit
