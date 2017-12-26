@@ -19,7 +19,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
     let googleSignInBtn = UIButton(type: UIButtonType.roundedRect)
-    var navControllers: [UINavigationController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +27,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
         self.navigationController?.navigationBar.isHidden = true
         
         layout()
-        
-        // Setup nav controllers for the tab controller.
-        // TODO(icbrahimc): Move this to a function or encapsulate this into a class.
-        let artworkLayout = UICollectionViewFlowLayout()
-        let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
-        let navVCArtwork = UINavigationController(rootViewController: artworkVC)
-        navVCArtwork.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
-        
-        let profileLayout = UICollectionViewFlowLayout()
-        let profileVC = ProfileViewController(collectionViewLayout: profileLayout)
-        let navVCProf = UINavigationController(rootViewController: profileVC)
-        navVCProf.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
-        
-        navControllers.append(navVCArtwork)
-        navControllers.append(navVCProf)
         
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
