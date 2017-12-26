@@ -25,4 +25,18 @@ class BaseAPI: NSObject {
         let playlists = db.collection("playlists");
         return playlists.order(by: "rating", descending: true)
     }
+    
+    /* Check the database for a particular username */
+    func findUsername(username: String, completion: @escaping (Bool) -> ()) {
+        let documentQuery = db.collection("usernames").document(username)
+        documentQuery.getDocument(completion: { (document, err) in
+            if let document = document {
+                print("Username exists")
+                completion(true)
+            } else {
+                print("Username does not exist")
+                completion(false)
+            }
+        })
+    }
 }
