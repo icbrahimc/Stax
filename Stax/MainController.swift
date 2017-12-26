@@ -16,10 +16,10 @@ class MainController: NSObject, UITabBarControllerDelegate {
     fileprivate var apiObserver: AnyObject?
     fileprivate var signoutObserver: AnyObject?
     
-//    fileprivate lazy var welcomeViewController: UINavigationController = {
-//        NotificationCenter.default.addObserver(self, selector: #selector(MainController.dismissLoginFlow), name: NSNotification.Name(rawValue: "onboardingEnded"), object: nil)
-//        return EnrollNavigationController()
-//    }()
+    fileprivate lazy var welcomeViewController: UINavigationController = {
+        NotificationCenter.default.addObserver(self, selector: #selector(MainController.dismissLoginFlow), name: NSNotification.Name(rawValue: "onboardingEnded"), object: nil)
+        return OnboardingNavigationController()
+    }()
     
     var mainViewController: UIViewController {
 //        didInitializeWithToken = AuthorizationManager.sharedInstance.hasAccessToken()
@@ -28,7 +28,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
             return mainTabVC
         }
         
-        return WelcomeViewController()
+        return welcomeViewController
     }
     
     fileprivate func setup() {
@@ -46,6 +46,22 @@ class MainController: NSObject, UITabBarControllerDelegate {
         let root: UIViewController = nav.viewControllers[0]
         if tabBarController.selectedViewController == nav {
             selectedViewController = root
+        }
+    }
+    
+    func activateLogin() {
+        mainTabVC.present(welcomeViewController, animated: true, completion: nil)
+    }
+    
+    @objc func dismissLoginFlow() {
+        UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
+        welcomeViewController.popToRootViewController(animated: false)
+        
+        if !didInitializeWithToken {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            UIApplication.shared.keyWindow?.rootViewController = appDelegate.mainController.mainViewController
+        } else {
+            welcomeViewController.dismiss(animated: true, completion: nil)
         }
     }
 }

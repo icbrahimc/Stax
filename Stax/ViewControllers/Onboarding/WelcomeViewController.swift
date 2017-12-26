@@ -91,9 +91,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
                             print(error.localizedDescription)
                             return
                         }
-                        let tabController = UITabBarController()
-                        tabController.viewControllers = self.navControllers
-                        self.navigationController?.pushViewController(tabController, animated: true)
+                        // Todo(icbrahimc): add custom segue when it makes complete sense.
                     })
                     connection.start()
                 }
@@ -105,6 +103,17 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     @objc func googleSignIn() {
         print("Google")
         GIDSignIn.sharedInstance().signIn()
+        if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
+            customSegue()
+        }
+    }
+    
+    /* Segue to assist with onboarding vc. */
+    func customSegue() {
+        if let navVC = navigationController as? OnboardingNavigationController {
+            navVC.statisfyRequirement(.signIn)
+            navVC.pushNextPhase()
+        }
     }
 }
 
