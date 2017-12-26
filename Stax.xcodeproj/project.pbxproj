@@ -134,6 +134,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		AA0A64921FF23C74002251DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		AA511E22CEA649CF2AED069A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,10 +169,10 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA0A64921FF23C74002251DC /* Onboarding */,
 				AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
-				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

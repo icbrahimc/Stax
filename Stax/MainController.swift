@@ -24,6 +24,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
     var mainViewController: UIViewController {
 //        didInitializeWithToken = AuthorizationManager.sharedInstance.hasAccessToken()
         if didInitializeWithToken {
+            setup()
             return mainTabVC
         }
         
@@ -37,25 +38,14 @@ class MainController: NSObject, UITabBarControllerDelegate {
     
     //MARK: - UITabBarControllerDelegate
     
-//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-//        guard let nav = viewController as? UINavigationController else {
-//            return
-//        }
-//        
-//        let root: UIViewController = nav.viewControllers[0]
-//        if selectedViewController == root {
-//            if let homeVC = selectedViewController as? HomeViewController {
-//                homeVC.scrollToTop()
-//            } else if let discoverVC = root as? DiscoverViewController {
-//                discoverVC.scrollCurrentViewToTop()
-//            } else if let alertsVC = root as? AlertsTableViewController {
-//                alertsVC.tableView.setContentOffset(CGPoint.zero, animated: true)
-//            } else if let profileVC = root as? ProfileViewController, profileVC.collectionView != nil {
-//                profileVC.collectionView?.setContentOffset(CGPoint(x: 0, y: -profileVC.collectionView.contentInset.top), animated: true)
-//            }
-//        }
-//        if tabBarController.selectedViewController == nav {
-//            selectedViewController = root
-//        }
-//    }
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let nav = viewController as? UINavigationController else {
+            return
+        }
+        
+        let root: UIViewController = nav.viewControllers[0]
+        if tabBarController.selectedViewController == nav {
+            selectedViewController = root
+        }
+    }
 }
