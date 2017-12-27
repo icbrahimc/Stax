@@ -15,6 +15,7 @@
 		AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64901FF23668002251DC /* MainTabBarController.swift */; };
 		AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64931FF23E1D002251DC /* UsernameViewController.swift */; };
 		AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */; };
+		AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64981FF31B99002251DC /* ProfileManager.swift */; };
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
@@ -65,6 +66,7 @@
 		AA0A64901FF23668002251DC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AA0A64931FF23E1D002251DC /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationController.swift; sourceTree = "<group>"; };
+		AA0A64981FF31B99002251DC /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		AA0A64971FF31AB3002251DC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AA0A64981FF31B99002251DC /* ProfileManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		AA511E22CEA649CF2AED069A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0A648B1FF1F761002251DC /* API */,
+				AA0A64971FF31AB3002251DC /* Manager */,
 				AAA3BAA61FE367960083E71A /* Models */,
 				AA9DAF751FE08E130052D4D6 /* ViewControllers */,
 				AA9DAF741FE08E000052D4D6 /* Views */,
@@ -546,6 +557,7 @@
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
 				AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */,
+				AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */,
 				AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
 				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
