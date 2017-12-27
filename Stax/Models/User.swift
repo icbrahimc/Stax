@@ -8,10 +8,16 @@
 
 import Foundation
 
-class User: NSObject {
-    var name: String?
+struct User {
+    var username: String?
     var id: String?
     var favoritedPlaylists: NSMutableArray?
+    
+    init(username: String, id: String, favoritedPlaylists: NSMutableArray) {
+        self.username = username
+        self.id = id
+        self.favoritedPlaylists = favoritedPlaylists
+    }
     
     func getNameFromID(id: NSNumber?) -> String? {
         //dummy function for database
@@ -19,7 +25,7 @@ class User: NSObject {
     }
     
     func getName() -> String? {
-        return self.name;
+        return self.username;
     }
     
     func favoritePlaylist(Playlist: NSObject) {
