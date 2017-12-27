@@ -10,7 +10,7 @@ import Foundation
 
 class User: NSObject {
     var name: String?
-    var id: NSNumber?
+    var id: String?
     var favoritedPlaylists: NSMutableArray?
     
     func getNameFromID(id: NSNumber?) -> String? {
