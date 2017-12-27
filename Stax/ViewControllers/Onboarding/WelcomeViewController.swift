@@ -26,7 +26,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        self.navigationController?.navigationBar.isHidden = true
         
         layout()
         

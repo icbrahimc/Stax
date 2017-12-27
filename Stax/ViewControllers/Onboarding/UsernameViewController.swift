@@ -8,20 +8,51 @@
 
 import UIKit
 
-class UsernameViewController: UIViewController {
+class UsernameViewController: UIViewController, UITextFieldDelegate {
     let usernameField = UITextField.newAutoLayout()
     let submitButton = UIButton(type: UIButtonType.roundedRect)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "Username"
+    
+        navigationItem.hidesBackButton = true
         layout()
+        
+        submitButton.alpha = 0.5
+        submitButton.isEnabled = false
+        
+        usernameField.delegate = self
+        
+        usernameField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usernameField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            if text.count < 3 {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.submitButton.isEnabled = false
+                    self.submitButton.alpha = 0.5
+                })
+            } else {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.submitButton.isEnabled = true
+                    self.submitButton.alpha = 1.0
+                })
+            }
+        }
     }
 }
 
@@ -32,7 +63,7 @@ extension UsernameViewController {
         usernameFieldSetup()
         usernameField.autoSetDimension(.height, toSize: 45)
         usernameField.autoSetDimension(.width, toSize: view.frame.width - 50)
-        usernameField.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
+        usernameField.autoPinEdge(toSuperviewEdge: .top, withInset: 70)
         usernameField.autoAlignAxis(toSuperviewMarginAxis: .vertical)
         
         submitButtonSetup()
