@@ -87,7 +87,10 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
         print("Google")
         GIDSignIn.sharedInstance().signIn()
         if (GIDSignIn.sharedInstance().hasAuthInKeychain()) {
-            customSegue()
+            if let id = Auth.auth().currentUser?.uid{
+                BaseAPI.sharedInstance.createNewUser(id)
+                customSegue()
+            }
         }
     }
     
