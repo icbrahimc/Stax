@@ -46,6 +46,7 @@ class BaseAPI: NSObject {
         let collection = db.collection("users").document(userID)
         collection.getDocument(completion: { (document, err) in
             if let document = document {
+                print("New shit")
                 completion(document.data())
             }
         })

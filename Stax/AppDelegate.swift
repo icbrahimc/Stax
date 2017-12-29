@@ -39,9 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        BaseAPI.sharedInstance.loadUserInfo { (you) in
-            print("hey \(you)")
-        }
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = mainController.mainViewController

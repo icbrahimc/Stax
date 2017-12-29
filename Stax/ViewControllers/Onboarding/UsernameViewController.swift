@@ -54,6 +54,19 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    /* Segue to assist with onboarding vc. */
+    func customSegue() {
+        if let navVC = navigationController as? OnboardingNavigationController {
+            ProfileManager.sharedInstance.fetchUserInfo()
+            if let user = ProfileManager.sharedInstance.user {
+                if user.username == "" {
+                    navVC.statisfyRequirement(.signIn)
+                    navVC.pushNextPhase()
+                }
+            }
+        }
+    }
 }
 
 extension UsernameViewController {
