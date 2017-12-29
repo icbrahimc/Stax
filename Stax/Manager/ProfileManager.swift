@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import PromiseKit
 import UIKit
 
 let UserInfoUpdated = "UserInfoUpdated"
@@ -26,7 +27,7 @@ class ProfileManager: NSObject {
     }
     
     func fetchUserInfo(_ completion: () -> ()) {
-        api.loadUserInfo({ (userData) in
+        return api.loadUserInfo({ (userData) in
             self.user?.username = userData["username"] as! String
             self.user?.id = userData["id"] as! String
             self.user?.favoritedPlaylists = userData["favoritedPlaylists"] as! NSMutableArray
