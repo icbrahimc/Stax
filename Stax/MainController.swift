@@ -33,6 +33,9 @@ class MainController: NSObject, UITabBarControllerDelegate {
     
     fileprivate func setup() {
         self.mainTabVC.selectedIndex = 0
+        ProfileManager.sharedInstance.fetchUserInfo {
+            print("User info fetched")
+        }
         mainTabVC.delegate = self
     }
     

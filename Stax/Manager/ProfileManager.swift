@@ -8,8 +8,14 @@
 
 import UIKit
 
+let UserInfoUpdated = "UserInfoUpdated"
+
 class ProfileManager: NSObject {
-    var user: User?
+    var user: User? {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: UserInfoUpdated), object: nil)
+        }
+    }
     
     static let sharedInstance = ProfileManager(api: BaseAPI.sharedInstance)
     
@@ -20,7 +26,10 @@ class ProfileManager: NSObject {
     }
     
     func fetchUserInfo(_ completion: () -> ()) {
-        let userCollection = api.db.collection("users")
-        
+        api.loadUserInfo({ (userData) in
+            self.user?.username = userData["username"] as! String
+            self.user?.id = userData["id"] as! String
+            self.user?.favoritedPlaylists = userData["favoritedPlaylists"] as! NSMutableArray
+        })
     }
 }

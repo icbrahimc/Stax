@@ -39,20 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-//        BaseAPI.sharedInstance.getTopPlaylists(numPlaylists: 1).getDocuments(completion: { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//            }
-//        })
-//        BaseAPI.sharedInstance.loadUserInfo { (you) in
-//            print("hey")
-//        }
+        BaseAPI.sharedInstance.loadUserInfo { (you) in
+            print("hey \(you)")
+        }
         // The main view controller for the application.
-//        let homeViewController = WelcomeViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = mainController.mainViewController
         window?.makeKeyAndVisible()

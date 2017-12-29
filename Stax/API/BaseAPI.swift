@@ -37,7 +37,7 @@ class BaseAPI: NSObject {
     }
     
     /* Load the user info */
-    func loadUserInfo(_ completion: (_ data: [String:Any]) -> ()) {
+    func loadUserInfo(_ completion: @escaping ([String:Any]) -> ()) {
         guard let userID = Auth.auth().currentUser?.uid else {
             completion([:])
             return
@@ -45,10 +45,8 @@ class BaseAPI: NSObject {
         
         let collection = db.collection("users").document(userID)
         collection.getDocument(completion: { (document, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                print(document?.data())
+            if let document = document {
+                completion(document.data())
             }
         })
     }

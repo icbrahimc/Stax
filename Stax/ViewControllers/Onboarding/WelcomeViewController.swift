@@ -29,6 +29,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
         
         layout()
         
+        customSegue()
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
@@ -97,8 +98,12 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
     /* Segue to assist with onboarding vc. */
     func customSegue() {
         if let navVC = navigationController as? OnboardingNavigationController {
-            navVC.statisfyRequirement(.signIn)
-            navVC.pushNextPhase()
+            if let user = ProfileManager.sharedInstance.user {
+                if user.username == "" {
+                    navVC.statisfyRequirement(.signIn)
+                    navVC.pushNextPhase()
+                }
+            }
         }
     }
 }
