@@ -36,6 +36,11 @@ class BaseAPI: NSObject {
         db.collection("users").document(id).setData(data)
     }
     
+    /* Create username */
+    func createNewUsername(_ id: String, username: String) {
+        db.collection("users").document(id).setValue(username, forKey: "username")
+    }
+    
     /* Load the user info */
     func loadUserInfo(_ completion: @escaping ([String:Any]) -> ()) {
         guard let userID = Auth.auth().currentUser?.uid else {
