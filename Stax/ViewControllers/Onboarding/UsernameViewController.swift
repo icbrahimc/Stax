@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 class UsernameViewController: UIViewController, UITextFieldDelegate {
@@ -17,6 +18,7 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .white
         title = "Username"
     
+        customSegue()
         navigationItem.hidesBackButton = true
         layout()
         
@@ -26,6 +28,7 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
         usernameField.delegate = self
         
         usernameField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        submitButton.addTarget(self, action: #selector(submitUsername), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
     
@@ -37,6 +40,13 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func submitUsername() {
+        if let id = Auth.auth().currentUser?.uid {
+            BaseAPI.sharedInstance.createNewUsername(id, username: usernameField.text!)
+            customSegue()
+        }
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -58,13 +68,14 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
     /* Segue to assist with onboarding vc. */
     func customSegue() {
         if let navVC = navigationController as? OnboardingNavigationController {
-            ProfileManager.sharedInstance.fetchUserInfo()
-            if let user = ProfileManager.sharedInstance.user {
-                if user.username == "" {
-                    navVC.statisfyRequirement(.signIn)
-                    navVC.pushNextPhase()
+            ProfileManager.sharedInstance.fetchUserInfo({ () in
+                if let user = ProfileManager.sharedInstance.user {
+                    if user.username != "" {
+                        navVC.statisfyRequirement(.username)
+                        navVC.pushNextPhase()
+                    }
                 }
-            }
+            })
         }
     }
 }

@@ -22,12 +22,21 @@ class ProfileManager: NSObject {
         self.user = User(username: "", id: "", favoritedPlaylists: NSMutableArray())
     }
     
-    func fetchUserInfo() {
+    func fetchUserInfo(_ completion: @escaping () -> ()) {
         api.loadUserInfo({ (userData) in
-            self.user?.username = userData["username"] as! String
-            self.user?.id = userData["id"] as! String
-            self.user?.favoritedPlaylists = userData["favoritedPlaylists"] as! NSMutableArray
+            if let username = userData["username"] as? String {
+                self.user?.username = username
+            }
+            
+            if let id = userData["id"] as? String {
+                self.user?.id = id
+            }
+            
+            if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
+                self.user?.favoritedPlaylists = playlist
+            }
             print("Profile manager \(self.user?.id)")
+            completion()
         })
     }
 }

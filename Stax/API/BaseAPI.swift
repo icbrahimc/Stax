@@ -38,22 +38,23 @@ class BaseAPI: NSObject {
     
     /* Create username */
     func createNewUsername(_ id: String, username: String) {
-        db.collection("users").document(id).setValue(username, forKey: "username")
+        db.collection("users").document(id).setData(["username": username])
     }
     
     /* Load the user info */
     func loadUserInfo(_ completion: @escaping ([String:Any]) -> ()) {
-        guard let userID = Auth.auth().currentUser?.uid else {
-            completion([:])
-            return
-        }
-        
-        let collection = db.collection("users").document(userID)
-        collection.getDocument(completion: { (document, err) in
-            if let document = document {
-                print("New shit")
-                completion(document.data())
+        Auth.auth().addStateDidChangeListener({ (auth, user) in
+            guard let userID = user?.uid else {
+                completion([:])
+                return
             }
+            
+            let collection = self.db.collection("users").document(userID)
+            collection.getDocument(completion: { (document, err) in
+                if let document = document {
+                    completion(document.data())
+                }
+            })
         })
     }
 }

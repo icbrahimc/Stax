@@ -29,6 +29,16 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
         
         layout()
         
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         customSegue()
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
@@ -98,13 +108,17 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
     /* Segue to assist with onboarding vc. */
     func customSegue() {
         if let navVC = navigationController as? OnboardingNavigationController {
-            ProfileManager.sharedInstance.fetchUserInfo()
-            if let user = ProfileManager.sharedInstance.user {
-                if user.username == "" {
-                    navVC.statisfyRequirement(.signIn)
-                    navVC.pushNextPhase()
+            Auth.auth().addStateDidChangeListener({ (auth, user) in
+                if let _ = auth.currentUser {
+                    if let user = ProfileManager.sharedInstance.user {
+                        if user.username == "" {
+                            navVC.statisfyRequirement(.signIn)
+                            navVC.pushNextPhase()
+                        }
+                    }
                 }
-            }
+            })
+            
         }
     }
 }

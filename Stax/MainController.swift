@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 class MainController: NSObject, UITabBarControllerDelegate {
@@ -22,7 +23,12 @@ class MainController: NSObject, UITabBarControllerDelegate {
     }()
     
     var mainViewController: UIViewController {
-//        didInitializeWithToken = AuthorizationManager.sharedInstance.hasAccessToken()
+        if let user = ProfileManager.sharedInstance.user {
+            didInitializeWithToken = user.username != ""
+        } else {
+            didInitializeWithToken = false
+        }
+        
         if didInitializeWithToken {
             setup()
             return mainTabVC
@@ -33,7 +39,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
     
     fileprivate func setup() {
         self.mainTabVC.selectedIndex = 0
-        ProfileManager.sharedInstance.fetchUserInfo()
+//        ProfileManager.sharedInstance.fetchUserInfo()
         mainTabVC.delegate = self
     }
     
