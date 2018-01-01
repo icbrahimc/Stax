@@ -74,26 +74,31 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>Protobuf.xcscheme</key>
+		<key>PromiseKit.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
-		<key>PureLayout.xcscheme</key>
+		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
-		<key>TTTAttributedLabel.xcscheme</key>
+		<key>PureLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>19</integer>
+		</dict>
+		<key>TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>

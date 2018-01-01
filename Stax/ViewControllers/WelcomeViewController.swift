@@ -105,6 +105,9 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate {
     @objc func googleSignIn() {
         print("Google")
         GIDSignIn.sharedInstance().signIn()
+        let tabController = UITabBarController()
+        tabController.viewControllers = self.navControllers
+        self.navigationController?.pushViewController(tabController, animated: true)
     }
 }
 
