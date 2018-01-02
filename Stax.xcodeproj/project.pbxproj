@@ -11,6 +11,11 @@
 		1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */; };
 		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
 		AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648C1FF1F785002251DC /* BaseAPI.swift */; };
+		AA0A648F1FF2316C002251DC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648E1FF2316C002251DC /* MainController.swift */; };
+		AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64901FF23668002251DC /* MainTabBarController.swift */; };
+		AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64931FF23E1D002251DC /* UsernameViewController.swift */; };
+		AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */; };
+		AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64981FF31B99002251DC /* ProfileManager.swift */; };
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
@@ -57,6 +62,11 @@
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA0A648C1FF1F785002251DC /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		AA0A648E1FF2316C002251DC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		AA0A64901FF23668002251DC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		AA0A64931FF23E1D002251DC /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationController.swift; sourceTree = "<group>"; };
+		AA0A64981FF31B99002251DC /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +140,23 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		AA0A64921FF23C74002251DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AA0A64931FF23E1D002251DC /* UsernameViewController.swift */,
+				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AA0A64971FF31AB3002251DC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AA0A64981FF31B99002251DC /* ProfileManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		AA511E22CEA649CF2AED069A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,10 +184,10 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA0A64921FF23C74002251DC /* Onboarding */,
 				AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
-				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0A648B1FF1F761002251DC /* API */,
+				AA0A64971FF31AB3002251DC /* Manager */,
 				AAA3BAA61FE367960083E71A /* Models */,
 				AA9DAF751FE08E130052D4D6 /* ViewControllers */,
 				AA9DAF741FE08E000052D4D6 /* Views */,
@@ -210,6 +238,9 @@
 				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
 				AAC8D58A1FD7A89600020122 /* Info.plist */,
 				AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */,
+				AA0A648E1FF2316C002251DC /* MainController.swift */,
+				AA0A64901FF23668002251DC /* MainTabBarController.swift */,
+				AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */,
 			);
 			path = Stax;
 			sourceTree = "<group>";
@@ -520,11 +551,16 @@
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
 				AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */,
 				AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */,
+				AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */,
 				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
+				AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */,
+				AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */,
+				AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
+				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
