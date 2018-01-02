@@ -13,6 +13,14 @@ private let artworkIdentifier = "Cell"
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var cellSpacing: CGFloat = 10
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ArtworkCollectionViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +34,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
+        collectionView?.addSubview(refreshControl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,5 +72,11 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    /* Handle refresh */
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // TODO (icbrahimc): Add handle refresh code when the api is connected.
+        refreshControl.endRefreshing()
     }
 }
