@@ -26,6 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Firebase config.
         FirebaseApp.configure()
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        ref = db.collection("users").addDocument(data: [
+            "name": "Hailey Manuel",
+            ]) { err in
+                if let err = err {
+                    print("error adding document: \(err)")
+                } else {
+                    print("document added with id: \(ref!.documentID)")
+                }
+        }
+        print("hey")
         
         // FBSDK config.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
