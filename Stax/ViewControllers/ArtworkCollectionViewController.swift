@@ -35,6 +35,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,5 +80,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         // TODO (icbrahimc): Add handle refresh code when the api is connected.
         refreshControl.endRefreshing()
+    }
+    
+    @objc func addNewPlaylists() {
+        print("segue")
     }
 }
