@@ -23,13 +23,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
     }()
     
     var mainViewController: UIViewController {
-        if let user = ProfileManager.sharedInstance.user {
-            didInitializeWithToken = user.username != ""
-        } else {
-            didInitializeWithToken = false
-        }
-        
-        if didInitializeWithToken {
+        if ProfileManager.sharedInstance.user?.username != "" {
             setup()
             return mainTabVC
         }
@@ -39,7 +33,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
     
     fileprivate func setup() {
         self.mainTabVC.selectedIndex = 0
-//        ProfileManager.sharedInstance.fetchUserInfo()
+
         mainTabVC.delegate = self
     }
     

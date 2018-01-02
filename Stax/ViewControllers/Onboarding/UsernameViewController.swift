@@ -44,7 +44,8 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
     
     @objc func submitUsername() {
         if let id = Auth.auth().currentUser?.uid {
-            BaseAPI.sharedInstance.createNewUsername(id, username: usernameField.text!)
+//            BaseAPI.sharedInstance.createNewUsername(id, username: usernameField.text!)
+            ProfileManager.sharedInstance.user?.username = usernameField.text!
             customSegue()
         }
     }
@@ -68,14 +69,8 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
     /* Segue to assist with onboarding vc. */
     func customSegue() {
         if let navVC = navigationController as? OnboardingNavigationController {
-            ProfileManager.sharedInstance.fetchUserInfo({ () in
-                if let user = ProfileManager.sharedInstance.user {
-                    if user.username != "" {
-                        navVC.statisfyRequirement(.username)
-                        navVC.pushNextPhase()
-                    }
-                }
-            })
+            navVC.statisfyRequirement(.username)
+            navVC.pushNextPhase()
         }
     }
 }
