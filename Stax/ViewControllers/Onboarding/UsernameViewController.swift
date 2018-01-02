@@ -18,7 +18,6 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .white
         title = "Username"
     
-        customSegue()
         navigationItem.hidesBackButton = true
         layout()
         
