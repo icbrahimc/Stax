@@ -9,6 +9,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
+=======
             filePath = "Stax/ViewControllers/Onboarding/WelcomeViewController.swift"
             timestampString = "536542923.186786"
             startingColumnNumber = "9223372036854775807"
@@ -25,6 +27,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+>>>>>>> master
             filePath = "Stax/Manager/ProfileManager.swift"
             timestampString = "536542923.186874"
             startingColumnNumber = "9223372036854775807"
@@ -41,6 +44,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
+=======
             filePath = "Stax/ViewControllers/Onboarding/WelcomeViewController.swift"
             timestampString = "536542923.186929"
             startingColumnNumber = "9223372036854775807"
@@ -57,12 +62,19 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+>>>>>>> master
             filePath = "Stax/API/BaseAPI.swift"
             timestampString = "536542923.186984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
+<<<<<<< HEAD
+            endingLineNumber = "31"
+            landmarkName = "createNewUser(_:)"
+            landmarkType = "7">
+=======
             endingLineNumber = "31">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -72,6 +84,14 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/MainController.swift"
+<<<<<<< HEAD
+            timestampString = "536547214.1309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "setup()"
+=======
             timestampString = "536542923.187362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -94,6 +114,7 @@
             startingLineNumber = "58"
             endingLineNumber = "58"
             landmarkName = "pushNextPhase()"
+>>>>>>> master
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -108,7 +129,13 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
+<<<<<<< HEAD
+            endingLineNumber = "47"
+            landmarkName = "loadUserInfo(_:)"
+            landmarkType = "7">
+=======
             endingLineNumber = "47">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

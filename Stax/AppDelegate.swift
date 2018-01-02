@@ -19,7 +19,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-
+    
+    lazy var mainController: MainController = {
+        return MainController()
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,10 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         // The main view controller for the application.
-        let homeViewController = WelcomeViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navVC = UINavigationController(rootViewController: homeViewController)
-        window!.rootViewController = navVC
+        window!.rootViewController = mainController.mainViewController
         window?.makeKeyAndVisible()
         return true
     }

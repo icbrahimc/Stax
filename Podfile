@@ -13,6 +13,7 @@ target 'Stax' do
 	pod 'FirebaseCore'
 	pod 'Firebase/Firestore'	
 	pod 'GoogleSignIn'
+	pod 'PromiseKit'
 	pod 'PureLayout'
 	pod 'TTTAttributedLabel'
   target 'StaxTests' do
