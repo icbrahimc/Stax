@@ -83,6 +83,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     @objc func addNewPlaylists() {
-        print("segue")
+        let newVC = AddPlaylistViewController()
+        self.navigationController?.present(newVC, animated: true, completion: nil)
     }
 }

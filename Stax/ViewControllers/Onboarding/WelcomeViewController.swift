@@ -102,7 +102,7 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
 extension WelcomeViewController {
     func layout() {
         addSubviews()
-
+        
         logoDesign.image = #imageLiteral(resourceName: "plugDesign")
         logoDesign.autoAlignAxis(toSuperviewAxis: .vertical)
         logoDesign.autoSetDimensions(to: CGSize(width: 150, height: 75))
