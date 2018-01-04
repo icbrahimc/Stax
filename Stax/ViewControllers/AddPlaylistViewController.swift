@@ -9,6 +9,10 @@
 import UIKit
 
 class AddPlaylistViewController: UIViewController {
+    var auth = SPTAuth.defaultInstance()!
+    var session:SPTSession!
+    var player: SPTAudioStreamingController?
+    var loginUrl: URL?
     let appleMusicBtn = UIButton.newAutoLayout()
     let spotifyBtn = UIButton.newAutoLayout()
     let formDivider = FormDivider.newAutoLayout()
@@ -18,6 +22,19 @@ class AddPlaylistViewController: UIViewController {
         view.backgroundColor = .white
         
         layout()
+    }
+    
+    /* Setup the spotify delegates */
+    func spotifySetup() {
+        SPTAuth.defaultInstance().clientID = "909d311de7ff4b9b84252482d9931598"
+        SPTAuth.defaultInstance().redirectURL = URL(string: "Stax://returnAfterLogin")
+        SPTAuth.defaultInstance().requestedScopes = [
+            SPTAuthStreamingScope,
+            SPTAuthPlaylistReadPrivateScope,
+            SPTAuthPlaylistModifyPublicScope,
+            SPTAuthPlaylistModifyPrivateScope
+        ]
+        loginUrl = SPTAuth.defaultInstance().spotifyAppAuthenticationURL()
     }
 }
 
