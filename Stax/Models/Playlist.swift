@@ -32,7 +32,7 @@ class Playlist: NSObject {
     //pass in 1 or -1, 1 to increment favorites, -1 to decrement favorites
     func updateFavorites(incOrDec: NSNumber) {
         self.numFavorites = NSNumber (value: self.numFavorites.doubleValue + incOrDec.doubleValue)
-        //TODO: BaseAPI.sharedInstance.updatePlaylistFavorites(playlist: self)
+        BaseAPI.sharedInstance.updatePlaylistFavorites(playlist: self)
     }
 }
 

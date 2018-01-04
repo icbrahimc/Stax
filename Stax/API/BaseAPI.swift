@@ -39,15 +39,12 @@ class BaseAPI: NSObject {
             "creator": user
         ]) { (error: Error?) in
             if let error = error {
-                print("Error adding document: \(error)")
+                print("Error adding playlist: \(error)")
             } else {
                 print("Playlist, \(playlist.name!), added successfully")
             }
         }
-        
-       // db.collection("users").document(playlist.creatorUsername!).updateData(
-        //TODO: add a reference from the user to this new playlist
-        //)
+        //TODO: add a reference from this playlist to the playlist creator's created playlists list
         
     }
     
@@ -56,12 +53,18 @@ class BaseAPI: NSObject {
         db.collection("users").document(user.username!).setData([
             "name": user.name!,
             "id": user.id!.doubleValue
-        ])
+        ]) { (error: Error?) in
+            if let error = error {
+                print("Error adding user: \(error)")
+            } else {
+                print("User, \(user.username!), added successfully")
+            }
+        }
     }
     
     /////////////////* Updating in Database *///////////////////
     
-    //TODO: add in enums so that there is just one update function
+    //TODO: add in enums so that there is just one update function that takes in as a paramater the playlist, what to update (ex. rating, favorites, name, links), and what to update to and have switch cases for each of those options
     
     /* Update a playlist rating */
     func updatePlaylistRating(playlist: Playlist) {
@@ -70,19 +73,37 @@ class BaseAPI: NSObject {
                 "num_ratings": playlist.numRatings.doubleValue,
                 "rating": playlist.rating.doubleValue,
             ]
-        )
+        ) { (error: Error?) in
+            if let error = error {
+                print("Error updating playlist rating: \(error)")
+            } else {
+                print("Playlist, \(playlist.name!) rating successfully updated to \(playlist.rating.doubleValue)")
+            }
+        }
     }
     
     /* Increment number of favorites for a playlist */
     func updatePlaylistFavorites(playlist: Playlist) {
         db.collection("playlists").document(playlist.id!).updateData(
             ["favorites": playlist.numFavorites.doubleValue]
-        )
+        ) { (error: Error?) in
+            if let error = error {
+                print("Error updating playlist favorites: \(error)")
+            } else {
+                print("Playlist, \(playlist.name!) num favorites successfully updated to \(playlist.numFavorites.doubleValue)")
+            }
+        }
     }
     
     /* Update a user's name */
     func updateName(user: User) {
-        db.collection("users").document(user.username!).setData(["name": user.name!], options: SetOptions.merge())
+        db.collection("users").document(user.username!).setData(["name": user.name!], options: SetOptions.merge()) { (error: Error?) in
+            if let error = error {
+                print("Error updating user's name: \(error)")
+            } else {
+                print("User, \(user.username!), name successfully updated to \(user.name!)")
+            }
+        }
     }
     
     func tester2(username: String, name: String) {
@@ -112,8 +133,15 @@ class BaseAPI: NSObject {
     /* Favorite a playlist */
     func favoritePlaylist(user: User, playlist: Playlist) {
         let playlistRef = db.collection("playlists").document(playlist.id!);
-        //let favoritedPlaylists = db.collection("users").document(user.username!).
-        //db.collection("users").document(user.username!).updateData(["favorited_playlists": ])
+        db.collection("users").document(user.username!).getDocument { (document, error) in
+            if let document = document {
+                let favoritedPlaylists = document.data()
+                print("Document data: \(favoritedPlaylists)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        //TODO: get current favorited playlists, add the playlistRef to that list, then set the favorited playlists to the list with the new one added
     }
     
     /* Unfavorite a playlist */
@@ -127,14 +155,12 @@ class BaseAPI: NSObject {
                 print("Document does not exist")
             }
         }
-        //db.collection("users").document(user.username!).updateData(["favorited_playlists": ])
+        //TODO: get current favorited playlists, remove the playlistRef from that list, then set the favorited playlists to the list with the one removed
     }
     
     /* Rate a playlist */
     func ratePlaylist(user: User, playlist: Playlist) {
-        //get all rated playlists as an array
-        //add this playlist to the list
-        //set data
+        //TODO: get all rated playlists, add this playlist to the list, set rated playlists to this list with the new one added
     }
     
     ///////////////* Database Queries *///////////////////////
@@ -155,7 +181,7 @@ class BaseAPI: NSObject {
     
     /* Get a playlist given it's id */
     func getPlaylistGivenId(id: String?) -> DocumentReference {
-        return db.collection("playlists").document(id!)
+        return db.collection("playlists").document(id!) 
     }
     
     /* Get a user given their username */
