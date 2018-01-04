@@ -29,7 +29,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
 
         layout()
 
-        customSegue()
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
