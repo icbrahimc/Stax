@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPlaylistViewController: UIViewController {
+class AddPlaylistViewController: UIViewController, UITextFieldDelegate {
     let contentView = UIScrollView.newAutoLayout()
     let imageField = UIImageView.newAutoLayout()
     let titleField = UITextField.newAutoLayout()
@@ -29,6 +29,26 @@ class AddPlaylistViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == titleField {
+            textField.resignFirstResponder()
+            descriptionField.becomeFirstResponder()
+        } else if textField == descriptionField {
+            textField.resignFirstResponder()
+            appleMusicLink.becomeFirstResponder()
+        } else if textField == appleMusicLink {
+            textField.resignFirstResponder()
+            spotifyLink.becomeFirstResponder()
+        } else if textField == soundcloudLink {
+            textField.resignFirstResponder()
+            soundcloudLink.becomeFirstResponder()
+        } else if textField == youtubeLink {
+            // Todo: submit the playlist to the repo.
+        }
+        
+        return true
     }
 }
 
