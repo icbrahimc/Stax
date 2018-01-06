@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPlaylistViewController: UIViewController, UITextFieldDelegate {
+class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate {
     let contentView = UIScrollView.newAutoLayout()
     let imageField = UIImageView.newAutoLayout()
     let titleField = UITextField.newAutoLayout()
@@ -22,13 +22,25 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        contentView.isScrollEnabled = true
+        titleField.delegate = self
+        descriptionField.delegate = self
+        appleMusicLink.delegate = self
+        spotifyLink.delegate = self
+        soundcloudLink.delegate = self
+        youtubeLink.delegate = self
+        
         layout()
         title = "Add Playlist"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addImage))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    @objc func addImage() {
+        print("Add image")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
