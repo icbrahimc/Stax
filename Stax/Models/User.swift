@@ -8,14 +8,12 @@
 
 import Foundation
 
-class User: NSObject {
-    var id: NSNumber?
+struct User {
     var username: String?
-    var name: String? = ""
+    var id: String?
     var favoritedPlaylists: NSMutableArray?
     var createdPlaylists: NSMutableArray?
     var ratedPlaylists: NSMutableArray?
-    
     
     /* Update or set a user's name */
     func updateName(name: String) {
@@ -26,6 +24,20 @@ class User: NSObject {
     func ratePlaylist(playlist: Playlist, rating: NSNumber) {
         playlist.updateRating(newRating: rating)
         BaseAPI.sharedInstance.ratePlaylist(user: self, playlist: playlist)
+      
+    init(username: String, id: String, favoritedPlaylists: NSMutableArray) {
+        self.username = username
+        self.id = id
+        self.favoritedPlaylists = favoritedPlaylists
+    }
+    
+    func getNameFromID(id: NSNumber?) -> String? {
+        //dummy function for database
+        return self.getName();
+    }
+    
+    func getName() -> String? {
+        return self.username;
     }
     
     func favoritePlaylist(playlist: Playlist) {
