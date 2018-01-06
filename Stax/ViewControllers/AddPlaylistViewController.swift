@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate {
+class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    let imagePicker = UIImagePickerController()
     let contentView = UIScrollView.newAutoLayout()
     let imageField = UIImageView.newAutoLayout()
     let titleField = UITextField.newAutoLayout()
@@ -22,6 +23,11 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        /* Setup imagepicker delegate */
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        /* Setup textfield delegates  */
         titleField.delegate = self
         descriptionField.delegate = self
         appleMusicLink.delegate = self
@@ -40,9 +46,12 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     }
     
     @objc func addImage() {
-        print("Add image")
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(imagePicker, animated: true, completion: nil)
     }
     
+    /* UITextField methods */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == titleField {
             textField.resignFirstResponder()
@@ -62,6 +71,27 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         
         return true
     }
+    
+    /* UIImagePickerController methods */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var selectedImageFromPkr: UIImage?
+        
+        if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            selectedImageFromPkr = originalImage as! UIImage
+        } else if let editedImage = info["UIImagePickerControllerEditedImage"] {
+            selectedImageFromPkr = editedImage as! UIImage
+        }
+        
+        if let selectedImage = selectedImageFromPkr {
+            imageField.image = selectedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AddPlaylistViewController {
@@ -72,7 +102,7 @@ extension AddPlaylistViewController {
         
         setupImageView()
         imageField.autoAlignAxis(toSuperviewAxis: .vertical)
-        imageField.autoPinEdge(toSuperviewEdge: .top, withInset: 65)
+        imageField.autoPinEdge(toSuperviewEdge: .top, withInset: 25)
         imageField.autoSetDimension(.height, toSize: view.frame.height * 0.2)
         imageField.autoSetDimension(.width, toSize: view.frame.height * 0.2)
         
