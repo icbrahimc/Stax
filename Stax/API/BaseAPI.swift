@@ -6,8 +6,9 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
-import Firebase
+import FirebaseCore
 import FirebaseFirestore
+import FirebaseStorage
 import UIKit
 
 class BaseAPI: NSObject {
@@ -45,21 +46,38 @@ class BaseAPI: NSObject {
             }
         }
         //TODO: add a reference from this playlist to the playlist creator's created playlists list
+    }
+    
+    func savePhotoIntoDB(_ playlist: Playlist, image: UIImage) {
+        let imageName = UUID().uuidString
+        let storageRef = Storage.storage().reference().child("playlists").child("\(imageName).png")
         
+        if let uploadData = UIImagePNGRepresentation(image) {
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                if let playlistImageURL = metadata?.downloadURL()?.absoluteString {
+                    print("hey")
+                }
+            })
+        }
     }
     
     /* Add a user to the database */
     func addUser(user: User) {
-        db.collection("users").document(user.username!).setData([
-            "name": user.name!,
-            "id": user.id!.doubleValue
-        ]) { (error: Error?) in
-            if let error = error {
-                print("Error adding user: \(error)")
-            } else {
-                print("User, \(user.username!), added successfully")
-            }
-        }
+//        db.collection("users").document(user.username!).setData([
+////            "name": user.name!,
+////            "id": user.id!.doubleValue
+//        ]) { (error: Error?) in
+//            if let error = error {
+//                print("Error adding user: \(error)")
+//            } else {
+//                print("User, \(user.username!), added successfully")
+//            }
+//        }
     }
     
     /////////////////* Updating in Database *///////////////////
@@ -97,13 +115,13 @@ class BaseAPI: NSObject {
     
     /* Update a user's name */
     func updateName(user: User) {
-        db.collection("users").document(user.username!).setData(["name": user.name!], options: SetOptions.merge()) { (error: Error?) in
-            if let error = error {
-                print("Error updating user's name: \(error)")
-            } else {
-                print("User, \(user.username!), name successfully updated to \(user.name!)")
-            }
-        }
+//        db.collection("users").document(user.username!).setData(["name": user.name!], options: SetOptions.merge()) { (error: Error?) in
+//            if let error = error {
+//                print("Error updating user's name: \(error)")
+//            } else {
+//                print("User, \(user.username!), name successfully updated to \(user.name!)")
+//            }
+//        }
     }
     
     func tester2(username: String, name: String) {

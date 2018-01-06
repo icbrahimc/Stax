@@ -9,9 +9,10 @@
 import UIKit
 
 class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var playlist: Playlist?
     let imagePicker = UIImagePickerController()
     let contentView = UIScrollView.newAutoLayout()
-    let imageField = UIImageView.newAutoLayout()
+    let imageField = UIButton.newAutoLayout()
     let titleField = UITextField.newAutoLayout()
     let descriptionField = UITextField.newAutoLayout()
     let appleMusicLink = UITextField.newAutoLayout()
@@ -38,17 +39,55 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         layout()
         title = "Add Playlist"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addImage))
+        imageField.addTarget(self, action: #selector(addImage), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(submitPlaylist))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    /* Custom methods */
     @objc func addImage() {
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.3,  options: [], animations: {
+            self.imageField.alpha = 0.5
+        }, completion: { success in
+        })
+        
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.3,  options: [], animations: {
+            self.imageField.alpha = 1.0
+        }, completion: { success in
+        })
+        
         imagePicker.sourceType = .photoLibrary
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func submitPlaylist() {
+        if let title = titleField.text {
+            playlist?.title = title
+        }
+        
+        if let description = descriptionField.text {
+            playlist?.description = description
+        }
+        
+        if let appleMusicLink = appleMusicLink.text {
+            playlist?.appleLink = appleMusicLink
+        }
+        
+        if let spotifyMusicLink = spotifyLink.text {
+            playlist?.spotifyLink = spotifyMusicLink
+        }
+        
+        if let soundcloudLink = soundcloudLink.text {
+            playlist?.cloudLink = soundcloudLink
+        }
+        
+        if let youtubeLink = youtubeLink.text {
+            playlist?.youtubeLink = youtubeLink
+        }
     }
     
     /* UITextField methods */
@@ -83,7 +122,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         }
         
         if let selectedImage = selectedImageFromPkr {
-            imageField.image = selectedImage
+            imageField.setImage(selectedImage, for: .normal)
         }
         
         dismiss(animated: true, completion: nil)
@@ -156,7 +195,10 @@ extension AddPlaylistViewController {
     }
     
     func setupImageView() {
-        imageField.backgroundColor = .black
+        imageField.setImage(#imageLiteral(resourceName: "yourimagehere"), for: .normal)
+        imageField.layer.cornerRadius = 25.0
+        imageField.layer.borderWidth = 1.0
+        imageField.layer.masksToBounds = true
     }
     
     func setupTitleField() {
