@@ -6,8 +6,9 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
-import Firebase
+import FirebaseCore
 import FirebaseFirestore
+import FirebaseStorage
 import UIKit
 
 class BaseAPI: NSObject {
@@ -23,43 +24,85 @@ class BaseAPI: NSObject {
     /////////////////* Adding to Database */////////////////
     
     /* add a playlist to the database */
-    func addPlaylist(playlist: Playlist) {
-        let user = getUserGivenUsername(username: playlist.creatorUsername)
-
-        let playlistReference = db.collection("playlists").addDocument(data: [
-            "name": playlist.name!,
-            "rating": playlist.rating.doubleValue,
-            "favorites": playlist.numFavorites.doubleValue,
-            "num_ratings": playlist.numRatings.intValue,
-            "apple_link": playlist.appleLink!,
-            "cloud_link": playlist.cloudLink!,
-            "spotify_link": playlist.spotifyLink!,
-            "cover_art_link": playlist.coverArtLink!,
-            "tags": playlist.tags! as NSArray as! [String],
-            "creator": user
+    func addPlaylist(_ playlist: Playlist, completionBlock: @escaping (String) -> ()) {
+        let user = "icbrahimc"
+        var playlistRef: DocumentReference? = nil
+        /* TODO: redo later.
+             [
+             "name": playlist.name!,
+             "rating": playlist.rating.doubleValue,
+             "favorites": playlist.numFavorites.doubleValue,
+             "num_ratings": playlist.numRatings.intValue,
+             "apple_link": playlist.appleLink!,
+             "cloud_link": playlist.cloudLink!,
+             "spotify_link": playlist.spotifyLink!,
+             "cover_art_link": playlist.coverArtLink!,
+             "tags": playlist.tags! as NSArray as! [String],
+             "creator": user
+             ]
+        */
+        playlistRef = db.collection("playlists").addDocument(data: [
+            "id": playlistRef?.documentID,
+            "title" : playlist.title,
+            "description": playlist.description,
+            "creatorUsername": user,
+            "appleMusicLink": playlist.appleLink,
+            "spotifyMusicLink": playlist.spotifyLink,
+            "soundcloudLink": playlist.cloudLink,
+            "youtubeLink": playlist.youtubeLink,
+            "coverartLink": playlist.coverArtLink
         ]) { (error: Error?) in
             if let error = error {
                 print("Error adding playlist: \(error)")
+                return
             } else {
-                print("Playlist, \(playlist.name!), added successfully")
+                print("Playlist, \(playlistRef?.documentID), added successfully")
+                completionBlock((playlistRef?.documentID)!)
             }
         }
         //TODO: add a reference from this playlist to the playlist creator's created playlists list
+    }
+    
+    func savePhotoIntoDB(_ playlistId: String, image: UIImage, completionBlock: @escaping () -> ()) {
+        let storageRef = Storage.storage().reference().child("playlists").child("\(playlistId).png")
         
+        if let uploadData = UIImagePNGRepresentation(image) {
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                if let playlistImageURL = metadata?.downloadURL()?.absoluteString {
+                    self.db.collection("playlists").document(playlistId).updateData([
+                        "id": playlistId,
+                        "coverartLink": playlistImageURL
+                    ], completion: { (error) in
+                        if let error = error {
+                            print("Could not save photo in the repository")
+                            return
+                        } else {
+                            print("Playlist photo saved!")
+                            completionBlock()
+                        }
+                    })
+                }
+            })
+        }
     }
     
     /* Add a user to the database */
     func addUser(user: User) {
-        db.collection("users").document(user.username!).setData([
-            "name": user.name!,
-            "id": user.id!.doubleValue
-        ]) { (error: Error?) in
-            if let error = error {
-                print("Error adding user: \(error)")
-            } else {
-                print("User, \(user.username!), added successfully")
-            }
-        }
+//        db.collection("users").document(user.username!).setData([
+////            "name": user.name!,
+////            "id": user.id!.doubleValue
+//        ]) { (error: Error?) in
+//            if let error = error {
+//                print("Error adding user: \(error)")
+//            } else {
+//                print("User, \(user.username!), added successfully")
+//            }
+//        }
     }
     
     /////////////////* Updating in Database *///////////////////
@@ -68,42 +111,42 @@ class BaseAPI: NSObject {
     
     /* Update a playlist rating */
     func updatePlaylistRating(playlist: Playlist) {
-        db.collection("playlists").document(playlist.id!).updateData(
-            [
-                "num_ratings": playlist.numRatings.doubleValue,
-                "rating": playlist.rating.doubleValue,
-            ]
-        ) { (error: Error?) in
-            if let error = error {
-                print("Error updating playlist rating: \(error)")
-            } else {
-                print("Playlist, \(playlist.name!) rating successfully updated to \(playlist.rating.doubleValue)")
-            }
-        }
+//        db.collection("playlists").document(playlist.id!).updateData(
+//            [
+//                "num_ratings": playlist.numRatings.doubleValue,
+//                "rating": playlist.rating.doubleValue,
+//            ]
+//        ) { (error: Error?) in
+//            if let error = error {
+//                print("Error updating playlist rating: \(error)")
+//            } else {
+//                print("Playlist, \(playlist.name!) rating successfully updated to \(playlist.rating.doubleValue)")
+//            }
+//        }
     }
     
     /* Increment number of favorites for a playlist */
     func updatePlaylistFavorites(playlist: Playlist) {
-        db.collection("playlists").document(playlist.id!).updateData(
-            ["favorites": playlist.numFavorites.doubleValue]
-        ) { (error: Error?) in
-            if let error = error {
-                print("Error updating playlist favorites: \(error)")
-            } else {
-                print("Playlist, \(playlist.name!) num favorites successfully updated to \(playlist.numFavorites.doubleValue)")
-            }
-        }
+//        db.collection("playlists").document(playlist.id!).updateData(
+//            ["favorites": playlist.numFavorites.doubleValue]
+//        ) { (error: Error?) in
+//            if let error = error {
+//                print("Error updating playlist favorites: \(error)")
+//            } else {
+//                print("Playlist, \(playlist.name!) num favorites successfully updated to \(playlist.numFavorites.doubleValue)")
+//            }
+//        }
     }
     
     /* Update a user's name */
     func updateName(user: User) {
-        db.collection("users").document(user.username!).setData(["name": user.name!], options: SetOptions.merge()) { (error: Error?) in
-            if let error = error {
-                print("Error updating user's name: \(error)")
-            } else {
-                print("User, \(user.username!), name successfully updated to \(user.name!)")
-            }
-        }
+//        db.collection("users").document(user.username!).setData(["name": user.name!], options: SetOptions.merge()) { (error: Error?) in
+//            if let error = error {
+//                print("Error updating user's name: \(error)")
+//            } else {
+//                print("User, \(user.username!), name successfully updated to \(user.name!)")
+//            }
+//        }
     }
     
     func tester2(username: String, name: String) {
@@ -206,18 +249,18 @@ class BaseAPI: NSObject {
     
     /* Load the user info */
     func loadUserInfo(_ completion: @escaping ([String:Any]) -> ()) {
-        Auth.auth().addStateDidChangeListener({ (auth, user) in
-            guard let userID = user?.uid else {
-                completion([:])
-                return
-            }
-            
-            let collection = self.db.collection("users").document(userID)
-            collection.getDocument(completion: { (document, err) in
-                if let document = document {
-                    completion(document.data())
-                }
-            })
-        })
+//        Auth.auth().addStateDidChangeListener({ (auth, user) in
+//            guard let userID = user?.uid else {
+//                completion([:])
+//                return
+//            }
+//
+//            let collection = self.db.collection("users").document(userID)
+//            collection.getDocument(completion: { (document, err) in
+//                if let document = document {
+//                    completion(document.data())
+//                }
+//            })
+//        })
     }
 }

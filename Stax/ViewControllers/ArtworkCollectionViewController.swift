@@ -84,6 +84,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     
     @objc func addNewPlaylists() {
         let newVC = AddPlaylistViewController()
-        self.navigationController?.present(newVC, animated: true, completion: nil)
+        let navVC = UINavigationController(rootViewController: newVC)
+        self.navigationController?.present(navVC, animated: true, completion: nil)
     }
 }
