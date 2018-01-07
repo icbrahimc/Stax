@@ -81,7 +81,7 @@ extension UsernameViewController {
         usernameFieldSetup()
         usernameField.autoSetDimension(.height, toSize: 45)
         usernameField.autoSetDimension(.width, toSize: view.frame.width - 50)
-        usernameField.autoPinEdge(toSuperviewEdge: .top, withInset: 70)
+        usernameField.autoPinEdge(toSuperviewEdge: .top, withInset: 90)
         usernameField.autoAlignAxis(toSuperviewMarginAxis: .vertical)
         
         submitButtonSetup()

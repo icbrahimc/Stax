@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UINavigationController(rootViewController: AddPlaylistViewController())
+        window!.rootViewController = mainController.mainViewController
         window?.makeKeyAndVisible()
         return true
     }

@@ -41,6 +41,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         
         imageField.addTarget(self, action: #selector(addImage), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(submitPlaylist))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelCreate))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +65,13 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @objc func cancelCreate() {
+        self.navigationController?.popToViewController(ArtworkCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+//        self.parent?.navigationController?.popViewController(animated: tru)
+    }
+    
     @objc func submitPlaylist() {
+        playlist = Playlist()
         if let title = titleField.text {
             playlist?.title = title
         }
@@ -88,6 +95,12 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         if let youtubeLink = youtubeLink.text {
             playlist?.youtubeLink = youtubeLink
         }
+        
+        BaseAPI.sharedInstance.addPlaylist(playlist!, completionBlock: { (documentID) in
+            BaseAPI.sharedInstance.savePhotoIntoDB(documentID, image: (self.imageField.imageView?.image)!, completionBlock: { () in
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+        })
     }
     
     /* UITextField methods */
