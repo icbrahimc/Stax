@@ -20,6 +20,7 @@
 		AA226B8E1FFCC60900027089 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */; };
 		AA226B8F1FFCC60900027089 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */; };
 		AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */; };
+		AA3A10122004ECEE0039333E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10112004ECEE0039333E /* Extensions.swift */; };
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
@@ -75,6 +76,7 @@
 		AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		AA226B901FFCC62300027089 /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
+		AA3A10112004ECEE0039333E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		AA3A10132004ECF90039333E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AA3A10112004ECEE0039333E /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		AA511E22CEA649CF2AED069A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		AAC8D57D1FD7A89600020122 /* Stax */ = {
 			isa = PBXGroup;
 			children = (
+				AA3A10132004ECF90039333E /* Helpers */,
 				AA0A648B1FF1F761002251DC /* API */,
 				AA0A64971FF31AB3002251DC /* Manager */,
 				AAA3BAA61FE367960083E71A /* Models */,
@@ -568,6 +579,7 @@
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
 				AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */,
 				AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */,
+				AA3A10122004ECEE0039333E /* Extensions.swift in Sources */,
 				AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */,
 				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
