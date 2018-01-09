@@ -8,8 +8,9 @@
 
 import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 import GoogleSignIn
 import PureLayout
 import UIKit
@@ -18,13 +19,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-
+    
+    lazy var mainController: MainController = {
+        return MainController()
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Firebase config.
         FirebaseApp.configure()
+
         
         // FBSDK config.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -35,11 +40,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         // The main view controller for the application.
-        let homeViewController = WelcomeViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navVC = UINavigationController(rootViewController: homeViewController)
-        window!.rootViewController = navVC
+        window!.rootViewController = mainController.mainViewController
         window?.makeKeyAndVisible()
         return true
     }
@@ -94,17 +107,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
         if let error = error {
-            // ...
+            print("Failed to log in Google", error)
             return
         }
-        
         guard let authentication = user.authentication else { return }
         
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
-        // ...
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let err = error{
+                print("Failed to Firebase user with Google account", err)
+            }
+            guard let uid = user?.uid else { return }
+            print("Successfully Logged into firebase with Google",uid)
+        }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

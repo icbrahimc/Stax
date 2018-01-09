@@ -10,6 +10,16 @@
 		137916942DDE51A06755F85E /* Pods_Stax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908CD34861562F14B9719762 /* Pods_Stax.framework */; };
 		1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */; };
 		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
+		AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648C1FF1F785002251DC /* BaseAPI.swift */; };
+		AA0A648F1FF2316C002251DC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648E1FF2316C002251DC /* MainController.swift */; };
+		AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64901FF23668002251DC /* MainTabBarController.swift */; };
+		AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64931FF23E1D002251DC /* UsernameViewController.swift */; };
+		AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */; };
+		AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64981FF31B99002251DC /* ProfileManager.swift */; };
+		AA226B8D1FFCC60900027089 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8A1FFCC60800027089 /* SpotifyAudioPlayback.framework */; };
+		AA226B8E1FFCC60900027089 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */; };
+		AA226B8F1FFCC60900027089 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */; };
+		AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */; };
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
@@ -54,7 +64,17 @@
 		6D2CF005BACBAB776A869AEF /* Pods-StaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B7ADBC8C2B3D9DCB4AD17C1 /* Pods-StaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA0A648C1FF1F785002251DC /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		AA0A648E1FF2316C002251DC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		AA0A64901FF23668002251DC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		AA0A64931FF23E1D002251DC /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationController.swift; sourceTree = "<group>"; };
+		AA0A64981FF31B99002251DC /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		AA226B8A1FFCC60800027089 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		AA226B901FFCC62300027089 /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +108,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				137916942DDE51A06755F85E /* Pods_Stax.framework in Frameworks */,
+				AA226B8F1FFCC60900027089 /* SpotifyAuthentication.framework in Frameworks */,
+				AA226B8E1FFCC60900027089 /* SpotifyMetadata.framework in Frameworks */,
+				AA226B8D1FFCC60900027089 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,11 +136,39 @@
 		1974AA10D767C74E6495B8AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA226B8A1FFCC60800027089 /* SpotifyAudioPlayback.framework */,
+				AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */,
+				AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */,
 				908CD34861562F14B9719762 /* Pods_Stax.framework */,
 				BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */,
 				4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA0A648B1FF1F761002251DC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AA0A648C1FF1F785002251DC /* BaseAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		AA0A64921FF23C74002251DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AA0A64931FF23E1D002251DC /* UsernameViewController.swift */,
+				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AA0A64971FF31AB3002251DC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AA0A64981FF31B99002251DC /* ProfileManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		AA511E22CEA649CF2AED069A /* Pods */ = {
@@ -147,10 +198,11 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA0A64921FF23C74002251DC /* Onboarding */,
 				AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
-				AAC8D5801FD7A89600020122 /* WelcomeViewController.swift */,
+				AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +241,8 @@
 		AAC8D57D1FD7A89600020122 /* Stax */ = {
 			isa = PBXGroup;
 			children = (
+				AA0A648B1FF1F761002251DC /* API */,
+				AA0A64971FF31AB3002251DC /* Manager */,
 				AAA3BAA61FE367960083E71A /* Models */,
 				AA9DAF751FE08E130052D4D6 /* ViewControllers */,
 				AA9DAF741FE08E000052D4D6 /* Views */,
@@ -198,7 +252,10 @@
 				AAC8D5851FD7A89600020122 /* Assets.xcassets */,
 				AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */,
 				AAC8D58A1FD7A89600020122 /* Info.plist */,
-				AA0A648A1FF1062E002251DC /* Stax-Bridging-Header.h */,
+				AA0A648E1FF2316C002251DC /* MainController.swift */,
+				AA0A64901FF23668002251DC /* MainTabBarController.swift */,
+				AA0A64951FF2ADBF002251DC /* OnboardingNavigationController.swift */,
+				AA226B901FFCC62300027089 /* Stax-Bridging-Header.h */,
 			);
 			path = Stax;
 			sourceTree = "<group>";
@@ -298,6 +355,7 @@
 				TargetAttributes = {
 					AAC8D57A1FD7A89500020122 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					AAC8D58E1FD7A89600020122 = {
@@ -505,14 +563,21 @@
 			files = (
 				AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */,
 				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
+				AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */,
 				AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */,
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
 				AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */,
 				AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */,
+				AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */,
 				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
+				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
+				AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */,
+				AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */,
+				AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
+				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,12 +745,20 @@
 			baseConfigurationReference = 448CFB0BE1424F377730D157 /* Pods-Stax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Stax/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobile.Stax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Stax/Stax-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -696,12 +769,19 @@
 			baseConfigurationReference = 232D7FFE64EA02229EC65FBD /* Pods-Stax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Stax/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobile.Stax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Stax/Stax-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

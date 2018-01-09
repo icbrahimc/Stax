@@ -10,8 +10,11 @@ target 'Stax' do
     	pod 'FBSDKLoginKit'
 	pod 'Firebase'
 	pod 'FirebaseAuth'
-	pod 'FirebaseCore'	
+	pod 'FirebaseCore'
+	pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'	
 	pod 'GoogleSignIn'
+	pod 'PromiseKit'
 	pod 'PureLayout'
 	pod 'TTTAttributedLabel'
   target 'StaxTests' do
