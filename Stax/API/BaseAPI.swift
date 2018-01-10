@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
@@ -249,18 +250,18 @@ class BaseAPI: NSObject {
     
     /* Load the user info */
     func loadUserInfo(_ completion: @escaping ([String:Any]) -> ()) {
-//        Auth.auth().addStateDidChangeListener({ (auth, user) in
-//            guard let userID = user?.uid else {
-//                completion([:])
-//                return
-//            }
-//
-//            let collection = self.db.collection("users").document(userID)
-//            collection.getDocument(completion: { (document, err) in
-//                if let document = document {
-//                    completion(document.data())
-//                }
-//            })
-//        })
+        Auth.auth().addStateDidChangeListener({ (auth, user) in
+            guard let userID = user?.uid else {
+                completion([:])
+                return
+            }
+
+            let collection = self.db.collection("users").document(userID)
+            collection.getDocument(completion: { (document, err) in
+                if let document = document {
+                    completion(document.data())
+                }
+            })
+        })
     }
 }

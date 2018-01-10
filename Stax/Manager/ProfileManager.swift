@@ -22,6 +22,7 @@ class ProfileManager: NSObject {
         self.user = User(username: "", id: "", favoritedPlaylists: NSMutableArray())
     }
     
+    /* Fetch the user's info */
     func fetchUserInfo(_ completion: @escaping (User) -> ()) {
         var userInfo: User = User()
         api.loadUserInfo({ (userData) in
