@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = mainController.mainViewController
+        window!.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
         return true
     }

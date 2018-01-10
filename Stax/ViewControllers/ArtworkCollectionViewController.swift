@@ -31,7 +31,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         // self.clearsSelectionOnViewWillAppear = false
 
         title = "Discovery"
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)
         
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
@@ -40,7 +40,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
-        fetchPlaylists()
+//        fetchPlaylists()
     }
 
     /* Fetch users playlist */
@@ -85,8 +85,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-        let height = width
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height * 0.8
         
         return CGSize(width: width, height: height)
     }
