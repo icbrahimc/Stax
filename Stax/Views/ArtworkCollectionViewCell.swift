@@ -39,7 +39,28 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    let like: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "heart"), for: UIControlState.normal)
+        return button
+    }()
+    
+    let apple: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "appleMusic"), for: UIControlState.normal)
+        return button
+    }()
+    
+    let spotify: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "spotify"), for: UIControlState.normal)
+        return button
+    }()
+    
     func setupViews() {
+        addSubview(apple)
+        addSubview(like)
+        addSubview(spotify)
         addSubview(creatorLabel)
         addSubview(titleLabel)
         addSubview(imageView)
@@ -58,5 +79,19 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         creatorLabel.autoSetDimension(.width, toSize: frame.width)
         creatorLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 1.5)
         creatorLabel.autoPinEdge(.left, to: .left, of: titleLabel)
+        
+        /* Setup the like button */
+        like.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 0)
+        like.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        /* Setup the apple music btn */
+        apple.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 0)
+        apple.autoPinEdge(.right, to: .left, of: like, withOffset: 0)
+        apple.autoSetDimensions(to: CGSize(width: frame.width * 0.1, height: frame.height * 0.05))
+        
+        /* Setup the spotify music btn */
+        spotify.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 0)
+        spotify.autoPinEdge(.left, to: .right, of: like, withOffset: 0)
+        spotify.autoSetDimensions(to: CGSize(width: frame.width * 0.1, height: frame.height * 0.05))
     }
 }
