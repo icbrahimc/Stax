@@ -19,27 +19,27 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let titleLabel: UILabel = {
+    var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "MB3Stacks Vol. VI: Take Care"
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         return label
     }()
     
-    let creatorLabel: UILabel = {
+    var creatorLabel: UILabel = {
         let label = UILabel()
         label.text = "Curated by: icbrahimc"
         label.font = UIFont.italicSystemFont(ofSize: 12.0)
         return label
     }()
     
-    let imageView: UIImageView = {
+    var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "moon")
         return imageView
     }()
     
-    let like: UIButton = {
+    var like: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "heart"), for: UIControlState.normal)
         return button
