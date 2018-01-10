@@ -65,6 +65,10 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                 self.playlists.append(appendPlaylist)
             }
         })
+        
+        DispatchQueue.main.async(execute: {
+            self.collectionView?.reloadData()
+        })
     }
 
     // MARK: UICollectionViewDataSource
