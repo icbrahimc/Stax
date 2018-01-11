@@ -6,6 +6,10 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FirebaseAuth
+import GoogleSignIn
 import UIKit
 
 private let reuseIdentifier = "Cell"
@@ -17,6 +21,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         super.viewDidLoad()
 
         title = "Profile"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
 
         collectionView?.backgroundColor = .white
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -24,16 +30,9 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     }
 
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 20
+        return 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,5 +74,19 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    /* Custom functions */
+    /* Logout of the application */
+    @objc func logout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
 }
