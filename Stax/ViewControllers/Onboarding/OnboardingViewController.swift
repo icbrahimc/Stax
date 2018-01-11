@@ -6,6 +6,10 @@
 //  Copyright © 2018 icbrahimc. All rights reserved.
 //
 
+import FBSDKCoreKit
+import FBSDKLoginKit
+import Firebase
+import GoogleSignIn
 import UIKit
 
 class OnboardingViewController: UIViewController {
@@ -13,23 +17,98 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(segueToUsernameVC), name: NSNotification.Name(rawValue: "Login"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(segueToMainVC), name: NSNotification.Name(rawValue: "FullLogin"), object: nil)
         // Do any additional setup after loading the view.
     }
+    
+    /* Handle facebook login */
+    @objc func facebookSignIn() {
+        print("Facebook")
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self, handler: {
+            (result, err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            
+            // Get the access token and authenticate.
+            let accessToken = FBSDKAccessToken.current()
+            guard let accessTokenString = accessToken?.tokenString else {
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+            Auth.auth().signIn(with: credential) { (user, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let uid = user?.uid else {
+                    // TODO(icbrahimc): Properly handle this error in the future.
+                    print("User id is not retrievable")
+                    return
+                }
+                
+                print("Successfully Logged into firebase with Facebook")
+                ProfileManager.sharedInstance.fetchUserInfo({ (userInfo) in
+                    ProfileManager.sharedInstance.user = userInfo
+                    guard let _ = ProfileManager.sharedInstance.user?.id else {
+                        BaseAPI.sharedInstance.createNewUser(uid)
+                        ProfileManager.sharedInstance.user?.id = uid
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
+                        return
+                    }
+                    
+                    if (ProfileManager.sharedInstance.userHasUsername()) {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FullLogin"), object: nil)
+                    } else {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
+                    }
+                })
+                /* Handle this logic once we add pictures for the users
+                if let newUser = user {
+                    
+                    let graphPath = "me"
+                    let parameters = ["fields": "id, email, name, first_name, last_name, picture"]
+                    let graphRequest = FBSDKGraphRequest(graphPath: graphPath, parameters: parameters)
+                    let connection = FBSDKGraphRequestConnection()
+                    
+                    connection.add(graphRequest, completionHandler: { (connection, result, error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        // Todo(icbrahimc): add custom segue when it makes complete sense.
+                    })
+                    connection.start()
+                }
+                */
+            }
+        })
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /* Handle google login */
+    @objc func googleSignIn() {
+        print("Google")
+        GIDSignIn.sharedInstance().signIn()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    /* Segue to assist with onboarding vc. */
+    @objc func segueToUsernameVC() {
+        if let navVC = navigationController as? OnboardingNavigationController {
+            navVC.statisfyRequirement(.signIn)
+            navVC.pushNextPhase()
+        }
     }
-    */
-
+    
+    /* Segue to assist with onboarding vc. */
+    @objc func segueToMainVC() {
+        if let navVC = navigationController as? OnboardingNavigationController {
+            navVC.statisfyRequirement(.signIn)
+            navVC.statisfyRequirement(.username)
+            navVC.pushNextPhase()
+        }
+    }
 }

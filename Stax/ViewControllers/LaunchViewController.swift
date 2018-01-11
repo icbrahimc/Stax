@@ -17,27 +17,15 @@ class LaunchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
+        
         ProfileManager.sharedInstance.fetchUserInfo { (userInfo) in
             ProfileManager.sharedInstance.user = userInfo
-            if ProfileManager.sharedInstance.userHasUsername() {
-                self.loadVC()
-            }
+            self.loadVC()
         }
     }
     
     func loadVC() {
-        self.navigationController?.present(mainController.mainViewController, animated: true, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController = mainController.mainViewController
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

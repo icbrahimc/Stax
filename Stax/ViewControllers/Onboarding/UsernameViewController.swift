@@ -42,10 +42,14 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func submitUsername() {
-        if let id = Auth.auth().currentUser?.uid {
-//            BaseAPI.sharedInstance.createNewUsername(id, username: usernameField.text!)
-            ProfileManager.sharedInstance.user?.username = usernameField.text!
-            customSegue()
+        ProfileManager.sharedInstance.usernameExistsInDB(usernameField.text!) { (exists) in
+            if exists {
+                self.usernameField.text = ""
+            } else {
+                BaseAPI.sharedInstance.createNewUsername((ProfileManager.sharedInstance.user?.id)!, username: (self.usernameField.text!))
+                ProfileManager.sharedInstance.user?.username = self.usernameField.text!
+                self.customSegue()
+            }
         }
     }
     

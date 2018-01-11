@@ -40,19 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-//        let firebaseAuth = Auth.auth()
-//        do {
-//            try firebaseAuth.signOut()
-//            GIDSignIn.sharedInstance().signOut()
-//            let loginManager = FBSDKLoginManager()
-//            loginManager.logOut() // this is an instance function
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-        
-        ProfileManager.sharedInstance.fetchUserInfo { (userInfo) in
-            print("User Info \(userInfo)")
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
         }
+        
+
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
@@ -123,8 +121,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             if let err = error{
                 print("Failed to Firebase user with Google account", err)
             }
-            guard let uid = user?.uid else { return }
-            print("Successfully Logged into firebase with Google",uid)
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            print("Successfully Logged into firebase with Google")
+            ProfileManager.sharedInstance.fetchUserInfo({ (userInfo) in
+                ProfileManager.sharedInstance.user = userInfo
+                guard let _ = ProfileManager.sharedInstance.user?.id else {
+                    BaseAPI.sharedInstance.createNewUser(uid)
+                    ProfileManager.sharedInstance.user?.id = uid
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
+                    return
+                }
+                
+                if (ProfileManager.sharedInstance.userHasUsername()) {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FullLogin"), object: nil)
+                } else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Login"), object: nil)
+                }
+            })
         }
     }
     
