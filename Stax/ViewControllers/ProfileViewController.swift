@@ -85,6 +85,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             GIDSignIn.sharedInstance().signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "SignoutNotification"), object: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }

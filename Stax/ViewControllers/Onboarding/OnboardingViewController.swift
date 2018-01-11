@@ -12,6 +12,7 @@ import Firebase
 import GoogleSignIn
 import UIKit
 
+/* Custom view controller that handles aunthentication functinality */
 class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
