@@ -43,9 +43,31 @@ class ProfileManager: NSObject {
     
     /* Return if the user has a username */
     func userHasUsername() -> Bool {
-        if user?.username != "" {
+        if user?.username != nil && user?.username != "" {
             return true
         }
         return false
+    }
+    
+    /* Create new user flag */
+    func userExistsInDB(_ uid: String, completion: @escaping (Bool, Bool) -> ()) {
+        var userBool: Bool = false
+        var usernameBool: Bool = false
+        api.db.collection("users").document(uid).getDocument(completion: { (document, error) in
+            if let err = error {
+                print("userExistInDb error: \(err.localizedDescription)")
+                completion(userBool, usernameBool)
+            } else {
+                userBool = true
+                guard let _ = document!["username"] else {
+                    usernameBool = false
+                    print("Username does not exist")
+                    completion(userBool, usernameBool)
+                    return
+                }
+                usernameBool = true
+                completion(userBool, usernameBool)
+            }
+        })
     }
 }
