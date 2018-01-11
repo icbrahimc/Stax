@@ -40,4 +40,12 @@ class ProfileManager: NSObject {
             completion(userInfo)
         })
     }
+    
+    /* Return if the user has a username */
+    func userHasUsername() -> Bool {
+        if user?.username != "" {
+            return true
+        }
+        return false
+    }
 }

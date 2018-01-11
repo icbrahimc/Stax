@@ -23,7 +23,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
     }()
     
     var mainViewController: UIViewController {
-        if ProfileManager.sharedInstance.user?.username != "" {
+        if ProfileManager.sharedInstance.userHasUsername() {
             setup()
             return mainTabVC
         }
