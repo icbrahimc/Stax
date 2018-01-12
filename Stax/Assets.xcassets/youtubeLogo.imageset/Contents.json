@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "spotifyMusic-2.png",
+      "filename" : "ytLogo-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "spotifyMusic-1.png",
+      "filename" : "ytLogo-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "spotifyMusic.png",
+      "filename" : "ytLogo.png",
       "scale" : "3x"
     }
   ],

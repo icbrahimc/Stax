@@ -31,7 +31,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         // self.clearsSelectionOnViewWillAppear = false
 
         title = "Discovery"
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)
         
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
@@ -75,18 +75,30 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 30
+        return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-        
+//        let playlist = playlists[indexPath.row]
+//        
+//        if let title = playlist.title {
+//            cell.titleLabel.text = title
+//        }
+//        
+//        if let creatorUsername = playlist.creatorUsername {
+//            cell.creatorLabel.text = "Curated by: \(creatorUsername)"
+//        }
+//        
+//        if let imageURL = playlist.coverArtLink {
+//            cell.imageView.loadImageUsingCacheWithUrlString(imageURL)
+//        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-        let height = width
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height * 0.8
         
         return CGSize(width: width, height: height)
     }
