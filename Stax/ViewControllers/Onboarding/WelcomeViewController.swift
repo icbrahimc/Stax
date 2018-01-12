@@ -13,14 +13,13 @@ import GoogleSignIn
 import TTTAttributedLabel
 import UIKit
 
-class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttributedLabelDelegate {
+class WelcomeViewController: OnboardingViewController, GIDSignInUIDelegate, TTTAttributedLabelDelegate {
     let logoDesign = UIImageView.newAutoLayout()
     let tagLineLabel = UILabel.newAutoLayout()
     let elementSize: CGSize = CGSize(width: 300, height: 45)
     let formDivider = FormDivider.newAutoLayout()
     let facebookSignInBtn = UIButton(type: UIButtonType.roundedRect)
     let googleSignInBtn = UIButton(type: UIButtonType.roundedRect)
-    let logout = TTTAttributedLabel.newAutoLayout()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,64 +37,6 @@ class WelcomeViewController: UIViewController, GIDSignInUIDelegate, TTTAttribute
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @objc func facebookSignIn() {
-        print("Facebook")
-        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self, handler: {
-            (result, err) in
-            if let error = err {
-                print(error.localizedDescription)
-                return
-            }
-
-            // Get the access token and authenticate.
-            let accessToken = FBSDKAccessToken.current()
-            guard let accessTokenString = accessToken?.tokenString else {
-                return
-            }
-
-            let credential = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
-            Auth.auth().signIn(with: credential) { (user, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-
-                // If the user is signed in and authenticated, segue to a new view controller.
-                if let newUser = user {
-
-                    let graphPath = "me"
-                    let parameters = ["fields": "id, email, name, first_name, last_name, picture"]
-                    let graphRequest = FBSDKGraphRequest(graphPath: graphPath, parameters: parameters)
-                    let connection = FBSDKGraphRequestConnection()
-
-                    connection.add(graphRequest, completionHandler: { (connection, result, error) in
-                        if let error = error {
-                            print(error.localizedDescription)
-                            return
-                        }
-                        // Todo(icbrahimc): add custom segue when it makes complete sense.
-                    })
-                    connection.start()
-                }
-            }
-        })
-
-    }
-
-    @objc func googleSignIn() {
-        print("Google")
-        GIDSignIn.sharedInstance().signIn()
-        customSegue()
-    }
-
-    /* Segue to assist with onboarding vc. */
-    func customSegue() {
-        if let navVC = navigationController as? OnboardingNavigationController {
-            navVC.statisfyRequirement(.signIn)
-            navVC.pushNextPhase()
-        }
-    }
 }
 
 extension WelcomeViewController {
@@ -106,11 +47,6 @@ extension WelcomeViewController {
         logoDesign.autoAlignAxis(toSuperviewAxis: .vertical)
         logoDesign.autoSetDimensions(to: CGSize(width: 150, height: 75))
         logoDesign.autoPinEdge(toSuperviewEdge: .top, withInset: 175)
-
-        logoutLabel()
-        logout.autoAlignAxis(toSuperviewAxis: .vertical)
-        logout.autoSetDimension(.width, toSize: view.frame.width)
-        logout.autoPinEdge(.top, to: .bottom, of: logoDesign, withOffset: 10)
 
         setupTagLabel()
         tagLineLabel.autoAlignAxis(toSuperviewAxis: .vertical)
@@ -137,16 +73,6 @@ extension WelcomeViewController {
         view.addSubview(facebookSignInBtn)
         view.addSubview(googleSignInBtn)
         view.addSubview(formDivider)
-        view.addSubview(logout)
-    }
-
-    func logoutLabel() {
-        logout.textColor = .white
-        logout.textAlignment = .center
-        logout.text = "Logout"
-        logout.delegate = self
-        let linkRange = NSString(string: "Logout").range(of: "Logout")
-        logout.addLink(to: URL(string: "forgot password"), with: linkRange)
     }
 
     func setupTagLabel() {
@@ -169,19 +95,5 @@ extension WelcomeViewController {
         googleSignInBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         googleSignInBtn.layer.cornerRadius = 5.0
         googleSignInBtn.layer.masksToBounds = true
-    }
-
-    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-        if label == logout {
-            let firebaseAuth = Auth.auth()
-            do {
-                try firebaseAuth.signOut()
-                GIDSignIn.sharedInstance().signOut()
-                let loginManager = FBSDKLoginManager()
-                loginManager.logOut() // this is an instance function
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-            }
-        }
     }
 }

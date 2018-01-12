@@ -23,7 +23,7 @@ class MainController: NSObject, UITabBarControllerDelegate {
     }()
     
     var mainViewController: UIViewController {
-        if ProfileManager.sharedInstance.user?.username != "" {
+        if ProfileManager.sharedInstance.userHasUsername() {
             setup()
             return mainTabVC
         }
@@ -34,6 +34,9 @@ class MainController: NSObject, UITabBarControllerDelegate {
     fileprivate func setup() {
         self.mainTabVC.selectedIndex = 0
 
+        signoutObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SignoutNotification"), object: nil, queue: nil) { [weak self] notification in
+            self?.activateLogin()
+        }
         mainTabVC.delegate = self
     }
     

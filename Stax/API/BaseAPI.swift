@@ -245,7 +245,8 @@ class BaseAPI: NSObject {
     
     /* Create username */
     func createNewUsername(_ id: String, username: String) {
-        db.collection("users").document(id).setData(["username": username])
+        db.collection("users").document(id).updateData(["username": username])
+        db.collection("usernames").document(username).setData(["id": id])
     }
     
     /* Load the user info */
@@ -258,8 +259,18 @@ class BaseAPI: NSObject {
 
             let collection = self.db.collection("users").document(userID)
             collection.getDocument(completion: { (document, err) in
+                if let error = err {
+                    print("loadUserInfo error: \(error.localizedDescription)")
+                    completion([:])
+                    return
+                }
+                
                 if let document = document {
-                    completion(document.data())
+                    if document.exists {
+                        completion(document.data())
+                        return
+                    }
+                    completion([:])
                 }
             })
         })
