@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/API/BaseAPI.swift"
-            timestampString = "537360174.494202"
+            timestampString = "537526555.571265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "addPlaylist(_:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/API/BaseAPI.swift"
-            timestampString = "537360174.494274"
+            timestampString = "537526555.571723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "savePhotoIntoDB(_:image:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/API/BaseAPI.swift"
-            timestampString = "537360174.494329"
+            timestampString = "537526555.572053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "addPlaylist(_:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
