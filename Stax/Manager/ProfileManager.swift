@@ -22,6 +22,8 @@ class ProfileManager: NSObject {
         self.user = User(username: "", id: "", favoritedPlaylists: NSMutableArray())
     }
     
+    var likeIds: Set<String> = Set()
+    
     /* Fetch the user's info */
     func fetchUserInfo(_ completion: @escaping (User) -> ()) {
         var userInfo: User = User()
@@ -37,8 +39,29 @@ class ProfileManager: NSObject {
             if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
                 userInfo.favoritedPlaylists = playlist
             }
+            
+            self.fetchUserLikes(userInfo.id!, completion: { (truthValue) in
+                print(self.likeIds)
+            })
             completion(userInfo)
         })
+    }
+    
+    /* Fetch users likes */
+    func fetchUserLikes(_ uid: String, completion: @escaping (Bool) -> ()) {
+        api.db.collection("likes").document(uid).getDocument { (querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            guard let document = querySnapshot?.data() else { return }
+            for ids in document.keys {
+                self.likeIds.insert(ids)
+            }
+            completion(true)
+        }
     }
     
     /* Return if the user has a username */
@@ -86,5 +109,24 @@ class ProfileManager: NSObject {
                 completion(userBool, usernameBool)
             }
         })
+    }
+    
+    /* Like */
+    func likePlaylist(_ playlist: Playlist) {
+        api.likePlaylist((user?.id)!, playlist: playlist) { (likeID) in
+            self.likeIds.insert(likeID)
+        }
+    }
+    
+    /* Unlike */
+    func unlikePlaylist(_ playlist: Playlist) {
+        api.unlikePlaylist((user?.id)!, playlist: playlist) { (likeID) in
+            self.likeIds.remove(likeID)
+        }
+    }
+    
+    /* Check if like is in set */
+    func checkIfLikeExists(_ playlistID: String) -> Bool {
+        return likeIds.contains(playlistID)
     }
 }

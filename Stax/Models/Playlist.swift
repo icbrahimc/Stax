@@ -19,10 +19,36 @@ struct Playlist {
     var youtubeLink: String?
 //    var rating: NSNumber = 0.0
     var coverArtLink: String?
+    var likes: NSMutableArray?
 //    var songs: NSMutableArray?
 //    var numRatings: NSNumber = 0.0
 //    var numFavorites: NSNumber = 0.0
 //    var tags: NSMutableArray?
+    init() {
+        self.id = ""
+        self.title = ""
+        self.description = ""
+        self.creatorUsername = ""
+        self.spotifyLink = ""
+        self.appleLink = ""
+        self.cloudLink = ""
+        self.youtubeLink = ""
+        self.coverArtLink = ""
+        self.likes = []
+    }
+    
+    init(id: String, title: String, description: String, creatorUsername: String, spotifyLink: String, appleLink: String, cloudLink: String, youtubeLink: String, coverArtLink: String, likes: NSMutableArray) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.creatorUsername = creatorUsername
+        self.spotifyLink = spotifyLink
+        self.appleLink = appleLink
+        self.cloudLink = cloudLink
+        self.youtubeLink = youtubeLink
+        self.coverArtLink = coverArtLink
+        self.likes = likes
+    }
     
 //    func updateRating(newRating: NSNumber) {
 //        let totalRating = self.rating.doubleValue * self.numRatings.doubleValue + newRating.doubleValue

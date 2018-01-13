@@ -31,6 +31,7 @@ class WelcomeViewController: OnboardingViewController, GIDSignInUIDelegate, TTTA
         facebookSignInBtn.addTarget(self, action: #selector(WelcomeViewController.facebookSignIn), for: .touchUpInside)
         googleSignInBtn.addTarget(self, action: #selector(WelcomeViewController.googleSignIn), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
+        navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {

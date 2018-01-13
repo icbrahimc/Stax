@@ -40,7 +40,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
-//        fetchPlaylists()
+        fetchPlaylists()
     }
 
     /* Fetch users playlist */
@@ -50,18 +50,20 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                 print("Error fetching documents: \(error!)")
                 return
             }
-            
             for document in documents {
-                let id = document["id"] as! String
-                let title = document["title"] as! String
-                let description = document["description"] as! String
-                let creatorUsername = document["creatorUsername"] as! String
-                let appleLink = document["appleMusicLink"] as! String
-                let spotifyLink = document["spotifyMusicLink"] as! String
-                let youtubeLink = document["youtubeLink"] as! String
-                let cloudLink = document["soundcloudLink"] as! String
-                let coverartLink = document["coverartLink"] as! String
-                let appendPlaylist = Playlist(id: id, title: title, description: description, creatorUsername: creatorUsername, spotifyLink: spotifyLink, appleLink: appleLink, cloudLink: cloudLink, youtubeLink: youtubeLink, coverArtLink: coverartLink)
+                let id = document["id"] as? String
+                let title = document["title"] as? String
+                let description = document["description"] as? String
+                let creatorUsername = document["creatorUsername"] as? String
+                let appleLink = document["appleMusicLink"] as? String
+                let spotifyLink = document["spotifyMusicLink"] as? String
+                let youtubeLink = document["youtubeLink"] as? String
+                let cloudLink = document["soundcloudLink"] as? String
+                let coverartLink = document["coverartLink"] as? String
+                let likes = document["likes"] as? NSDictionary
+                
+
+                let appendPlaylist = Playlist(id: id ?? "", title: title ?? "", description: description ?? "", creatorUsername: creatorUsername ?? "", spotifyLink: spotifyLink ?? "", appleLink: appleLink ?? "", cloudLink: cloudLink ?? "", youtubeLink: youtubeLink ?? "", coverArtLink: coverartLink ?? "", likes: likes?.allKeys as? NSMutableArray ?? NSMutableArray())
                 self.playlists.append(appendPlaylist)
             }
         })
@@ -75,30 +77,19 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return playlists.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-//        let playlist = playlists[indexPath.row]
-//        
-//        if let title = playlist.title {
-//            cell.titleLabel.text = title
-//        }
-//        
-//        if let creatorUsername = playlist.creatorUsername {
-//            cell.creatorLabel.text = "Curated by: \(creatorUsername)"
-//        }
-//        
-//        if let imageURL = playlist.coverArtLink {
-//            cell.imageView.loadImageUsingCacheWithUrlString(imageURL)
-//        }
+        let playlist = playlists[indexPath.row]
+        cell.playlist = playlist
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height * 0.8
+        let height = UIScreen.main.bounds.size.height * 0.75
         
         return CGSize(width: width, height: height)
     }

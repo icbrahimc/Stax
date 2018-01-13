@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Firebase
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
@@ -28,20 +29,6 @@ class BaseAPI: NSObject {
     func addPlaylist(_ playlist: Playlist, completionBlock: @escaping (String) -> ()) {
         let user = "icbrahimc"
         var playlistRef: DocumentReference? = nil
-        /* TODO: redo later.
-             [
-             "name": playlist.name!,
-             "rating": playlist.rating.doubleValue,
-             "favorites": playlist.numFavorites.doubleValue,
-             "num_ratings": playlist.numRatings.intValue,
-             "apple_link": playlist.appleLink!,
-             "cloud_link": playlist.cloudLink!,
-             "spotify_link": playlist.spotifyLink!,
-             "cover_art_link": playlist.coverArtLink!,
-             "tags": playlist.tags! as NSArray as! [String],
-             "creator": user
-             ]
-        */
         playlistRef = db.collection("playlists").addDocument(data: [
             "id": playlistRef?.documentID,
             "title" : playlist.title,
@@ -51,7 +38,8 @@ class BaseAPI: NSObject {
             "spotifyMusicLink": playlist.spotifyLink,
             "soundcloudLink": playlist.cloudLink,
             "youtubeLink": playlist.youtubeLink,
-            "coverartLink": playlist.coverArtLink
+            "coverartLink": playlist.coverArtLink,
+            "likes": playlist.likes,
         ]) { (error: Error?) in
             if let error = error {
                 print("Error adding playlist: \(error)")
@@ -64,6 +52,7 @@ class BaseAPI: NSObject {
         //TODO: add a reference from this playlist to the playlist creator's created playlists list
     }
     
+    /* save a photo in the db */
     func savePhotoIntoDB(_ playlistId: String, image: UIImage, completionBlock: @escaping () -> ()) {
         let storageRef = Storage.storage().reference().child("playlists").child("\(playlistId).png")
         
@@ -91,6 +80,62 @@ class BaseAPI: NSObject {
             })
         }
     }
+    
+    /////////////////* User functions */////////////////
+    
+    /* Favorite a playlist */
+    func likePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let likeRef = db.collection("likes").document(uid)
+        let playlistRef = db.collection("playlists").document(playlist.id!)
+        playlistRef.setData(["likes" : [uid : true]], options: SetOptions.merge()) { (err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            print("Successfully liked playlist")
+            likeRef.setData([playlist.id! : ["id" : uid, "date" : time]], options: SetOptions.merge(), completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("User like recorded")
+                completion(playlist.id!)
+            })
+        }
+    }
+    
+    /* Unfavorite a playlist */
+    func unlikePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let likeRef = db.collection("likes").document(uid)
+        let playlistRef = db.collection("playlists").document(playlist.id!)
+        playlistRef.updateData(["likes.\(uid)" : FieldValue.delete()], completion: { (err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            print("Successfully unliked playlist")
+            likeRef.updateData([playlist.id! : FieldValue.delete()], completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("User dislike recorded")
+                completion(playlist.id!)
+            })
+        })
+        //TODO: get current favorited playlists, remove the playlistRef from that list, then set the favorited playlists to the list with the one removed
+    }
+    
     
     /* Add a user to the database */
     func addUser(user: User) {
@@ -148,58 +193,6 @@ class BaseAPI: NSObject {
 //                print("User, \(user.username!), name successfully updated to \(user.name!)")
 //            }
 //        }
-    }
-    
-    func tester2(username: String, name: String) {
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
-            "name": name,
-        ]) { err in
-            if let err = err {
-                print("error adding document: \(err)")
-            } else {
-                print("document added with id: \(ref!.documentID)")
-            }
-        }
-    }
-    
-    func tester (username: String) {
-        db.collection("users").document(username).getDocument { (document, error) in
-            if let document = document {
-                let favoritedPlaylists = document.data()
-                print("Document data: \(favoritedPlaylists)")
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
-    
-    /* Favorite a playlist */
-    func favoritePlaylist(user: User, playlist: Playlist) {
-        let playlistRef = db.collection("playlists").document(playlist.id!);
-        db.collection("users").document(user.username!).getDocument { (document, error) in
-            if let document = document {
-                let favoritedPlaylists = document.data()
-                print("Document data: \(favoritedPlaylists)")
-            } else {
-                print("Document does not exist")
-            }
-        }
-        //TODO: get current favorited playlists, add the playlistRef to that list, then set the favorited playlists to the list with the new one added
-    }
-    
-    /* Unfavorite a playlist */
-    func unFavoritePlaylist(user: User, playlist: Playlist) {
-        let playlistRef = db.collection("playlists").document(playlist.id!);
-        db.collection("users").document(user.username!).getDocument { (document, error) in
-            if let document = document {
-                let favoritedPlaylists = document.data()
-                print("Document data: \(favoritedPlaylists)")
-            } else {
-                print("Document does not exist")
-            }
-        }
-        //TODO: get current favorited playlists, remove the playlistRef from that list, then set the favorited playlists to the list with the one removed
     }
     
     /* Rate a playlist */

@@ -39,7 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-
+        
+//        let firebaseAuth = Auth.auth()
+//        do {
+//            try firebaseAuth.signOut()
+//            GIDSignIn.sharedInstance().signOut()
+//            let loginManager = FBSDKLoginManager()
+//            loginManager.logOut() // this is an instance function
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: "SignoutNotification"), object: nil)
+//        } catch let signOutError as NSError {
+//            print ("Error signing out: %@", signOutError)
+//        }
+        
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
