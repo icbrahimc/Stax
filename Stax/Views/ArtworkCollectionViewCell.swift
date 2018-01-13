@@ -9,10 +9,30 @@
 import UIKit
 
 class ArtworkCollectionViewCell: UICollectionViewCell {
+    var playlist : Playlist? {
+        didSet {
+            guard let playlist = playlist else { return }
+            
+            if let title = playlist.title {
+                titleLabel.text = title
+            }
+            
+            if let creatorUsername = playlist.creatorUsername {
+                creatorLabel.text = "Curated by: \(creatorUsername)"
+            }
+            
+            if let imageURL = playlist.coverArtLink {
+                imageView.loadImageUsingCacheWithUrlString(imageURL)
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         backgroundColor = UIColor.white
+        
+        like.addTarget(self, action: #selector(pressLikeBTN), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -121,5 +141,13 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         btnFour.autoPinEdge(.right, to: .left, of: btnThree, withOffset: -2.5)
         btnFour.autoMatch(.height, to: .height, of: like)
         btnFour.autoMatch(.width, to: .width, of: like)
+    }
+    
+    @objc func pressLikeBTN() {
+        if ProfileManager.sharedInstance.checkIfLikeExists((playlist?.id)!) {
+            ProfileManager.sharedInstance.unlikePlaylist(playlist!)
+        } else {
+            ProfileManager.sharedInstance.likePlaylist(playlist!)
+        }
     }
 }

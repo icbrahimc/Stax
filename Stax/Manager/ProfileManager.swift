@@ -103,4 +103,9 @@ class ProfileManager: NSObject {
             self.likeIds.remove(likeID)
         }
     }
+    
+    /* Check if like is in set */
+    func checkIfLikeExists(_ playlistID: String) -> Bool {
+        return likeIds.contains(playlistID)
+    }
 }

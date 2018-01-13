@@ -118,7 +118,7 @@ class BaseAPI: NSObject {
         
         let likeRef = db.collection("likes").document(uid)
         let playlistRef = db.collection("playlists").document(playlist.id!)
-        playlistRef.updateData(["likes" : [uid : FieldValue.delete()]], completion: { (err) in
+        playlistRef.updateData(["likes.\(uid)" : FieldValue.delete()], completion: { (err) in
             if let error = err {
                 print(error.localizedDescription)
                 return
