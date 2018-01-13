@@ -28,6 +28,8 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
         
         usernameField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         submitButton.addTarget(self, action: #selector(submitUsername), for: .touchUpInside)
+        
+        navigationController?.isNavigationBarHidden = false
         // Do any additional setup after loading the view.
     }
     
