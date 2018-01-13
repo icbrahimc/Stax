@@ -39,8 +39,29 @@ class ProfileManager: NSObject {
             if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
                 userInfo.favoritedPlaylists = playlist
             }
+            
+            self.fetchUserLikes(userInfo.id!, completion: { (truthValue) in
+                print(self.likeIds)
+            })
             completion(userInfo)
         })
+    }
+    
+    /* Fetch users likes */
+    func fetchUserLikes(_ uid: String, completion: @escaping (Bool) -> ()) {
+        api.db.collection("likes").document(uid).getDocument { (querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            guard let document = querySnapshot?.data() else { return }
+            for ids in document.keys {
+                self.likeIds.insert(ids)
+            }
+            completion(true)
+        }
     }
     
     /* Return if the user has a username */
