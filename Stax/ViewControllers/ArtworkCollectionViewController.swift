@@ -40,7 +40,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
-        fetchPlaylists()
+//        fetchPlaylists()
     }
 
     /* Fetch users playlist */
@@ -82,19 +82,19 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-//        let playlist = playlists[indexPath.row]
-//        
-//        if let title = playlist.title {
-//            cell.titleLabel.text = title
-//        }
-//        
-//        if let creatorUsername = playlist.creatorUsername {
-//            cell.creatorLabel.text = "Curated by: \(creatorUsername)"
-//        }
-//        
-//        if let imageURL = playlist.coverArtLink {
-//            cell.imageView.loadImageUsingCacheWithUrlString(imageURL)
-//        }
+        let playlist = playlists[indexPath.row]
+        
+        if let title = playlist.title {
+            cell.titleLabel.text = title
+        }
+        
+        if let creatorUsername = playlist.creatorUsername {
+            cell.creatorLabel.text = "Curated by: \(creatorUsername)"
+        }
+        
+        if let imageURL = playlist.coverArtLink {
+            cell.imageView.loadImageUsingCacheWithUrlString(imageURL)
+        }
         return cell
     }
     

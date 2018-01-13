@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Firebase
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
@@ -83,26 +84,54 @@ class BaseAPI: NSObject {
     /////////////////* User functions */////////////////
     
     /* Favorite a playlist */
-    func likePlaylist(user: User, playlist: Playlist) {
+    func likePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let likeRef = db.collection("likes").document(uid)
         let playlistRef = db.collection("playlists").document(playlist.id!)
-        playlistRef.setData(["likes" : [user.id! : true]], options: SetOptions.merge()) { (err) in
+        playlistRef.setData(["likes" : [uid : true]], options: SetOptions.merge()) { (err) in
             if let error = err {
                 print(error.localizedDescription)
                 return
             }
             print("Successfully liked playlist")
+            likeRef.setData([playlist.id! : ["id" : uid, "date" : time]], options: SetOptions.merge(), completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("User like recorded")
+                completion(playlist.id!)
+            })
         }
     }
     
     /* Unfavorite a playlist */
-    func unlikePlaylist(user: User, playlist: Playlist) {
+    func unlikePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let likeRef = db.collection("likes").document(uid)
         let playlistRef = db.collection("playlists").document(playlist.id!)
-        playlistRef.updateData(["likes" : [user.id! : FieldValue.delete()]], completion: { (err) in
+        playlistRef.updateData(["likes" : [uid : FieldValue.delete()]], completion: { (err) in
             if let error = err {
                 print(error.localizedDescription)
                 return
             }
             print("Successfully unliked playlist")
+            likeRef.updateData([playlist.id! : FieldValue.delete()], completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("User dislike recorded")
+                completion(playlist.id!)
+            })
         })
         //TODO: get current favorited playlists, remove the playlistRef from that list, then set the favorited playlists to the list with the one removed
     }
@@ -164,30 +193,6 @@ class BaseAPI: NSObject {
 //                print("User, \(user.username!), name successfully updated to \(user.name!)")
 //            }
 //        }
-    }
-    
-    func tester2(username: String, name: String) {
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
-            "name": name,
-        ]) { err in
-            if let err = err {
-                print("error adding document: \(err)")
-            } else {
-                print("document added with id: \(ref!.documentID)")
-            }
-        }
-    }
-    
-    func tester (username: String) {
-        db.collection("users").document(username).getDocument { (document, error) in
-            if let document = document {
-                let favoritedPlaylists = document.data()
-                print("Document data: \(favoritedPlaylists)")
-            } else {
-                print("Document does not exist")
-            }
-        }
     }
     
     /* Rate a playlist */
