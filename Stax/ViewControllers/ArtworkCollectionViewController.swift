@@ -84,23 +84,12 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
         let playlist = playlists[indexPath.row]
         cell.playlist = playlist
-//        if let title = playlist.title {
-//            cell.titleLabel.text = title
-//        }
-//
-//        if let creatorUsername = playlist.creatorUsername {
-//            cell.creatorLabel.text = "Curated by: \(creatorUsername)"
-//        }
-//
-//        if let imageURL = playlist.coverArtLink {
-//            cell.imageView.loadImageUsingCacheWithUrlString(imageURL)
-//        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height * 0.8
+        let height = UIScreen.main.bounds.size.height * 0.75
         
         return CGSize(width: width, height: height)
     }
