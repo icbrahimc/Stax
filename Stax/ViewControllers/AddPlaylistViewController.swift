@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     var playlist: Playlist?
     let imagePicker = UIImagePickerController()
     let contentView = UIScrollView.newAutoLayout()
@@ -19,6 +19,9 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     let spotifyLink = UITextField.newAutoLayout()
     let soundcloudLink = UITextField.newAutoLayout()
     let youtubeLink = UITextField.newAutoLayout()
+    
+    var bottomScrollViewConstraint: NSLayoutConstraint?
+    var topScrollViewConstraint: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,13 +152,18 @@ extension AddPlaylistViewController {
     func layout () {
         addSubviews()
         
-        contentView.autoPinEdgesToSuperviewEdges()
+        contentView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
+        contentView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
+        contentView.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
+        contentView.autoAlignAxis(toSuperviewAxis: .vertical)
+        contentView.autoAlignAxis(toSuperviewAxis: .horizontal)
+        contentView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
         
         setupImageView()
         imageField.autoAlignAxis(toSuperviewAxis: .vertical)
         imageField.autoPinEdge(toSuperviewEdge: .top, withInset: 25)
-        imageField.autoSetDimension(.height, toSize: view.frame.height * 0.2)
-        imageField.autoSetDimension(.width, toSize: view.frame.height * 0.2)
+        imageField.autoSetDimension(.height, toSize: view.frame.height * 0.3)
+        imageField.autoSetDimension(.width, toSize: view.frame.height * 0.3)
         
         setupTitleField()
         titleField.autoPinEdge(.top, to: .bottom, of: imageField, withOffset: 10)
@@ -192,11 +200,13 @@ extension AddPlaylistViewController {
         soundcloudLink.autoSetDimension(.width, toSize: view.frame.width)
         soundcloudLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
         soundcloudLink.autoAlignAxis(toSuperviewAxis: .vertical)
+        soundcloudLink.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
     }
     
     func addSubviews() {
         print("Add subviews")
         view.addSubview(contentView)
+
         contentView.addSubview(imageField)
         contentView.addSubview(titleField)
         contentView.addSubview(descriptionField)

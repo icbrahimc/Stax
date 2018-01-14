@@ -32,18 +32,19 @@ class ProfileManager: NSObject {
                 userInfo.username = username
             }
             
-            if let id = userData["id"] as? String {
-                userInfo.id = id
-            }
-            
             if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
                 userInfo.favoritedPlaylists = playlist
             }
             
-            self.fetchUserLikes(userInfo.id!, completion: { (truthValue) in
-                print(self.likeIds)
+            if let id = userData["id"] as? String {
+                userInfo.id = id
+                self.fetchUserLikes(id, completion: { (truthValue) in
+                    print(self.likeIds)
+                    completion(userInfo)
+                })
+            } else {
                 completion(userInfo)
-            })
+            }
         })
     }
     
