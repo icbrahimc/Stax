@@ -24,6 +24,15 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
             if let imageURL = playlist.coverArtLink {
                 imageView.loadImageUsingCacheWithUrlString(imageURL)
             }
+            
+            if let playlistID = playlist.id {
+                if ProfileManager.sharedInstance.checkIfLikeExists(playlistID) {
+                    like.alpha = 1.0
+                } else {
+                    like.alpha = 0.5
+                }
+                
+            }
         }
     }
     
@@ -145,9 +154,21 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     
     @objc func pressLikeBTN() {
         if ProfileManager.sharedInstance.checkIfLikeExists((playlist?.id)!) {
-            ProfileManager.sharedInstance.unlikePlaylist(playlist!)
+            UIView.animate(withDuration: 0.2, animations: {
+                self.like.alpha = 0.5
+            }, completion: { (success) in
+                if success {
+                    ProfileManager.sharedInstance.unlikePlaylist(self.playlist!, completion: {})
+                }
+            })
         } else {
-            ProfileManager.sharedInstance.likePlaylist(playlist!)
+            UIView.animate(withDuration: 0.2, animations: {
+                self.like.alpha = 1.0
+            }, completion: { (success) in
+                if success {
+                    ProfileManager.sharedInstance.likePlaylist(self.playlist!, completion: {})
+                }
+            })
         }
     }
 }

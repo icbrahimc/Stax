@@ -42,8 +42,8 @@ class ProfileManager: NSObject {
             
             self.fetchUserLikes(userInfo.id!, completion: { (truthValue) in
                 print(self.likeIds)
+                completion(userInfo)
             })
-            completion(userInfo)
         })
     }
     
@@ -112,16 +112,18 @@ class ProfileManager: NSObject {
     }
     
     /* Like */
-    func likePlaylist(_ playlist: Playlist) {
+    func likePlaylist(_ playlist: Playlist, completion: @escaping () -> ()) {
         api.likePlaylist((user?.id)!, playlist: playlist) { (likeID) in
             self.likeIds.insert(likeID)
+            completion()
         }
     }
     
     /* Unlike */
-    func unlikePlaylist(_ playlist: Playlist) {
+    func unlikePlaylist(_ playlist: Playlist, completion: @escaping () -> ()) {
         api.unlikePlaylist((user?.id)!, playlist: playlist) { (likeID) in
             self.likeIds.remove(likeID)
+            completion()
         }
     }
     
