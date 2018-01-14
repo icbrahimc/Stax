@@ -66,8 +66,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     }
     
     @objc func cancelCreate() {
-        self.navigationController?.popToViewController(ArtworkCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
-//        self.parent?.navigationController?.popViewController(animated: tru)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func submitPlaylist() {
@@ -98,7 +97,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         
         BaseAPI.sharedInstance.addPlaylist(playlist!, completionBlock: { (documentID) in
             BaseAPI.sharedInstance.savePhotoIntoDB(documentID, image: (self.imageField.imageView?.image)!, completionBlock: { () in
-                self.navigationController?.popToRootViewController(animated: true)
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
             })
         })
     }

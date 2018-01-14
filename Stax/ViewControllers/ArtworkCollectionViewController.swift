@@ -40,7 +40,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
-        fetchPlaylists()
+//        fetchPlaylists()
     }
 
     /* Fetch users playlist */
