@@ -16,6 +16,11 @@ class MainTabBarController: UITabBarController {
         return artworkVC
     }()
     
+    fileprivate lazy var addPlaylistVC: UIViewController = {
+        let vc = AddPlaylistViewController()
+        return vc
+    }()
+    
     fileprivate lazy var profileVC: UICollectionViewController = {
         let profileLayout = UICollectionViewFlowLayout()
         let profileVC = ProfileViewController(collectionViewLayout: profileLayout)
@@ -34,11 +39,14 @@ class MainTabBarController: UITabBarController {
     
     func setup() {
         let navVCArtwork = UINavigationController(rootViewController: artworkVC)
-        navVCArtwork.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
+        navVCArtwork.tabBarItem =  UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "home"), tag: 1)
+        
+        let navVCAddPlaylist = UINavigationController(rootViewController: addPlaylistVC)
+        navVCAddPlaylist.tabBarItem = UITabBarItem(title: "Add Playlist", image: #imageLiteral(resourceName: "add"), tag: 2)
         
         let navVCProf = UINavigationController(rootViewController: profileVC)
-        navVCProf.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        navVCProf.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "person"), tag: 3)
         
-        viewControllers = [navVCArtwork, navVCProf]
+        viewControllers = [navVCArtwork, navVCAddPlaylist, navVCProf]
     }
 }
