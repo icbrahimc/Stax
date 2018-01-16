@@ -47,6 +47,10 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as! ProfileReusableView
+            
+            if let username = ProfileManager.sharedInstance.user?.username {
+                headerView.usernameLabel.text = "@\(username)"
+            }
             return headerView
         default:
             assert(false, "Unexpected element kind")
@@ -85,7 +89,9 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             GIDSignIn.sharedInstance().signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "SignoutNotification"), object: nil)
+            ProfileManager.sharedInstance.clearUserInfo {
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "SignoutNotification"), object: nil)
+            }
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }

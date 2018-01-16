@@ -24,6 +24,14 @@ class ProfileManager: NSObject {
     
     var likeIds: Set<String> = Set()
     
+    /* Clear user info */
+    func clearUserInfo(_ completion: @escaping () -> ()) {
+        user?.id = ""
+        user?.username = ""
+        user?.favoritedPlaylists = NSMutableArray()
+        likeIds = Set()
+    }
+    
     /* Fetch the user's info */
     func fetchUserInfo(_ completion: @escaping (User) -> ()) {
         var userInfo: User = User()
