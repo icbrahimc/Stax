@@ -82,6 +82,9 @@ class SettingsViewController: UITableViewController {
             switch(indexPath.row) {
             case 0:
                 tableView.deselectRow(at: indexPath, animated: false)
+                AppleMusicManager.sharedInstance.appleMusicRequestPermission(self, completion: { (authorized) in
+                    print("Ibrahim good")
+                })
                 break
             default:
                 break
@@ -109,60 +112,6 @@ class SettingsViewController: UITableViewController {
         default:
             break
         }
-    }
-    
-    // Request permission from the user to access the Apple Music library
-    
-    func appleMusicRequestPermission() {
-        
-        switch SKCloudServiceController.authorizationStatus() {
-            
-        case .authorized:
-            
-            print("The user's already authorized - we don't need to do anything more here, so we'll exit early.")
-            return
-            
-        case .denied:
-            
-            print("The user has selected 'Don't Allow' in the past - so we're going to show them a different dialog to push them through to their Settings page and change their mind, and exit the function early.")
-            
-            // Show an alert to guide users into the Settings
-            
-            return
-            
-        case .notDetermined:
-            
-            print("The user hasn't decided yet - so we'll break out of the switch and ask them.")
-            break
-            
-        case .restricted:
-            
-            print("User may be restricted; for example, if the device is in Education mode, it limits external Apple Music usage. This is similar behaviour to Denied.")
-            return
-        }
-        
-        SKCloudServiceController.requestAuthorization { (status:SKCloudServiceAuthorizationStatus) in
-            
-            switch status {
-                
-            case .authorized:
-                
-                print("All good - the user tapped 'OK', so you're clear to move forward and start playing.")
-                
-            case .denied:
-                
-                print("The user tapped 'Don't allow'. Read on about that below...")
-                
-            case .notDetermined:
-                
-                print("The user hasn't decided or it's not clear whether they've confirmed or denied.")
-                
-            default: break
-                
-            }
-            
-        }
-        
     }
     
     // Fetch the user's storefront ID
