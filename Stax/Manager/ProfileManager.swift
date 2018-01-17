@@ -30,6 +30,7 @@ class ProfileManager: NSObject {
         user?.username = ""
         user?.favoritedPlaylists = NSMutableArray()
         likeIds = Set()
+        completion()
     }
     
     /* Fetch the user's info */

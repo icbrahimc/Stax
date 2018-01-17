@@ -20,6 +20,7 @@
 		AA226B8E1FFCC60900027089 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */; };
 		AA226B8F1FFCC60900027089 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */; };
 		AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */; };
+		AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */; };
 		AA3A10122004ECEE0039333E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10112004ECEE0039333E /* Extensions.swift */; };
 		AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10142006F9BD0039333E /* LaunchViewController.swift */; };
 		AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A1016200714870039333E /* OnboardingViewController.swift */; };
@@ -78,6 +79,7 @@
 		AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		AA226B901FFCC62300027089 /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
+		AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA3A10112004ECEE0039333E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA3A10142006F9BD0039333E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AA3A1016200714870039333E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
 				AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */,
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
+				AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -373,7 +376,7 @@
 					AAC8D57A1FD7A89500020122 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					AAC8D58E1FD7A89600020122 = {
 						CreatedOnToolsVersion = 9.1;
@@ -591,6 +594,7 @@
 				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
 				AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */,
+				AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */,
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
 				AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */,
@@ -766,8 +770,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 2BZ75GT22X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -775,8 +780,10 @@
 				INFOPLIST_FILE = Stax/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobile.Stax;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobile.PushPlaylist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "39b5ce02-f972-4002-bbe8-db847d0f4604";
+				PROVISIONING_PROFILE_SPECIFIER = stax_one;
 				SWIFT_OBJC_BRIDGING_HEADER = "Stax/Stax-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -790,8 +797,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YJBTMZFWP2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 2BZ75GT22X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -799,8 +807,10 @@
 				INFOPLIST_FILE = Stax/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobile.Stax;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobile.PushPlaylist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "39b5ce02-f972-4002-bbe8-db847d0f4604";
+				PROVISIONING_PROFILE_SPECIFIER = stax_one;
 				SWIFT_OBJC_BRIDGING_HEADER = "Stax/Stax-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

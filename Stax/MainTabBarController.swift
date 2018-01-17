@@ -37,6 +37,7 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func setup() {
         let navVCArtwork = UINavigationController(rootViewController: artworkVC)
         navVCArtwork.tabBarItem =  UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "home"), tag: 1)
