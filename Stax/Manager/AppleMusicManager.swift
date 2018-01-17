@@ -14,17 +14,22 @@ class AppleMusicManager: NSObject {
     static let sharedInstance = AppleMusicManager()
     
     // Request permission from the user to access the Apple Music library
-    
     func appleMusicRequestPermission(_ viewController: UIViewController, completion: @escaping (Bool) -> ()) {
         
         switch SKCloudServiceController.authorizationStatus() {
             
         case .authorized:
-            
             print("The user's already authorized - we don't need to do anything more here, so we'll exit early.")
+            let alert = UIAlertController(title: "Apple Music Already Authorized", message: "Enjoy posting playlists!", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            viewController.present(alert, animated: true, completion: nil)
+            completion(true)
             return
             
         case .denied:
+            print("The user has selected 'Don't Allow' in the past - so we're going to show them a different dialog to push them through to their Settings page and change their mind, and exit the function early.")
             let alert = UIAlertController(title: "Give Apple Music Permission", message: "In order to pull your Apple Music Playlists, please go into your settings and authorize Apple Music", preferredStyle: .alert)
             let settingsAction = UIAlertAction(title: "Settings", style: .default, handler: { (action) in
                 guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
@@ -42,10 +47,6 @@ class AppleMusicManager: NSObject {
             alert.addAction(settingsAction)
             alert.addAction(cancelAction)
             viewController.present(alert, animated: true, completion: nil)
-            print("The user has selected 'Don't Allow' in the past - so we're going to show them a different dialog to push them through to their Settings page and change their mind, and exit the function early.")
-            
-            // Show an alert to guide users into the Settings
-            
             return
             
         case .notDetermined:
@@ -64,8 +65,8 @@ class AppleMusicManager: NSObject {
             switch status {
                 
             case .authorized:
-                
                 print("All good - the user tapped 'OK', so you're clear to move forward and start playing.")
+                completion(true)
                 
             case .denied:
                 
@@ -78,8 +79,28 @@ class AppleMusicManager: NSObject {
             default: break
                 
             }
-            
         }
-        
+    }
+    
+    // Fetch the user's storefront ID
+    func appleMusicFetchStorefrontRegion(_ completion: @escaping (String) -> ()) {
+        let serviceController = SKCloudServiceController()
+        serviceController.requestStorefrontIdentifier { (storefrontId:String?, err: Error?) in
+            guard err == nil else {
+                print("An error occured. Handle it here.")
+                return
+            }
+            
+            guard let storefrontID = storefrontId, storefrontID.count >= 6 else {
+                print("Handle the error - the callback didn't contain a valid storefrontID.")
+                return
+            }
+            
+            let index = storefrontID.index(storefrontID.startIndex, offsetBy: 6)
+            let trimmedId = storefrontID[..<index]
+            
+            print("Success! The user's storefront ID is: \(trimmedId)")
+            completion(String(trimmedId))
+        }
     }
 }

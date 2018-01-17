@@ -113,33 +113,6 @@ class SettingsViewController: UITableViewController {
             break
         }
     }
-    
-    // Fetch the user's storefront ID
-    func appleMusicFetchStorefrontRegion() {
-        
-        let serviceController = SKCloudServiceController()
-        serviceController.requestStorefrontIdentifier { (storefrontId:String?, err: Error?) in
-            
-            guard err == nil else {
-                
-                print("An error occured. Handle it here.")
-                return
-                
-            }
-            
-            guard let storefrontID = storefrontId, storefrontID.count >= 6 else {
-                print("Handle the error - the callback didn't contain a valid storefrontID.")
-                return
-            }
-            
-            let index = storefrontID.index(storefrontID.startIndex, offsetBy: 6)
-            let trimmedId = storefrontID[..<index]
-            
-            print("Success! The user's storefront ID is: \(trimmedId)")
-            
-        }
-        
-    }
 }
 
 extension SettingsViewController {
