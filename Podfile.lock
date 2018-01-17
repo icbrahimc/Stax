@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.6.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -113,6 +114,7 @@ PODS:
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - FBSDKCoreKit
   - FBSDKLoginKit
   - Firebase
@@ -126,6 +128,7 @@ DEPENDENCIES:
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BoringSSL: 84318770d120503ab1a6aaf1df777c5ca053697e
   FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
@@ -152,6 +155,6 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: faa1f18ce61c97cb9bce7057a8cd354ee032252d
+PODFILE CHECKSUM: 9ec3b49636222c839f7be6d2e05b87f5ba8d4106
 
 COCOAPODS: 1.2.0

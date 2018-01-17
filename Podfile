@@ -6,6 +6,7 @@ target 'Stax' do
   use_frameworks!
 
   # Pods for Stax
+	pod 'Alamofire'
 	pod 'FBSDKCoreKit'
     	pod 'FBSDKLoginKit'
 	pod 'Firebase'
