@@ -178,15 +178,13 @@ class SettingsViewController: UITableViewController {
                 
             }
             
-            guard let storefrontId = storefrontId, storefrontId.characters.count >= 6 else {
-                
+            guard let storefrontID = storefrontId, storefrontID.count >= 6 else {
                 print("Handle the error - the callback didn't contain a valid storefrontID.")
                 return
-                
             }
             
-            let indexRange = Range(storefrontId.startIndex...storefrontId.startIndex.advancedBy(5))
-            let trimmedId = storefrontId.substringWithRange(indexRange)
+            let index = storefrontID.index(storefrontID.startIndex, offsetBy: 6)
+            let trimmedId = storefrontID[..<index]
             
             print("Success! The user's storefront ID is: \(trimmedId)")
             
