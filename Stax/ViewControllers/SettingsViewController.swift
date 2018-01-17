@@ -10,6 +10,8 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
 import GoogleSignIn
+import MediaPlayer
+import StoreKit
 import UIKit
 
 class SettingsViewController: UITableViewController {
@@ -107,6 +109,89 @@ class SettingsViewController: UITableViewController {
         default:
             break
         }
+    }
+    
+    // Request permission from the user to access the Apple Music library
+    
+    func appleMusicRequestPermission() {
+        
+        switch SKCloudServiceController.authorizationStatus() {
+            
+        case .authorized:
+            
+            print("The user's already authorized - we don't need to do anything more here, so we'll exit early.")
+            return
+            
+        case .denied:
+            
+            print("The user has selected 'Don't Allow' in the past - so we're going to show them a different dialog to push them through to their Settings page and change their mind, and exit the function early.")
+            
+            // Show an alert to guide users into the Settings
+            
+            return
+            
+        case .notDetermined:
+            
+            print("The user hasn't decided yet - so we'll break out of the switch and ask them.")
+            break
+            
+        case .restricted:
+            
+            print("User may be restricted; for example, if the device is in Education mode, it limits external Apple Music usage. This is similar behaviour to Denied.")
+            return
+        }
+        
+        SKCloudServiceController.requestAuthorization { (status:SKCloudServiceAuthorizationStatus) in
+            
+            switch status {
+                
+            case .authorized:
+                
+                print("All good - the user tapped 'OK', so you're clear to move forward and start playing.")
+                
+            case .denied:
+                
+                print("The user tapped 'Don't allow'. Read on about that below...")
+                
+            case .notDetermined:
+                
+                print("The user hasn't decided or it's not clear whether they've confirmed or denied.")
+                
+            default: break
+                
+            }
+            
+        }
+        
+    }
+    
+    // Fetch the user's storefront ID
+    func appleMusicFetchStorefrontRegion() {
+        
+        let serviceController = SKCloudServiceController()
+        serviceController.requestStorefrontIdentifier { (storefrontId:String?, err: Error?) in
+            
+            guard err == nil else {
+                
+                print("An error occured. Handle it here.")
+                return
+                
+            }
+            
+            guard let storefrontId = storefrontId, storefrontId.characters.count >= 6 else {
+                
+                print("Handle the error - the callback didn't contain a valid storefrontID.")
+                return
+                
+            }
+            
+            let indexRange = Range(storefrontId.startIndex...storefrontId.startIndex.advancedBy(5))
+            let trimmedId = storefrontId.substringWithRange(indexRange)
+            
+            print("Success! The user's storefront ID is: \(trimmedId)")
+            
+        }
+        
     }
 }
 
