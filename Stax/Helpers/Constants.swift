@@ -9,5 +9,8 @@
 import Foundation
 
 struct Constants {
-    static let APPLE = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkcyNjdDRjkyNTgifQ.eyJpc3MiOiIyQlo3NUdUMjJYIiwiaWF0IjoxNTE2MTYwOTcyLCJleHAiOjE1MTYyMDQxNzJ9.bnJuXzZ6w5SyI4gb9G1RVGFCtZ_tPb8EeTvBP9eDlW53BcwDVbGDRRyUjgBpnfDtgB_-NQYC0ISoFwzR1-L44w"
+    static let APPLE = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkcyNjdDRjkyNTgifQ.eyJpc3MiOiIyQlo3NUdUMjJYIiwiaWF0IjoxNTE2MjY4NDgwLCJleHAiOjE1MTYzMTE2ODB9.HkXEX3uk-kdkAk1dAb2K0fhTAQ1JSTr5Mq-drxcbRQp-wtJ0v-81MMeHDywSO-1xVC-ddj8lIuewhHch2HzaXA"
+    
 }
+
+

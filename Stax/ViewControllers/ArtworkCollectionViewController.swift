@@ -40,6 +40,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
+        AppleMusicManager.sharedInstance.appleMusicFetchUserToken { (huh) in
+            print(huh)
+        }
 //        fetchPlaylists()
     }
 

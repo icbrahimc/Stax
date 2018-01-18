@@ -89,11 +89,13 @@ class AppleMusicManager: NSObject {
             serviceController.requestUserToken(forDeveloperToken: Constants.APPLE) { (userToken, err) in
                 guard err == nil else {
                     print("An error occured. Handle it here.")
+                    completion("")
                     return
                 }
                 
                 guard let userID = userToken else {
                     print("Handle the error - the callback didn't contain a valid user id.")
+                    completion("")
                     return
                 }
                 
@@ -105,11 +107,13 @@ class AppleMusicManager: NSObject {
                 serviceController.requestPersonalizationToken(forClientToken: Constants.APPLE, withCompletionHandler: { (userToken, err) in
                     guard err == nil else {
                         print("An error occured. Handle it here.")
+                        completion("")
                         return
                     }
                     
                     guard let userID = userToken else {
                         print("Handle the error - the callback didn't contain a valid user id.")
+                        completion("")
                         return
                     }
                     
