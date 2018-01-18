@@ -83,6 +83,45 @@ class AppleMusicManager: NSObject {
     }
     
     // Fetch the user's storefront ID
+    func appleMusicFetchUserToken(_ completion: @escaping (String) -> ()) {
+        let serviceController = SKCloudServiceController()
+        if #available(iOS 11.0, *) {
+            serviceController.requestUserToken(forDeveloperToken: Constants.APPLE) { (userToken, err) in
+                guard err == nil else {
+                    print("An error occured. Handle it here.")
+                    return
+                }
+                
+                guard let userID = userToken else {
+                    print("Handle the error - the callback didn't contain a valid user id.")
+                    return
+                }
+                
+                completion(userID)
+            }
+        } else {
+            // Fallback on earlier versions
+            if #available(iOS 10.3, *) {
+                serviceController.requestPersonalizationToken(forClientToken: Constants.APPLE, withCompletionHandler: { (userToken, err) in
+                    guard err == nil else {
+                        print("An error occured. Handle it here.")
+                        return
+                    }
+                    
+                    guard let userID = userToken else {
+                        print("Handle the error - the callback didn't contain a valid user id.")
+                        return
+                    }
+                    
+                    completion(userID)
+                })
+            } else {
+                // Fallback on earlier versions
+                print("cannot fetch user tokens")
+            }
+        }
+    }
+    
     func appleMusicFetchStorefrontRegion(_ completion: @escaping (String) -> ()) {
         let serviceController = SKCloudServiceController()
         serviceController.requestStorefrontIdentifier { (storefrontId:String?, err: Error?) in

@@ -22,6 +22,7 @@
 		AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */; };
 		AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */; };
 		AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */; };
+		AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8920101CA900AB171B /* Constants.swift */; };
 		AA3A10122004ECEE0039333E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10112004ECEE0039333E /* Extensions.swift */; };
 		AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10142006F9BD0039333E /* LaunchViewController.swift */; };
 		AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A1016200714870039333E /* OnboardingViewController.swift */; };
@@ -82,6 +83,7 @@
 		AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
+		AA2D3B8920101CA900AB171B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA3A10112004ECEE0039333E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA3A10142006F9BD0039333E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AA3A1016200714870039333E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		AA3A10132004ECF90039333E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA2D3B8920101CA900AB171B /* Constants.swift */,
 				AA3A10112004ECEE0039333E /* Extensions.swift */,
 			);
 			path = Helpers;
@@ -607,6 +610,7 @@
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
 				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
+				AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
