@@ -23,6 +23,7 @@
 		AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */; };
 		AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */; };
 		AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8920101CA900AB171B /* Constants.swift */; };
+		AA2D3B8C201475F900AB171B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8B201475F900AB171B /* Helpers.swift */; };
 		AA3A10122004ECEE0039333E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10112004ECEE0039333E /* Extensions.swift */; };
 		AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10142006F9BD0039333E /* LaunchViewController.swift */; };
 		AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A1016200714870039333E /* OnboardingViewController.swift */; };
@@ -84,6 +85,7 @@
 		AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		AA2D3B8920101CA900AB171B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AA2D3B8B201475F900AB171B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AA3A10112004ECEE0039333E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA3A10142006F9BD0039333E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AA3A1016200714870039333E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				AA2D3B8920101CA900AB171B /* Constants.swift */,
 				AA3A10112004ECEE0039333E /* Extensions.swift */,
+				AA2D3B8B201475F900AB171B /* Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
 				AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */,
+				AA2D3B8C201475F900AB171B /* Helpers.swift in Sources */,
 				AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */,
 				AAA3BAA81FE3689B0083E71A /* Playlist.swift in Sources */,
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,

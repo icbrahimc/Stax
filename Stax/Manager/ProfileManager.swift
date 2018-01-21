@@ -54,6 +54,7 @@ class ProfileManager: NSObject {
                         self.appleMusicID = userID
                         completion(userInfo)
                     })
+//                    completion(userInfo)
                 })
             } else {
                 completion(userInfo)

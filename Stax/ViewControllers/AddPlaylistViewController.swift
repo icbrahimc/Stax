@@ -15,7 +15,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     let imageField = UIButton.newAutoLayout()
     let titleField = UITextField.newAutoLayout()
     let descriptionField = UITextField.newAutoLayout()
-    let appleMusicLink = UITextField.newAutoLayout()
+    let appleMusicLink = UIButton.newAutoLayout()
     let spotifyLink = UITextField.newAutoLayout()
     let soundcloudLink = UITextField.newAutoLayout()
     let youtubeLink = UITextField.newAutoLayout()
@@ -34,7 +34,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         /* Setup textfield delegates  */
         titleField.delegate = self
         descriptionField.delegate = self
-        appleMusicLink.delegate = self
+//        appleMusicLink.delegate = self
         spotifyLink.delegate = self
         soundcloudLink.delegate = self
         youtubeLink.delegate = self
@@ -43,6 +43,8 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         title = "Add Playlist"
         
         imageField.addTarget(self, action: #selector(addImage), for: .touchUpInside)
+        appleMusicLink.addTarget(self, action: #selector(addAppleMusicLink), for: .touchUpInside)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(submitPlaylist))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelCreate))
     }
@@ -82,9 +84,9 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
             playlist?.description = description
         }
         
-        if let appleMusicLink = appleMusicLink.text {
-            playlist?.appleLink = appleMusicLink
-        }
+//        if let appleMusicLink = appleMusicLink.text {
+//            playlist?.appleLink = appleMusicLink
+//        }
         
         if let spotifyMusicLink = spotifyLink.text {
             playlist?.spotifyLink = spotifyMusicLink
@@ -107,23 +109,47 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     /* UITextField methods */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == titleField {
-            textField.resignFirstResponder()
-            descriptionField.becomeFirstResponder()
-        } else if textField == descriptionField {
-            textField.resignFirstResponder()
-            appleMusicLink.becomeFirstResponder()
-        } else if textField == appleMusicLink {
-            textField.resignFirstResponder()
-            spotifyLink.becomeFirstResponder()
-        } else if textField == soundcloudLink {
-            textField.resignFirstResponder()
-            soundcloudLink.becomeFirstResponder()
-        } else if textField == youtubeLink {
-            // Todo: submit the playlist to the repo.
+//        if textField == titleField {
+//            textField.resignFirstResponder()
+//            descriptionField.becomeFirstResponder()
+//        } else if textField == descriptionField {
+//            textField.resignFirstResponder()
+//            appleMusicLink.becomeFirstResponder()
+//        } else if textField == appleMusicLink {
+//            textField.resignFirstResponder()
+//            spotifyLink.becomeFirstResponder()
+//        } else if textField == soundcloudLink {
+//            textField.resignFirstResponder()
+//            soundcloudLink.becomeFirstResponder()
+//        } else if textField == youtubeLink {
+//            // Todo: submit the playlist to the repo.
+//        }
+//
+//        return true
+        return true
+    }
+    
+    /* Apple music button methods */
+    @objc func addAppleMusicLink() {
+        let alertController = UIAlertController(title: "Enter Apple Music Link", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Add Apple Music Link"
         }
         
-        return true
+        let addLinkAction = UIAlertAction(title: "Add Link", style: .default) { (alert) in
+            let textField = alertController.textFields![0] as UITextField
+            
+            if let linkText = textField.text {
+                
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        
+        alertController.addAction(addLinkAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /* UIImagePickerController methods */
@@ -177,7 +203,7 @@ extension AddPlaylistViewController {
         descriptionField.autoSetDimension(.height, toSize: view.frame.height * 0.1)
         descriptionField.autoAlignAxis(toSuperviewAxis: .vertical)
         
-        setupAppleTextField()
+        setupAppleBtn()
         appleMusicLink.autoPinEdge(.top, to: .bottom, of: descriptionField)
         appleMusicLink.autoSetDimension(.width, toSize: view.frame.width)
         appleMusicLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
@@ -237,11 +263,11 @@ extension AddPlaylistViewController {
         descriptionField.borderStyle = .none
     }
     
-    func setupAppleTextField() {
-        appleMusicLink.placeholder = "Apple Music Link"
-        appleMusicLink.font = UIFont.boldSystemFont(ofSize: 30.0)
-        appleMusicLink.textAlignment = .center
-        appleMusicLink.borderStyle = .none
+    func setupAppleBtn() {
+        appleMusicLink.setTitle("Apple Music", for: .normal)
+        appleMusicLink.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30.0)
+        appleMusicLink.titleLabel?.textAlignment = .center
+        appleMusicLink.setTitleColor(UIColor.black, for: .normal)
     }
     
     func setupSpotifyTextField() {

@@ -8,6 +8,7 @@
 
 import Alamofire
 import FirebaseFirestore
+import SwiftyJSON
 import UIKit
 
 private let artworkIdentifier = "Cell"
@@ -46,15 +47,15 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             "Authorization" : "Bearer \(Constants.APPLE)"
         ]
         
-        let url = URL(string: "https://api.music.apple.com/v1/me/recommendations")
-        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
-            guard let response = data.data else {
-                print("Gawd")
-                return
-            }
-            
-            print(response)
-        }
+//        let url = URL(string: "https://api.music.apple.com/v1/catalog/us/playlists/pl.u-jV899PkTjYr372")
+//        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+//            guard let response = data.data else {
+//                print("Gawd")
+//                return
+//            }
+//            print("User id \(ProfileManager.sharedInstance.appleMusicID)")
+//            print(JSON(response))
+//        }
 //        fetchPlaylists()
     }
 
