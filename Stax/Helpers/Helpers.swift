@@ -30,7 +30,7 @@ func parseAppleLink(_ url: String) -> [String] {
     }
     
     let playlist: String = String(parsedString)
-    let playlistID = playlist.prefix(playlist.count - idx - 1)
+    let playlistID = playlist.suffix(playlist.count - idx - 1)
     
     stringList.append(storefront)
     stringList.append(String(playlistID))

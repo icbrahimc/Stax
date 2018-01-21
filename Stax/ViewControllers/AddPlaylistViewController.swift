@@ -6,6 +6,8 @@
 //  Copyright © 2018 icbrahimc. All rights reserved.
 //
 
+import Alamofire
+import SwiftyJSON
 import UIKit
 
 class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
@@ -34,7 +36,6 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         /* Setup textfield delegates  */
         titleField.delegate = self
         descriptionField.delegate = self
-//        appleMusicLink.delegate = self
         spotifyLink.delegate = self
         soundcloudLink.delegate = self
         youtubeLink.delegate = self
@@ -140,7 +141,55 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
             let textField = alertController.textFields![0] as UITextField
             
             if let linkText = textField.text {
+                let linkParams = parseAppleLink(linkText)
                 
+                let storeFront = linkParams[0]
+                let id = linkParams[1]
+                
+                let apiCall = "https://api.music.apple.com/v1/catalog/\(storeFront)/playlists/\(id)"
+                
+                let url = URL(string: apiCall)
+                let headers: HTTPHeaders = [
+                    "Music-User-Token" : ProfileManager.sharedInstance.appleMusicID,
+                    "Authorization" : "Bearer \(Constants.APPLE)"
+                ]
+                
+                Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+                    guard let response = data.data else {
+                        print("Error no data present")
+                        return
+                    }
+                    
+                    let appleJSON = JSON(response)
+                    
+                    let data = appleJSON["data"][0]
+                    let attributes = data["attributes"]
+                    print(attributes)
+                    print(attributes["artwork"]["url"].stringValue)
+                    
+                    if let imageURL = attributes["artwork"]["url"].string {
+                        let height = attributes["artwork"]["height"].stringValue
+                        let width = attributes["artwork"]["width"].stringValue
+                        
+                        var finalImageURL = imageURL.replacingOccurrences(of: "{w}", with: width)
+                        finalImageURL = finalImageURL.replacingOccurrences(of: "{h}", with: height)
+                        
+                        self.imageField.loadImageUsingCacheWithUrlString(finalImageURL)
+                    }
+                    
+                    if let name = attributes["name"].string {
+                        self.playlist?.title = name
+                        self.titleField.text = name
+                    }
+                    
+                    if let curatorName = attributes["curatorName"].string {
+                        self.playlist?.creatorUsername = curatorName
+                    }
+                    
+                    if let description = attributes["description"]["standard"].string {
+                        self.descriptionField.text = description
+                    }
+                }
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -243,7 +292,8 @@ extension AddPlaylistViewController {
     }
     
     func setupImageView() {
-        imageField.setImage(#imageLiteral(resourceName: "yourimagehere"), for: .normal)
+//        imageField.setImage(#imageLiteral(resourceName: "yourimagehere"), for: .normal)
+        
         imageField.layer.cornerRadius = 25.0
         imageField.layer.borderWidth = 1.0
         imageField.layer.masksToBounds = true
