@@ -17,6 +17,7 @@ target 'Stax' do
 	pod 'GoogleSignIn'
 	pod 'PromiseKit'
 	pod 'PureLayout'
+	pod 'SwiftyJSON'
 	pod 'TTTAttributedLabel'
   target 'StaxTests' do
     inherit! :search_paths

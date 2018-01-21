@@ -50,10 +50,10 @@ class ProfileManager: NSObject {
             if let id = userData["id"] as? String {
                 userInfo.id = id
                 self.fetchUserLikes(id, completion: { (truthValue) in
-//                    AppleMusicManager.sharedInstance.appleMusicFetchStorefrontRegion({ (storefrontid) in
-//                        self.appleMusicID = storefrontid
-//                    })
-                    completion(userInfo)
+                    AppleMusicManager.sharedInstance.appleMusicFetchUserToken({ (userID) in
+                        self.appleMusicID = userID
+                        completion(userInfo)
+                    })
                 })
             } else {
                 completion(userInfo)

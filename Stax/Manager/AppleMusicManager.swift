@@ -25,6 +25,10 @@ class AppleMusicManager: NSObject {
             
             alert.addAction(cancelAction)
             viewController.present(alert, animated: true, completion: nil)
+            self.appleMusicFetchUserToken({ (userID) in
+                print(userID)
+                
+            })
             completion(true)
             return
             
@@ -107,6 +111,7 @@ class AppleMusicManager: NSObject {
                 serviceController.requestPersonalizationToken(forClientToken: Constants.APPLE, withCompletionHandler: { (userToken, err) in
                     guard err == nil else {
                         print("An error occured. Handle it here.")
+                        print(err?.localizedDescription)
                         completion("")
                         return
                     }

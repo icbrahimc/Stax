@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Alamofire
 import FirebaseFirestore
 import UIKit
 
@@ -40,8 +41,19 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
-        AppleMusicManager.sharedInstance.appleMusicFetchUserToken { (huh) in
-            print(huh)
+        let headers: HTTPHeaders = [
+            "Music-User-Token" : ProfileManager.sharedInstance.appleMusicID,
+            "Authorization" : "Bearer \(Constants.APPLE)"
+        ]
+        
+        let url = URL(string: "https://api.music.apple.com/v1/me/recommendations")
+        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+            guard let response = data.data else {
+                print("Gawd")
+                return
+            }
+            
+            print(response)
         }
 //        fetchPlaylists()
     }
