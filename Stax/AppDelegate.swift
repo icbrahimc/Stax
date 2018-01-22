@@ -22,10 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 
     var window: UIWindow?
     
-//    var auth = SPTAuth.defaultInstance()!
-//    var session:SPTSession!
-//    var player: SPTAudioStreamingController?
-//    var loginUrl: URL?
+    var auth = SPTAuth()
     
     lazy var mainController: MainController = {
         return MainController()
@@ -58,6 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 //            print ("Error signing out: %@", signOutError)
 //        }
         
+        auth.redirectURL = URL(string: "Stax://returnAfterLogin")
+        auth.sessionUserDefaultsKey = "current session"
 //        self.auth = SPTAuth.defaultInstance()
 //        self.player = SPTAudioStreamingController.sharedInstance()
 //        self.auth.clientID = "909d311de7ff4b9b84252482d9931598"
@@ -99,6 +98,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
                                                                          open: url,
                                                                          sourceApplication: sourceApplication,
                                                                          annotation: annotation)
+        }
+        
+        // Spotify Auth
+        if auth.canHandle(auth.redirectURL) {
+            auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (err, session) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                let userDefaults = UserDefaults.standard
+                
+                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
+                
+                userDefaults.set(sessionData, forKey: "SpotifySession")
+                
+                userDefaults.synchronize()
+                
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+            })
+            
+            return true
         }
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,

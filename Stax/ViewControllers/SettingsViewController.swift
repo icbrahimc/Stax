@@ -19,23 +19,48 @@ class SettingsViewController: UITableViewController {
     var appleMusicCell: UITableViewCell = UITableViewCell()
     var spotifyCell: UITableViewCell = UITableViewCell()
     var logoutCell: UITableViewCell = UITableViewCell()
+    
+    // Spotify
+    var auth = SPTAuth.defaultInstance()!
+    var session:SPTSession!
+    var player: SPTAudioStreamingController?
+    var loginUrl: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         layout()
+        spotifySetup()
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateAfterFirstLogin))
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAfterFirstLogin), name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func spotifySetup() {
+        SPTAuth.defaultInstance().clientID = "909d311de7ff4b9b84252482d9931598"
+        SPTAuth.defaultInstance().redirectURL = URL(string: "Stax://returnAfterLogin")
+        SPTAuth.defaultInstance().requestedScopes = [
+            SPTAuthStreamingScope,
+            SPTAuthPlaylistReadPrivateScope,
+            SPTAuthPlaylistModifyPublicScope,
+            SPTAuthPlaylistModifyPrivateScope
+        ]
+        loginUrl = SPTAuth.defaultInstance().spotifyWebAuthenticationURL()
+    }
+    
+    @objc func updateAfterFirstLogin() {
+//        if let sessionObj:AnyObject = UserDefaults.object(<#T##UserDefaults#>) {
+//            let sessionDataObj = sessionObj as! Data
+//            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
+//            self.session = firstTimeSession
+//        }
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,6 +117,11 @@ class SettingsViewController: UITableViewController {
                 
             case 1:
                 tableView.deselectRow(at: indexPath, animated: false)
+                UIApplication.shared.open(loginUrl!, options: [:], completionHandler: { (bool) in
+                    if self.auth.canHandle(self.auth.redirectURL) {
+                        
+                    }
+                })
                 break
                 
             default:
