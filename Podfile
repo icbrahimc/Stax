@@ -6,6 +6,7 @@ target 'Stax' do
   use_frameworks!
 
   # Pods for Stax
+	pod 'Alamofire'
 	pod 'FBSDKCoreKit'
     	pod 'FBSDKLoginKit'
 	pod 'Firebase'
@@ -16,6 +17,7 @@ target 'Stax' do
 	pod 'GoogleSignIn'
 	pod 'PromiseKit'
 	pod 'PureLayout'
+	pod 'SwiftyJSON'
 	pod 'TTTAttributedLabel'
   target 'StaxTests' do
     inherit! :search_paths

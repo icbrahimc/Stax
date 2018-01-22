@@ -6,7 +6,9 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Alamofire
 import FirebaseFirestore
+import SwiftyJSON
 import UIKit
 
 private let artworkIdentifier = "Cell"
@@ -40,6 +42,20 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.addSubview(refreshControl)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
+//        let headers: HTTPHeaders = [
+//            "Music-User-Token" : ProfileManager.sharedInstance.appleMusicID,
+//            "Authorization" : "Bearer \(Constants.APPLE)"
+//        ]
+//        
+//        let url = URL(string: "https://api.music.apple.com/v1/catalog/us/playlists/pl.u-jV899PkTjYr372")
+//        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+//            guard let response = data.data else {
+//                print("Gawd")
+//                return
+//            }
+//            print("User id \(ProfileManager.sharedInstance.appleMusicID)")
+//            print(JSON(response))
+//        }
 //        fetchPlaylists()
     }
 

@@ -13,6 +13,8 @@ import FirebaseCore
 import FirebaseFirestore
 import GoogleSignIn
 import PureLayout
+import StoreKit
+import MediaPlayer
 import UIKit
 
 @UIApplicationMain
@@ -101,6 +103,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//        SKCloudServiceController.requestAuthorization { (status) in
+//            if status == .authorized {
+//                let controller = SKCloudServiceController()
+//                //Check if user is a Apple Music member
+//                controller.requestCapabilities(completionHandler: { (capabilities, error) in
+//                    if error != nil {
+////                        dispatch_async(dispatch_get_main_queue(), {
+////                            self.showAlert("Capabilites error", error: "You must be an Apple Music member to use this application")
+////                        })
+//                        print("FUCK")
+//                    }
+//                })
+//            } else {
+////                dispatch_async(dispatch_get_main_queue(), {
+////                    self.showAlert("Denied", error: "User has denied access to Apple Music library")
+////                })
+//                print("No")
+//            }
+//        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -145,8 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
+        print("Logout from Google")
     }
 
 }

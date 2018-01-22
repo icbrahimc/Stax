@@ -22,7 +22,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
 
         title = "Profile"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settings))
 
         collectionView?.backgroundColor = .white
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -81,19 +81,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     /* Custom functions */
-    /* Logout of the application */
-    @objc func logout() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            GIDSignIn.sharedInstance().signOut()
-            let loginManager = FBSDKLoginManager()
-            loginManager.logOut() // this is an instance function
-            ProfileManager.sharedInstance.clearUserInfo {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "SignoutNotification"), object: nil)
-            }
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
+    @objc func settings() {
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }
