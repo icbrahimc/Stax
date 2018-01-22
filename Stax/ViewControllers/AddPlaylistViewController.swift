@@ -18,9 +18,9 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     let titleField = UITextField.newAutoLayout()
     let descriptionField = UITextField.newAutoLayout()
     let appleMusicLink = UIButton.newAutoLayout()
-    let spotifyLink = UITextField.newAutoLayout()
-    let soundcloudLink = UITextField.newAutoLayout()
-    let youtubeLink = UITextField.newAutoLayout()
+    let spotifyLink = UIButton.newAutoLayout()
+    let soundcloudLink = UIButton.newAutoLayout()
+    let youtubeLink = UIButton.newAutoLayout()
     
     var bottomScrollViewConstraint: NSLayoutConstraint?
     var topScrollViewConstraint: NSLayoutConstraint?
@@ -36,9 +36,6 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         /* Setup textfield delegates  */
         titleField.delegate = self
         descriptionField.delegate = self
-        spotifyLink.delegate = self
-        soundcloudLink.delegate = self
-        youtubeLink.delegate = self
         
         layout()
         title = "Add Playlist"
@@ -89,17 +86,9 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
 //            playlist?.appleLink = appleMusicLink
 //        }
         
-        if let spotifyMusicLink = spotifyLink.text {
-            playlist?.spotifyLink = spotifyMusicLink
-        }
-        
-        if let soundcloudLink = soundcloudLink.text {
-            playlist?.cloudLink = soundcloudLink
-        }
-        
-        if let youtubeLink = youtubeLink.text {
-            playlist?.youtubeLink = youtubeLink
-        }
+//        if let spotifyMusicLink = spotifyLink.text {
+//            playlist?.spotifyLink = spotifyMusicLink
+//        }
         
         BaseAPI.sharedInstance.addPlaylist(playlist!, completionBlock: { (documentID) in
             BaseAPI.sharedInstance.savePhotoIntoDB(documentID, image: (self.imageField.imageView?.image)!, completionBlock: { () in
@@ -110,23 +99,12 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     /* UITextField methods */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField == titleField {
-//            textField.resignFirstResponder()
-//            descriptionField.becomeFirstResponder()
-//        } else if textField == descriptionField {
-//            textField.resignFirstResponder()
-//            appleMusicLink.becomeFirstResponder()
-//        } else if textField == appleMusicLink {
-//            textField.resignFirstResponder()
-//            spotifyLink.becomeFirstResponder()
-//        } else if textField == soundcloudLink {
-//            textField.resignFirstResponder()
-//            soundcloudLink.becomeFirstResponder()
-//        } else if textField == youtubeLink {
-//            // Todo: submit the playlist to the repo.
-//        }
-//
-//        return true
+        if textField == titleField {
+            textField.resignFirstResponder()
+            descriptionField.becomeFirstResponder()
+        } else if textField == descriptionField {
+            textField.resignFirstResponder()
+        }
         return true
     }
     
@@ -140,6 +118,7 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
         let addLinkAction = UIAlertAction(title: "Add Link", style: .default) { (alert) in
             let textField = alertController.textFields![0] as UITextField
             
+            // TODO: icbrahimc: move this to an outer function.
             if let linkText = textField.text {
                 let linkParams = parseAppleLink(linkText)
                 
@@ -150,7 +129,6 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
                 
                 let url = URL(string: apiCall)
                 let headers: HTTPHeaders = [
-                    "Music-User-Token" : ProfileManager.sharedInstance.appleMusicID,
                     "Authorization" : "Bearer \(Constants.APPLE)"
                 ]
                 
@@ -160,12 +138,11 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
                         return
                     }
                     
+                    self.playlist?.appleLink = linkText
                     let appleJSON = JSON(response)
                     
                     let data = appleJSON["data"][0]
                     let attributes = data["attributes"]
-                    print(attributes)
-                    print(attributes["artwork"]["url"].stringValue)
                     
                     if let imageURL = attributes["artwork"]["url"].string {
                         let height = attributes["artwork"]["height"].stringValue
@@ -189,6 +166,10 @@ class AddPlaylistViewController: UIViewController, UITextFieldDelegate, UIImageP
                     if let description = attributes["description"]["standard"].string {
                         self.descriptionField.text = description
                     }
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.appleMusicLink.alpha = 1.0
+                    })
                 }
             }
         }
@@ -258,24 +239,24 @@ extension AddPlaylistViewController {
         appleMusicLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
         appleMusicLink.autoAlignAxis(toSuperviewAxis: .vertical)
         
-        setupSpotifyTextField()
+        setupSpotifyBtn()
         spotifyLink.autoPinEdge(.top, to: .bottom, of: appleMusicLink)
         spotifyLink.autoSetDimension(.width, toSize: view.frame.width)
         spotifyLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
         spotifyLink.autoAlignAxis(toSuperviewAxis: .vertical)
         
-        setupYoutubeTextField()
-        youtubeLink.autoPinEdge(.top, to: .bottom, of: spotifyLink)
-        youtubeLink.autoSetDimension(.width, toSize: view.frame.width)
-        youtubeLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
-        youtubeLink.autoAlignAxis(toSuperviewAxis: .vertical)
+//        setupYoutubeTextField()
+//        youtubeLink.autoPinEdge(.top, to: .bottom, of: spotifyLink)
+//        youtubeLink.autoSetDimension(.width, toSize: view.frame.width)
+//        youtubeLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
+//        youtubeLink.autoAlignAxis(toSuperviewAxis: .vertical)
         
-        setupSoundcloudTextField()
-        soundcloudLink.autoPinEdge(.top, to: .bottom, of: youtubeLink)
-        soundcloudLink.autoSetDimension(.width, toSize: view.frame.width)
-        soundcloudLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
-        soundcloudLink.autoAlignAxis(toSuperviewAxis: .vertical)
-        soundcloudLink.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
+//        setupSoundcloudTextField()
+//        soundcloudLink.autoPinEdge(.top, to: .bottom, of: youtubeLink)
+//        soundcloudLink.autoSetDimension(.width, toSize: view.frame.width)
+//        soundcloudLink.autoSetDimension(.height, toSize: view.frame.height * 0.1)
+//        soundcloudLink.autoAlignAxis(toSuperviewAxis: .vertical)
+//        soundcloudLink.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
     }
     
     func addSubviews() {
@@ -287,13 +268,12 @@ extension AddPlaylistViewController {
         contentView.addSubview(descriptionField)
         contentView.addSubview(appleMusicLink)
         contentView.addSubview(spotifyLink)
-        contentView.addSubview(soundcloudLink)
-        contentView.addSubview(youtubeLink)
+//        contentView.addSubview(soundcloudLink)
+//        contentView.addSubview(youtubeLink)
     }
     
     func setupImageView() {
-//        imageField.setImage(#imageLiteral(resourceName: "yourimagehere"), for: .normal)
-        
+        imageField.setImage(#imageLiteral(resourceName: "yourimagehere"), for: .normal)
         imageField.layer.cornerRadius = 25.0
         imageField.layer.borderWidth = 1.0
         imageField.layer.masksToBounds = true
@@ -318,26 +298,28 @@ extension AddPlaylistViewController {
         appleMusicLink.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30.0)
         appleMusicLink.titleLabel?.textAlignment = .center
         appleMusicLink.setTitleColor(UIColor.black, for: .normal)
+        appleMusicLink.alpha = 0.25
     }
     
-    func setupSpotifyTextField() {
-        spotifyLink.placeholder = "Spotify Link"
-        spotifyLink.font = UIFont.boldSystemFont(ofSize: 30.0)
-        spotifyLink.textAlignment = .center
-        spotifyLink.borderStyle = .none
+    func setupSpotifyBtn() {
+        spotifyLink.setTitle("Spotify Link", for: .normal)
+        spotifyLink.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30.0)
+        spotifyLink.titleLabel?.textAlignment = .center
+        spotifyLink.setTitleColor(UIColor.black, for: .normal)
+        spotifyLink.alpha = 0.25
     }
     
-    func setupSoundcloudTextField() {
-        soundcloudLink.placeholder = "SoundCloud Link"
-        soundcloudLink.font = UIFont.boldSystemFont(ofSize: 30.0)
-        soundcloudLink.textAlignment = .center
-        soundcloudLink.borderStyle = .none
-    }
-    
-    func setupYoutubeTextField() {
-        youtubeLink.placeholder = "YouTube Link"
-        youtubeLink.font = UIFont.boldSystemFont(ofSize: 30.0)
-        youtubeLink.textAlignment = .center
-        youtubeLink.borderStyle = .none
-    }
+//    func setupSoundcloudTextField() {
+//        soundcloudLink.placeholder = "SoundCloud Link"
+//        soundcloudLink.font = UIFont.boldSystemFont(ofSize: 30.0)
+//        soundcloudLink.textAlignment = .center
+//        soundcloudLink.borderStyle = .none
+//    }
+//
+//    func setupYoutubeTextField() {
+//        youtubeLink.placeholder = "YouTube Link"
+//        youtubeLink.font = UIFont.boldSystemFont(ofSize: 30.0)
+//        youtubeLink.textAlignment = .center
+//        youtubeLink.borderStyle = .none
+//    }
 }
