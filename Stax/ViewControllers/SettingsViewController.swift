@@ -17,6 +17,7 @@ import UIKit
 class SettingsViewController: UITableViewController {
     
     var appleMusicCell: UITableViewCell = UITableViewCell()
+    var spotifyCell: UITableViewCell = UITableViewCell()
     var logoutCell: UITableViewCell = UITableViewCell()
 
     override func viewDidLoad() {
@@ -46,7 +47,8 @@ class SettingsViewController: UITableViewController {
         switch(indexPath.section) {
         case 0:
             switch(indexPath.row) {
-            case 0: return self.appleMusicCell  // section 0, row 0 is the first name
+            case 0: return self.appleMusicCell
+            case 1: return self.spotifyCell
             default: fatalError("Unknown row in section 0")
             }
         case 1:
@@ -61,7 +63,7 @@ class SettingsViewController: UITableViewController {
     // Return the number of rows for each section in your static table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
-        case 0: return 1    // section 0 has 1 rows
+        case 0: return 2    // section 0 has 2 rows
         case 1: return 1    // section 1 has 1 row
         default: fatalError("Unknown number of sections")
         }
@@ -80,17 +82,24 @@ class SettingsViewController: UITableViewController {
         switch (indexPath.section) {
         case 0:
             switch(indexPath.row) {
+                
             case 0:
                 tableView.deselectRow(at: indexPath, animated: false)
                 AppleMusicManager.sharedInstance.appleMusicRequestPermission(self, completion: { (authorized) in
                     print("Ibrahim good")
                 })
                 break
+                
+            case 1:
+                tableView.deselectRow(at: indexPath, animated: false)
+                break
+                
             default:
                 break
             }
         case 1:
             switch(indexPath.row) {
+                
             case 0:
                 tableView.deselectRow(at: indexPath, animated: false)
                 let firebaseAuth = Auth.auth()
@@ -106,6 +115,7 @@ class SettingsViewController: UITableViewController {
                     print ("Error signing out: %@", signOutError)
                 }
                 break
+                
             default:
                 break
             }
@@ -119,6 +129,9 @@ extension SettingsViewController {
     func layout() {
         // Apple music cell
         self.appleMusicCell.textLabel?.text = "Apple Music"
+        
+        // Spotify music cell
+        self.spotifyCell.textLabel?.text = "Spotify"
         
         // Logout cell
         self.logoutCell.textLabel?.text = "Logout"

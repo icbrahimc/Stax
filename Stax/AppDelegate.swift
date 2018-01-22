@@ -18,9 +18,14 @@ import MediaPlayer
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAudioStreamingDelegate {
 
     var window: UIWindow?
+    
+//    var auth = SPTAuth.defaultInstance()!
+//    var session:SPTSession!
+//    var player: SPTAudioStreamingController?
+//    var loginUrl: URL?
     
     lazy var mainController: MainController = {
         return MainController()
@@ -53,9 +58,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //            print ("Error signing out: %@", signOutError)
 //        }
         
+//        self.auth = SPTAuth.defaultInstance()
+//        self.player = SPTAudioStreamingController.sharedInstance()
+//        self.auth.clientID = "909d311de7ff4b9b84252482d9931598"
+//        self.auth.redirectURL = URL(string: "Stax://returnAfterLogin")
+//        self.auth.sessionUserDefaultsKey = "current session"
+//
+//        self.auth.requestedScopes = [SPTAuthStreamingScope]
+//
+//        DispatchQueue.main.async(execute: {
+//            self.auth.
+//        })
+        
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
+//        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
+        window!.rootViewController = UINavigationController(rootViewController: SettingsViewController())
         window?.makeKeyAndVisible()
         return true
     }
