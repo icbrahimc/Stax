@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
+import SwiftyJSON
 import UIKit
 
 class BaseAPI: NSObject {
@@ -82,6 +83,11 @@ class BaseAPI: NSObject {
     }
     
     /////////////////* User functions */////////////////
+    
+    /* Add comment */
+    func comment(_ uid: String, playlist: Playlist, commentText: String) {
+        
+    }
     
     /* Favorite a playlist */
     func likePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
