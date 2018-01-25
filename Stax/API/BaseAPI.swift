@@ -105,13 +105,23 @@ class BaseAPI: NSObject {
         commentRef.setData([commentID : commentDataDic], options: SetOptions.merge()) { (err) in
             if let error = err {
                 print(error.localizedDescription)
-                completion(nil)
+                completion(JSON.null)
                 return
             }
             print("Successfully added comment to playlist \(playlist.id!)")
             let commentJSON = JSON(commentDataDic)
             completion(commentJSON)
         }
+    }
+    
+    /* Follow */
+    func follow(_ uid: String, user: User, completion: @escaping (JSON) -> ()) {
+        
+    }
+    
+    /* Unfollow */
+    func unfollow(_ uid: String, user: User, completion: @escaping (JSON) -> ()) {
+        
     }
     
     /* Favorite a playlist */

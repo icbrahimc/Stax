@@ -12,9 +12,10 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import GoogleSignIn
+import MediaPlayer
 import PureLayout
 import StoreKit
-import MediaPlayer
+import SwiftyJSON
 import UIKit
 
 @UIApplicationMain
