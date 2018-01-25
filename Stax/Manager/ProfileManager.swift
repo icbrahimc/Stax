@@ -12,18 +12,23 @@ import UIKit
 let UserInfoUpdated = "UserInfoUpdated"
 
 class ProfileManager: NSObject {
+    /* The overarching user model */
     var user: User?
     
     static let sharedInstance = ProfileManager(api: BaseAPI.sharedInstance)
     
     fileprivate let api: BaseAPI
     
+    /* Default init */
     init(api: BaseAPI) {
         self.api = api
         self.user = User(username: "", id: "", favoritedPlaylists: NSMutableArray())
     }
     
+    /* Like ids associated with this particular user */
     var likeIds: Set<String> = Set()
+    
+    /* Apple music id associated with the user */
     var appleMusicID: String = ""
     
     /* Clear user info */
@@ -50,10 +55,6 @@ class ProfileManager: NSObject {
             if let id = userData["id"] as? String {
                 userInfo.id = id
                 self.fetchUserLikes(id, completion: { (truthValue) in
-//                    AppleMusicManager.sharedInstance.appleMusicFetchUserToken({ (userID) in
-//                        self.appleMusicID = userID
-//                        completion(userInfo)
-//                    })
                     completion(userInfo)
                 })
             } else {
