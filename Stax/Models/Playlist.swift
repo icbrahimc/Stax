@@ -32,6 +32,9 @@ struct Playlist {
     
     /* The users who liked the playlist */
     var likes: NSMutableArray?
+    
+    /* Playlist rating. Scales from 1 to 5. */
+    var rating: Double?
 
     init() {
         self.id = ""
@@ -44,9 +47,10 @@ struct Playlist {
         self.youtubeLink = ""
         self.coverArtLink = ""
         self.likes = []
+        self.rating = 0
     }
     
-    init(id: String, title: String, description: String, creatorUsername: String, spotifyLink: String, appleLink: String, cloudLink: String, youtubeLink: String, coverArtLink: String, likes: NSMutableArray) {
+    init(id: String, title: String, description: String, creatorUsername: String, spotifyLink: String, appleLink: String, cloudLink: String, youtubeLink: String, coverArtLink: String, likes: NSMutableArray, rating: Double) {
         self.id = id
         self.title = title
         self.description = description
@@ -57,6 +61,7 @@ struct Playlist {
         self.youtubeLink = youtubeLink
         self.coverArtLink = coverArtLink
         self.likes = likes
+        self.rating = rating
     }
 }
 
