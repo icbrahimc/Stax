@@ -41,6 +41,7 @@ class BaseAPI: NSObject {
             "youtubeLink": playlist.youtubeLink,
             "coverartLink": playlist.coverArtLink,
             "likes": playlist.likes,
+            "rating": playlist.rating
         ]) { (error: Error?) in
             if let error = error {
                 print("Error adding playlist: \(error)")
@@ -105,7 +106,7 @@ class BaseAPI: NSObject {
         commentRef.setData([commentID : commentDataDic], options: SetOptions.merge()) { (err) in
             if let error = err {
                 print(error.localizedDescription)
-                completion(nil)
+                completion(.null)
                 return
             }
             print("Successfully added comment to playlist \(playlist.id!)")
@@ -143,9 +144,9 @@ class BaseAPI: NSObject {
     /* Unfavorite a playlist */
     func unlikePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
         // Time stamps.
-        let timestamp = NSDate().timeIntervalSince1970
-        let myTimeInterval = TimeInterval(timestamp)
-        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+//        let timestamp = NSDate().timeIntervalSince1970
+//        let myTimeInterval = TimeInterval(timestamp)
+//        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
         let likeRef = db.collection("likes").document(uid)
         let playlistRef = db.collection("playlists").document(playlist.id!)
@@ -186,20 +187,202 @@ class BaseAPI: NSObject {
     
     //TODO: add in enums so that there is just one update function that takes in as a paramater the playlist, what to update (ex. rating, favorites, name, links), and what to update to and have switch cases for each of those options
     
+    /* Rate a playlist */
+    func ratePlaylist(user: User, playlist: Playlist, rating: Float) {
+        //TODO: get all rated playlists, add this playlist to the list, set rated playlists to this list with the new one added
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let ratings = db.collection("ratings").document(playlist.id!)  // TODO: make rating its own endpoint under playlists
+        let playlistRef = db.collection("playlists").document(playlist.id!)
+        ratings.getDocument(completion: {(querySnapshot, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            guard let document = querySnapshot?.data() else { return }
+            if let sum: Float = document["ratingSum"] as? Float {   // at least one rating has been made on this playlist
+                let ratingSum = sum + rating
+                let numRatings = document["userRatings"] as! NSDictionary
+                let avgRating = ratingSum / Float(numRatings.count + 1)
+                ratings.updateData(["averageRating" : avgRating, "ratingSum": ratingSum], completion: { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Successfully added new addtional user rating to playlist!")
+                })
+                playlistRef.updateData(["rating" : avgRating], completion: { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Successfully updated average rating in playlist collection!")
+                })
+                
+                // first ever rating on the playlist
+            } else {
+                let docData: [String: Any] = [
+                    "ratingSum": rating,
+                    "averageRating": rating
+                ]
+                ratings.setData(docData, options: SetOptions.merge(), completion: { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Successfully added first avg rating and rating sum in rating collection")
+                })
+                
+                playlistRef.setData(["rating": rating] , options: SetOptions.merge(), completion: { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Successfully added first avg rating in playlist collection")
+                })
+            }
+            let userRatingData: [String: Any] = [
+                "userRatings": [
+                    user.id!: [
+                        "date": time,
+                        "id": user.id!,
+                        "rating": rating,
+                        "username": user.username!
+                    ]
+                ]
+            ]
+            ratings.updateData(userRatingData, completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("User rating added")
+            })
+        })
+    }
+    
     /* Update a playlist rating */
-    func updatePlaylistRating(playlist: Playlist) {
-//        db.collection("playlists").document(playlist.id!).updateData(
-//            [
-//                "num_ratings": playlist.numRatings.doubleValue,
-//                "rating": playlist.rating.doubleValue,
-//            ]
-//        ) { (error: Error?) in
-//            if let error = error {
-//                print("Error updating playlist rating: \(error)")
-//            } else {
-//                print("Playlist, \(playlist.name!) rating successfully updated to \(playlist.rating.doubleValue)")
-//            }
-//        }
+    func updatePlaylistRating(user: User, playlist: Playlist, rating: Float) {
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let ratings = db.collection("ratings").document(playlist.id!)  // TODO: make rating its own endpoint under playlists
+        let playlistRef = db.collection("playlists").document(playlist.id!)
+        ratings.getDocument(completion: {(querySnapshot, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            guard let document = querySnapshot?.data() else { return }
+            let sum: Float = document["ratingSum"] as! Float
+            let oldRating: Float = ((document["userRatings"]
+                as! [String: Any?])[user.id!]
+                as! [String: Any?])["rating"] as! Float
+            let ratingSum = sum + rating - oldRating
+            let numRatings = document["userRatings"] as! NSDictionary
+            let avgRating = ratingSum / Float(numRatings.count)
+            ratings.updateData(["averageRating" : avgRating, "ratingSum": ratingSum], completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("Successfully updated rating in playlist collection!")
+            })
+            playlistRef.updateData(["rating" : avgRating], completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("Successfully updated average rating in playlist collection!")
+            })
+            
+            let userRatingData: [String: Any] = [
+                "userRatings": [
+                    user.id!: [
+                        "date": time,
+                        "id": user.id!,
+                        "rating": rating,
+                        "username": user.username!
+                    ]
+                ]
+            ]
+            
+            ratings.updateData(userRatingData, completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("Successfully updated user rating for playlist in ratings collection!")
+            })
+        })
+    }
+    
+    /* Remove a playlist rating */
+    func removePlaylistRating(user: User, playlist: Playlist) {
+        
+        let ratings = db.collection("ratings").document(playlist.id!)  // TODO: make rating its own endpoint under playlists
+        let playlistRef = db.collection("playlists").document(playlist.id!)
+        ratings.getDocument(completion: {(querySnapshot, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            guard let document = querySnapshot?.data() else { return }
+            if let userRatingSet: [String: Any?] = document["userRatings"] as? [String: Any?] {   // more than one rating has been made on this playlist
+                if userRatingSet.count > 1 {
+                    let userRating: Float = ((document["userRatings"]
+                        as! [String: Any?])[user.id!]
+                        as! [String: Any?])["rating"] as! Float
+                    let ratingSum = (document["ratingSum"] as! Float) - userRating
+                    let numRatings = document["userRatings"] as! NSDictionary
+                    let avgRating = ratingSum / Float(numRatings.count - 1)
+                    ratings.updateData(["averageRating" : avgRating, "ratingSum": ratingSum], completion: { (err) in
+                        if let error = err {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        print("Successfully removed rating in playlist collection!")
+                    })
+                    playlistRef.updateData(["rating" : avgRating], completion: { (err) in
+                        if let error = err {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        print("Successfully removed average rating in playlist collection!")
+                    })
+                } else {    // there is only 1 rating on this playlist
+                    
+                    
+                    ratings.updateData(["averageRating" : FieldValue.delete(), "ratingSum": FieldValue.delete()], completion: { (err) in
+                        if let error = err {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        print("User rating removed!")
+                    })
+                    
+                    playlistRef.updateData(["rating" : 0], completion: { (err) in
+                        if let error = err {
+                            print(error.localizedDescription)
+                            return
+                        }
+                        print("Successfully reset average rating back to default (0) in playlist collection!")
+                    })
+                    
+                }
+                ratings.updateData(["userRatings" : [user.id!: FieldValue.delete()]], completion: { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("User rating removed!")
+                })
+            }
+        })
     }
     
     /* Increment number of favorites for a playlist */
@@ -226,10 +409,6 @@ class BaseAPI: NSObject {
 //        }
     }
     
-    /* Rate a playlist */
-    func ratePlaylist(user: User, playlist: Playlist) {
-        //TODO: get all rated playlists, add this playlist to the list, set rated playlists to this list with the new one added
-    }
     
     ///////////////* Database Queries *///////////////////////
     

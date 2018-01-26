@@ -48,8 +48,8 @@ class ProfileManager: NSObject {
                 userInfo.username = username
             }
             
-            if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
-                userInfo.favoritedPlaylists = playlist
+            if let playlists = userData["favoritedPlaylists"] as? NSMutableArray {
+                userInfo.favoritedPlaylists = playlists
             }
             
             if let id = userData["id"] as? String {

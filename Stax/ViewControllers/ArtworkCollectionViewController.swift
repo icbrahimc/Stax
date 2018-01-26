@@ -72,9 +72,10 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                 let cloudLink = document["soundcloudLink"] as? String
                 let coverartLink = document["coverartLink"] as? String
                 let likes = document["likes"] as? NSDictionary
+                let rating = document["rating"] as? Float
                 
 
-                let appendPlaylist = Playlist(id: id ?? "", title: title ?? "", description: description ?? "", creatorUsername: creatorUsername ?? "", spotifyLink: spotifyLink ?? "", appleLink: appleLink ?? "", cloudLink: cloudLink ?? "", youtubeLink: youtubeLink ?? "", coverArtLink: coverartLink ?? "", likes: likes?.allKeys as? NSMutableArray ?? NSMutableArray())
+                let appendPlaylist = Playlist(id: id ?? "", title: title ?? "", description: description ?? "", creatorUsername: creatorUsername ?? "", spotifyLink: spotifyLink ?? "", appleLink: appleLink ?? "", cloudLink: cloudLink ?? "", youtubeLink: youtubeLink ?? "", coverArtLink: coverartLink ?? "", likes: likes?.allKeys as? NSMutableArray ?? NSMutableArray(), rating: rating ?? 0)
                 self.playlists.append(appendPlaylist)
             }
         })

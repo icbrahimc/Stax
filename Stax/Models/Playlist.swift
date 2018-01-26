@@ -34,7 +34,7 @@ struct Playlist {
     var likes: NSMutableArray?
     
     /* Playlist rating. Scales from 1 to 5. */
-    var rating: Double?
+    var rating: Float?
 
     init() {
         self.id = ""
@@ -50,7 +50,7 @@ struct Playlist {
         self.rating = 0
     }
     
-    init(id: String, title: String, description: String, creatorUsername: String, spotifyLink: String, appleLink: String, cloudLink: String, youtubeLink: String, coverArtLink: String, likes: NSMutableArray, rating: Double) {
+    init(id: String, title: String, description: String, creatorUsername: String, spotifyLink: String, appleLink: String, cloudLink: String, youtubeLink: String, coverArtLink: String, likes: NSMutableArray, rating: Float) {
         self.id = id
         self.title = title
         self.description = description
