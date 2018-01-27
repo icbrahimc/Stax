@@ -115,13 +115,52 @@ class BaseAPI: NSObject {
     }
     
     /* Follow */
-    func follow(_ uid: String, user: User, completion: @escaping (JSON) -> ()) {
+    func follow(_ user: User, userToFollow: User, completion: @escaping ([String: Any]) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         
+        // This data corresponds to the data of the followed (user who is being followed).
+        let followingData = [
+            "id" : userToFollow.id ?? "",
+            "username" : userToFollow.username ?? "",
+            "date" : time
+        ] as [String : Any]
+        
+        // This data corresponds to the data of the follower (user who follows another).
+        let followerData = [
+            "id" : user.id ?? "",
+            "username" : user.username ?? "",
+            "date" : time
+        ] as [String : Any]
+        
+        let followingRef = db.collection("users").document(user.id!).collection("following")
+        let followRef = db.collection("users").document(userToFollow.id!).collection("followers")
+        
+        followingRef.addDocument(data: followingData) { (err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            
+            print("Successfully followed user")
+            followRef.addDocument(data: followerData, completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                completion(followingData)
+            })
+        }
     }
     
     /* Unfollow */
     func unfollow(_ uid: String, user: User, completion: @escaping (JSON) -> ()) {
-        
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
     }
     
     /* Favorite a playlist */
