@@ -115,7 +115,7 @@ class BaseAPI: NSObject {
     }
     
     /* Follow */
-    func follow(_ user: User, userToFollow: User, completion: @escaping ([String: Any]) -> ()) {
+    func follow(_ user: User, userToFollow: User, completion: @escaping (String) -> ()) {
         // Time stamps.
         let timestamp = NSDate().timeIntervalSince1970
         let myTimeInterval = TimeInterval(timestamp)
@@ -135,32 +135,33 @@ class BaseAPI: NSObject {
             "date" : time
         ] as [String : Any]
         
-        let followingRef = db.collection("users").document(user.id!).collection("following")
-        let followRef = db.collection("users").document(userToFollow.id!).collection("followers")
+        let followingRef = db.collection("users").document(user.id!).collection("following").document(userToFollow.id!)
+        let followRef = db.collection("users").document(userToFollow.id!).collection("followers").document(user.id!)
         
-        followingRef.addDocument(data: followingData) { (err) in
+        followingRef.setData(followingData) { (err) in
             if let error = err {
                 print(error.localizedDescription)
                 return
             }
             
             print("Successfully followed user")
-            followRef.addDocument(data: followerData, completion: { (err) in
+            followRef.setData(followerData, completion: { (err) in
                 if let error = err {
                     print(error.localizedDescription)
                     return
                 }
-                completion(followingData)
+                completion(userToFollow.id!)
             })
         }
     }
     
     /* Unfollow */
-    func unfollow(_ uid: String, user: User, completion: @escaping (JSON) -> ()) {
-        // Time stamps.
-        let timestamp = NSDate().timeIntervalSince1970
-        let myTimeInterval = TimeInterval(timestamp)
-        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+    func unfollow(_ user: User, userToUnfollow: User, completion: @escaping (JSON) -> ()) {
+        let followingRef = db.collection("users").document(user.id!).collection("following").document(userToUnfollow.id!)
+        let followRef = db.collection("users").document(userToUnfollow.id!).collection("followers").document(user.id!)
+        
+        followingRef.delete()
+        followRef.delete()
     }
     
     /* Favorite a playlist */
