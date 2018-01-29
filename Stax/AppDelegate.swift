@@ -69,6 +69,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 //            self.auth.
 //        })
         
+//        let playlist = Playlist(id: "123", title: "yuh", description: "j", creatorUsername: "jnj", spotifyLink: "jnjj", appleLink: "bhj", cloudLink: "bhgbj", youtubeLink: "bhhb", coverArtLink: "hb", likes: NSMutableArray())
+//        let user = User(username: "icbrahim", id: "456", favoritedPlaylists: NSMutableArray())
+//        
+//        BaseAPI.sharedInstance.comment(user, playlist: playlist, commentText: "Conteh") { (streets) in
+//            print(streets)
+//        }
+
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
 //        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())

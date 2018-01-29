@@ -16,8 +16,10 @@ private let artworkIdentifier = "Cell"
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var cellSpacing: CGFloat = 10
     
+    /* Playlist array */
     var playlists = [Playlist]()
     
+    /* Refresh control variable. Handles pull to refresh capabilities */
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ArtworkCollectionViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
@@ -41,22 +43,15 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addNewPlaylists))
-//        let headers: HTTPHeaders = [
-//            "Music-User-Token" : ProfileManager.sharedInstance.appleMusicID,
-//            "Authorization" : "Bearer \(Constants.APPLE)"
-//        ]
-//        
-//        let url = URL(string: "https://api.music.apple.com/v1/catalog/us/playlists/pl.u-jV899PkTjYr372")
-//        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
-//            guard let response = data.data else {
-//                print("Gawd")
-//                return
-//            }
-//            print("User id \(ProfileManager.sharedInstance.appleMusicID)")
-//            print(JSON(response))
-//        }
 //        fetchPlaylists()
+    }
+    
+    /////////////////* Custom Methods */////////////////
+    
+    /* Handle refresh */
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // TODO (icbrahimc): Add handle refresh code when the api is connected.
+        refreshControl.endRefreshing()
     }
 
     /* Fetch users playlist */
@@ -120,17 +115,5 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
-    }
-    
-    /* Handle refresh */
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        // TODO (icbrahimc): Add handle refresh code when the api is connected.
-        refreshControl.endRefreshing()
-    }
-    
-    @objc func addNewPlaylists() {
-        let newVC = AddPlaylistViewController()
-        let navVC = UINavigationController(rootViewController: newVC)
-        self.navigationController?.present(navVC, animated: true, completion: nil)
     }
 }

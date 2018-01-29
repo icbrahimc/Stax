@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
+import SwiftyJSON
 import UIKit
 
 class BaseAPI: NSObject {
@@ -82,6 +83,36 @@ class BaseAPI: NSObject {
     }
     
     /////////////////* User functions */////////////////
+    
+    /* Add comment */
+    func comment(_ user: User, playlist: Playlist, commentText: String, completion: @escaping (JSON) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        let commentID = UUID().uuidString
+        let commentRef = db.collection("comments").document(playlist.id!)
+        
+        let commentDataDic = [
+            "userID" : user.id ?? "" as Any,
+            "username" : user.username ?? "" as Any,
+            "text" : commentText,
+            "date" : time,
+            "id" : commentID
+        ] as [String : Any]
+        
+        commentRef.setData([commentID : commentDataDic], options: SetOptions.merge()) { (err) in
+            if let error = err {
+                print(error.localizedDescription)
+                completion(nil)
+                return
+            }
+            print("Successfully added comment to playlist \(playlist.id!)")
+            let commentJSON = JSON(commentDataDic)
+            completion(commentJSON)
+        }
+    }
     
     /* Favorite a playlist */
     func likePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
