@@ -42,7 +42,7 @@ class SettingsViewController: UITableViewController {
     
     func spotifySetup() {
         SPTAuth.defaultInstance().clientID = "909d311de7ff4b9b84252482d9931598"
-        SPTAuth.defaultInstance().redirectURL = URL(string: "Stax://returnAfterLogin")
+        SPTAuth.defaultInstance().redirectURL = URL(string: "Stax://")
         SPTAuth.defaultInstance().requestedScopes = [
             SPTAuthStreamingScope,
             SPTAuthPlaylistReadPrivateScope,

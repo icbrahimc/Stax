@@ -19,6 +19,20 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Stax</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>Stax</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Stax://returnAfterLogin</string>
+		</dict>
+		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb949023418578995</string>
@@ -48,8 +62,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSAppleMusicUsageDescription</key>
-    <string>Stax needs access to your music library.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Stax needs access to your music library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Stax needs access to your photo library.</string>
 	<key>UILaunchStoryboardName</key>

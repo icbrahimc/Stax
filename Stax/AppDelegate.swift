@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 //            print ("Error signing out: %@", signOutError)
 //        }
         
-        auth.redirectURL = URL(string: "Stax://returnAfterLogin")
+        auth.redirectURL = URL(string: "Stax://")
         auth.sessionUserDefaultsKey = "current session"
 //        self.auth = SPTAuth.defaultInstance()
 //        self.player = SPTAudioStreamingController.sharedInstance()
