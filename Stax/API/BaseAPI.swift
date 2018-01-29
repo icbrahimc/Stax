@@ -156,12 +156,27 @@ class BaseAPI: NSObject {
     }
     
     /* Unfollow */
-    func unfollow(_ user: User, userToUnfollow: User, completion: @escaping (JSON) -> ()) {
+    func unfollow(_ user: User, userToUnfollow: User, completion: @escaping (String) -> ()) {
         let followingRef = db.collection("users").document(user.id!).collection("following").document(userToUnfollow.id!)
         let followRef = db.collection("users").document(userToUnfollow.id!).collection("followers").document(user.id!)
         
-        followingRef.delete()
-        followRef.delete()
+        followingRef.delete { (err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
+            
+            print("Successfully removed user from following category")
+            followRef.delete { (err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                print("Successfully removed user from followers category")
+                completion(userToUnfollow.id!)
+            }
+        }
     }
     
     /* Favorite a playlist */
