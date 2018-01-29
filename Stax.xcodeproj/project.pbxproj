@@ -30,6 +30,7 @@
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
+		AA4116CD201FE0B000C601FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA4116CC201FE0B000C601FC /* GoogleService-Info.plist */; };
 		AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */; };
 		AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */; };
 		AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */; };
@@ -44,7 +45,6 @@
 		AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */; };
 		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
-		AAC8D5AD1FD7B1C000020122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +93,7 @@
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		AA4116CC201FE0B000C601FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReusableView.swift; sourceTree = "<group>"; };
 		AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDivider.swift; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,7 +278,7 @@
 				AAA3BAA61FE367960083E71A /* Models */,
 				AA9DAF751FE08E130052D4D6 /* ViewControllers */,
 				AA9DAF741FE08E000052D4D6 /* Views */,
-				AAC8D5AC1FD7B1C000020122 /* GoogleService-Info.plist */,
+				AA4116CC201FE0B000C601FC /* GoogleService-Info.plist */,
 				AAC8D57E1FD7A89600020122 /* AppDelegate.swift */,
 				AAC8D5821FD7A89600020122 /* Main.storyboard */,
 				AAC8D5851FD7A89600020122 /* Assets.xcassets */,
@@ -427,8 +427,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAC8D5AD1FD7B1C000020122 /* GoogleService-Info.plist in Resources */,
 				AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */,
+				AA4116CD201FE0B000C601FC /* GoogleService-Info.plist in Resources */,
 				AAC8D5861FD7A89600020122 /* Assets.xcassets in Resources */,
 				AAC8D5841FD7A89600020122 /* Main.storyboard in Resources */,
 			);
