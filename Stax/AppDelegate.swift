@@ -65,8 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
-//        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
-        window!.rootViewController = UINavigationController(rootViewController: SettingsViewController())
+        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
         window?.makeKeyAndVisible()
         return true
     }
