@@ -46,6 +46,16 @@
 				<string>com.googleusercontent.apps.1024230593076-ur9pu8jmn6a8h8l2adf7p0jca2l45q5m</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.mobile.PushPlaylist</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>stax</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>3</string>

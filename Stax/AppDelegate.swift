@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 
     var window: UIWindow?
     
-    var auth = SPTAuth()
-    
     lazy var mainController: MainController = {
         return MainController()
     }()
@@ -58,20 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 //            print ("Error signing out: %@", signOutError)
 //        }
         
-        auth.redirectURL = URL(string: "Stax://")
-        auth.sessionUserDefaultsKey = "current session"
-//        self.auth = SPTAuth.defaultInstance()
-//        self.player = SPTAudioStreamingController.sharedInstance()
-//        self.auth.clientID = "909d311de7ff4b9b84252482d9931598"
-//        self.auth.redirectURL = URL(string: "Stax://returnAfterLogin")
-//        self.auth.sessionUserDefaultsKey = "current session"
-//
-//        self.auth.requestedScopes = [SPTAuthStreamingScope]
-//
-//        DispatchQueue.main.async(execute: {
-//            self.auth.
-//        })
-        
 //        let playlist = Playlist(id: "123", title: "yuh", description: "j", creatorUsername: "jnj", spotifyLink: "jnjj", appleLink: "bhj", cloudLink: "bhgbj", youtubeLink: "bhhb", coverArtLink: "hb", likes: NSMutableArray())
 //        let user = User(username: "icbrahim", id: "456", favoritedPlaylists: NSMutableArray())
 //        
@@ -96,9 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
                                                                          sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                                          annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         }
+        
+        // Spotify auth.
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
+            print(err?.localizedDescription)
+        }
+        
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation]) || handled
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -110,30 +100,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
                                                                          annotation: annotation)
         }
         
-        // Spotify Auth
-        if auth.canHandle(auth.redirectURL) {
-            auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (err, session) in
-                if let err = err {
-                    print(err.localizedDescription)
-                    return
-                }
-                
-                let userDefaults = UserDefaults.standard
-                
-                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
-                
-                userDefaults.set(sessionData, forKey: "SpotifySession")
-                
-                userDefaults.synchronize()
-                
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
-            })
-            
-            return true
+        // Spotify auth.
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
+            print(err?.localizedDescription)
         }
+        
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
-                                                 annotation: annotation)
+                                                 annotation: annotation) || handled
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -152,25 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//        SKCloudServiceController.requestAuthorization { (status) in
-//            if status == .authorized {
-//                let controller = SKCloudServiceController()
-//                //Check if user is a Apple Music member
-//                controller.requestCapabilities(completionHandler: { (capabilities, error) in
-//                    if error != nil {
-////                        dispatch_async(dispatch_get_main_queue(), {
-////                            self.showAlert("Capabilites error", error: "You must be an Apple Music member to use this application")
-////                        })
-//                        print("FUCK")
-//                    }
-//                })
-//            } else {
-////                dispatch_async(dispatch_get_main_queue(), {
-////                    self.showAlert("Denied", error: "User has denied access to Apple Music library")
-////                })
-//                print("No")
-//            }
-//        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
