@@ -12,9 +12,10 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import GoogleSignIn
-import PureLayout
-import StoreKit
 import MediaPlayer
+import PureLayout
+import SpotifyLogin
+import StoreKit
 import UIKit
 
 @UIApplicationMain
@@ -44,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        setupSpotify()
+        SpotifyLogin.shared.configure(clientID: Constants.SPOTCLIENTID, clientSecret: Constants.SPOTSECRETID, redirectURL: Constants.SPOTURL)
         
 //        let firebaseAuth = Auth.auth()
 //        do {
@@ -215,18 +216,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         print("Logout from Google")
-    }
-
-    func setupSpotify() {
-        SPTAuth.defaultInstance().clientID = Constants.SPOTCLIENTID
-        SPTAuth.defaultInstance().redirectURL = Constants.SPOTURL
-        SPTAuth.defaultInstance().sessionUserDefaultsKey = Constants.SPOTSESSION
-        
-        SPTAuth.defaultInstance().requestedScopes = [
-            SPTAuthPlaylistReadPrivateScope,
-            SPTAuthPlaylistModifyPublicScope,
-            SPTAuthPlaylistModifyPrivateScope
-        ]
     }
 }
 

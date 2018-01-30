@@ -55,6 +55,7 @@
 	<string>Plug.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>spotify-action</string>
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 		<string>fbauth2</string>
