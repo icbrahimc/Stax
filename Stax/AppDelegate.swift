@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        setupSpotify()
+        
 //        let firebaseAuth = Auth.auth()
 //        do {
 //            try firebaseAuth.signOut()
@@ -215,5 +217,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
         print("Logout from Google")
     }
 
+    func setupSpotify() {
+        SPTAuth.defaultInstance().clientID = Constants.SPOTCLIENTID
+        SPTAuth.defaultInstance().redirectURL = Constants.SPOTURL
+        SPTAuth.defaultInstance().sessionUserDefaultsKey = Constants.SPOTSESSION
+        
+        SPTAuth.defaultInstance().requestedScopes = [
+            SPTAuthPlaylistReadPrivateScope,
+            SPTAuthPlaylistModifyPublicScope,
+            SPTAuthPlaylistModifyPrivateScope
+        ]
+    }
 }
 

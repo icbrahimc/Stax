@@ -25,7 +25,7 @@
 			<string>Stax</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Stax</string>
+				<string>stax</string>
 			</array>
 		</dict>
 		<dict>
