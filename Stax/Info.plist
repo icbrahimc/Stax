@@ -19,6 +19,20 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Stax</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>stax</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Stax://returnAfterLogin</string>
+		</dict>
+		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb949023418578995</string>
@@ -32,6 +46,16 @@
 				<string>com.googleusercontent.apps.1024230593076-ur9pu8jmn6a8h8l2adf7p0jca2l45q5m</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.mobile.PushPlaylist</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>stax</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>3</string>
@@ -41,6 +65,7 @@
 	<string>Plug.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>spotify-action</string>
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 		<string>fbauth2</string>
@@ -48,8 +73,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSAppleMusicUsageDescription</key>
-    <string>Stax needs access to your music library.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Stax needs access to your music library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Stax needs access to your photo library.</string>
 	<key>UILaunchStoryboardName</key>

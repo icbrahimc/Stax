@@ -12,13 +12,14 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import GoogleSignIn
-import PureLayout
-import StoreKit
 import MediaPlayer
+import PureLayout
+import SpotifyLogin
+import StoreKit
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAudioStreamingDelegate {
 
     var window: UIWindow?
     
@@ -42,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        SpotifyLogin.shared.configure(clientID: Constants.SPOTCLIENTID, clientSecret: Constants.SPOTSECRETID, redirectURL: Constants.SPOTURL)
+        
 //        let firebaseAuth = Auth.auth()
 //        do {
 //            try firebaseAuth.signOut()
@@ -59,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //        BaseAPI.sharedInstance.comment(user, playlist: playlist, commentText: "Conteh") { (streets) in
 //            print(streets)
 //        }
+
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
@@ -75,9 +79,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                                          sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                                          annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         }
+        
+        // Spotify auth.
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
+            print(err?.localizedDescription)
+        }
+        
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation]) || handled
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -88,9 +98,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                                          sourceApplication: sourceApplication,
                                                                          annotation: annotation)
         }
+        
+        // Spotify auth.
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
+            print(err?.localizedDescription)
+        }
+        
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
-                                                 annotation: annotation)
+                                                 annotation: annotation) || handled
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -109,25 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//        SKCloudServiceController.requestAuthorization { (status) in
-//            if status == .authorized {
-//                let controller = SKCloudServiceController()
-//                //Check if user is a Apple Music member
-//                controller.requestCapabilities(completionHandler: { (capabilities, error) in
-//                    if error != nil {
-////                        dispatch_async(dispatch_get_main_queue(), {
-////                            self.showAlert("Capabilites error", error: "You must be an Apple Music member to use this application")
-////                        })
-//                        print("FUCK")
-//                    }
-//                })
-//            } else {
-////                dispatch_async(dispatch_get_main_queue(), {
-////                    self.showAlert("Denied", error: "User has denied access to Apple Music library")
-////                })
-//                print("No")
-//            }
-//        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -174,6 +171,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         print("Logout from Google")
     }
-
 }
 
