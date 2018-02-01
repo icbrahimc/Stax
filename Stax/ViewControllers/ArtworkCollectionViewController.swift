@@ -43,7 +43,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-//        fetchPlaylists()
+        fetchPlaylists()
     }
     
     /////////////////* Custom Methods */////////////////

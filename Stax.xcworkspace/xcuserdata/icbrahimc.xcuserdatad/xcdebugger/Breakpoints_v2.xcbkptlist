@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
-            timestampString = "538508983.076602"
+            timestampString = "539145077.334229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137">
+            startingLineNumber = "120"
+            endingLineNumber = "120">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "539037744.08611"
+            timestampString = "539145077.334287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174">
+            startingLineNumber = "150"
+            endingLineNumber = "150">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -70,11 +70,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "539037744.086212"
+            timestampString = "539145077.334347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174">
+            startingLineNumber = "150"
+            endingLineNumber = "150">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
-            timestampString = "538508983.080204"
+            timestampString = "539145077.334402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -244,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/AppDelegate.swift"
-            timestampString = "539037744.086513"
+            timestampString = "539145077.3345391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -260,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "539037744.0866539"
+            timestampString = "539145077.334921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -276,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "539037744.08674"
+            timestampString = "539145077.3349741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -292,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "539037744.086899"
+            timestampString = "539145077.335019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"

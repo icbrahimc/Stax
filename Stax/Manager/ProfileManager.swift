@@ -72,9 +72,11 @@ class ProfileManager: NSObject {
                 return
             }
             
-            guard let document = querySnapshot?.data() else { return }
-            for ids in document.keys {
-                self.likeIds.insert(ids)
+            guard let document = querySnapshot else { return }
+            if document.exists {
+                for ids in document.data().keys {
+                    self.likeIds.insert(ids)
+                }
             }
             completion(true)
         }
