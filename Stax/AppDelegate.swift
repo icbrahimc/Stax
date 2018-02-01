@@ -80,14 +80,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
                                                                          annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         }
         
-        // Spotify auth.
-        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
-            print(err?.localizedDescription)
+        if (urlString.range(of: "stax") != nil) {
+            // Spotify auth.
+            let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
+                print(err?.localizedDescription)
+            }
+            return handled
         }
         
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation]) || handled
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -99,14 +102,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
                                                                          annotation: annotation)
         }
         
-        // Spotify auth.
-        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
-            print(err?.localizedDescription)
+        if (urlString.range(of: "stax") != nil) {
+            // Spotify auth.
+            let handled = SpotifyLogin.shared.applicationOpenURL(url) { (err) in
+                print(err?.localizedDescription)
+            }
+            return handled
         }
         
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
-                                                 annotation: annotation) || handled
+                                                 annotation: annotation)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
