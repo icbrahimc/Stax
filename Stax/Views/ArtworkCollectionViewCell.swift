@@ -75,9 +75,10 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    var profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
+    var saveButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "save"), for: UIControlState.normal)
+        return button
     }()
     
     var like: UIButton = {
@@ -111,14 +112,10 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     }()
     
     func setupViews() {
-//        addSubview(btnOne)
-//        addSubview(btnTwo)
-//        addSubview(btnThree)
-//        addSubview(btnFour)
-//        addSubview(like)
         addSubview(creatorLabel)
         addSubview(titleLabel)
         addSubview(imageView)
+        imageView.addSubview(saveButton)
         
         /* Setup the imageview */
         imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.height * 0.65))
@@ -136,33 +133,11 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         creatorLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 1.5)
         creatorLabel.autoPinEdge(.left, to: .left, of: titleLabel)
         
-//        /* Setup the like button */
-//        like.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 2.5)
-//        like.autoPinEdge(.left, to: .left, of: self.contentView, withOffset: 2.5)
-//        
-//        /* Setup the btnOne music btn */
-//        btnOne.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 2.5)
-//        btnOne.autoPinEdge(.right, to: .right, of: self.contentView, withOffset: -2.5)
-//        btnOne.autoMatch(.height, to: .height, of: like)
-//        btnOne.autoMatch(.width, to: .width, of: like)
-//
-//        /* Setup the btnTwo music btn */
-//        btnTwo.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 2.5)
-//        btnTwo.autoPinEdge(.right, to: .left, of: btnOne, withOffset: -2.5)
-//        btnTwo.autoMatch(.height, to: .height, of: like)
-//        btnTwo.autoMatch(.width, to: .width, of: like)
-//        
-//        /* Setup the btnThree music btn */
-//        btnThree.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 2.5)
-//        btnThree.autoPinEdge(.right, to: .left, of: btnTwo, withOffset: -2.5)
-//        btnThree.autoMatch(.height, to: .height, of: like)
-//        btnThree.autoMatch(.width, to: .width, of: like)
-//        
-//        /* Setup the btnThree music btn */
-//        btnFour.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 2.5)
-//        btnFour.autoPinEdge(.right, to: .left, of: btnThree, withOffset: -2.5)
-//        btnFour.autoMatch(.height, to: .height, of: like)
-//        btnFour.autoMatch(.width, to: .width, of: like)
+        /* Setup the button label */
+        saveButton.autoPinEdge(toSuperviewEdge: .right, withInset: 10)
+        saveButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
+        saveButton.autoSetDimension(.height, toSize: frame.height * 0.15)
+        saveButton.autoSetDimension(.width, toSize: frame.height * 0.15)
     }
     
     @objc func pressLikeBTN() {

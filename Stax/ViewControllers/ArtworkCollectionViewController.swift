@@ -34,7 +34,6 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        title = "Discovery"
         collectionView?.backgroundColor = .white
         
         // Register cell classes
