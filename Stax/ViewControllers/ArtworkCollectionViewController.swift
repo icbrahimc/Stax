@@ -43,7 +43,36 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-        fetchPlaylists()
+        let headers: HTTPHeaders = [
+            "Authorization" : "Bearer \(Constants.APPLE)"
+        ]
+
+//        let url = URL(string: "https://api.music.apple.com/v1/catalog/us/playlists/pl.acc464c750b94302b8806e5fcbe56e17")
+//        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+//            guard let response = data.data else {
+//                print("Gawd")
+//                return
+//            }
+//            print("User id \(ProfileManager.sharedInstance.appleMusicID)")
+//            
+//            print(data)
+//            print(response)
+//        }
+        
+        SPTPlaylistList.playlists(forUser: ProfileManager.sharedInstance.spotifyUsername, withAccessToken: ProfileManager.sharedInstance.spotifyMusicID) { (err, list) in
+            if let listPage = list as? SPTPlaylistList, let playlists = listPage.items as? [SPTPartialPlaylist] {
+                for playlist in playlists {
+                    print("Name \(playlist.name)")
+                    print("URI \(playlist.uri)")
+                }
+//                self.playlists = playlists    // or however you want to parse these
+//                self.tableView.reloadData()
+//                if listPage.hasNextPage {
+//                    self.getNextPlaylistPage(currentPage: listPage)
+//                }
+            }
+        }
+//        fetchPlaylists()
     }
     
     /////////////////* Custom Methods */////////////////

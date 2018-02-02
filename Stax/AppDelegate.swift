@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
         
         SpotifyLogin.shared.configure(clientID: Constants.SPOTCLIENTID, clientSecret: Constants.SPOTSECRETID, redirectURL: Constants.SPOTURL)
         
+        
 //        let firebaseAuth = Auth.auth()
 //        do {
 //            try firebaseAuth.signOut()

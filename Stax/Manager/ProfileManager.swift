@@ -7,6 +7,7 @@
 //
 
 import PromiseKit
+import SpotifyLogin
 import UIKit
 
 let UserInfoUpdated = "UserInfoUpdated"
@@ -30,6 +31,12 @@ class ProfileManager: NSObject {
     
     /* Apple music id associated with the user */
     var appleMusicID: String = ""
+    
+    /* Spotify music id associated with the user */
+    var spotifyMusicID: String = ""
+    
+    /* Spotify username associated with the user */
+    var spotifyUsername: String = ""
     
     /* Clear user info */
     func clearUserInfo(_ completion: @escaping () -> ()) {
@@ -55,7 +62,15 @@ class ProfileManager: NSObject {
             if let id = userData["id"] as? String {
                 userInfo.id = id
                 self.fetchUserLikes(id, completion: { (truthValue) in
-                    completion(userInfo)
+                    SpotifyLogin.shared.getAccessToken { (spotToken, err) in
+                        guard let token = spotToken else {
+                            completion(userInfo)
+                            return
+                        }
+                        self.spotifyMusicID = token
+                        self.spotifyUsername = SpotifyLogin.shared.username!
+                        completion(userInfo)
+                    }
                 })
             } else {
                 completion(userInfo)
