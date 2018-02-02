@@ -14,7 +14,7 @@ import UIKit
 private let artworkIdentifier = "Cell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    var cellSpacing: CGFloat = 10
+    var cellSpacing: CGFloat = 25
     
     /* Playlist array */
     var playlists = [Playlist]()
@@ -35,7 +35,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         // self.clearsSelectionOnViewWillAppear = false
 
         title = "Discovery"
-        collectionView?.backgroundColor = UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)
+        collectionView?.backgroundColor = .white
         
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
@@ -43,7 +43,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-        fetchPlaylists()
+//        fetchPlaylists()
     }
     
     /////////////////* Custom Methods */////////////////
@@ -88,19 +88,25 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return playlists.count
+        if playlists.count != 0 {
+            return playlists.count
+        }
+        return 15
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-        let playlist = playlists[indexPath.row]
-        cell.playlist = playlist
+//        let playlist = playlists[indexPath.row]
+//        cell.playlist = playlist
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height * 0.75
+        let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
+        let height = width + 90
+        
+        print("Width \(width)")
+        print("Length \(height)")
         
         return CGSize(width: width, height: height)
     }
