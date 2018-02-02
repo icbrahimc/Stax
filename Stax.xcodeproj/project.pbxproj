@@ -45,6 +45,7 @@
 		AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */; };
 		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
+		AAE38EFC202526F300ADFB40 /* AddPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCell.swift; sourceTree = "<group>"; };
 		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +217,7 @@
 		AA9DAF741FE08E000052D4D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */,
 				AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */,
 				AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
@@ -617,6 +620,7 @@
 				AAA1689920179E3B001A2005 /* Comment.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
 				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
+				AAE38EFC202526F300ADFB40 /* AddPlaylistCell.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
 				AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */,
 			);

@@ -11,6 +11,7 @@ import FirebaseFirestore
 import SwiftyJSON
 import UIKit
 
+private let reuseIdentifier = "AddCell"
 private let artworkIdentifier = "Cell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -38,6 +39,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
@@ -84,33 +87,69 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     // MARK: UICollectionViewDataSource
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        if playlists.count != 0 {
-            return playlists.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            if playlists.count != 0 {
+                return playlists.count
+            }
+            return 15
+        default:
+            return 0
         }
-        return 15
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
-//        let playlist = playlists[indexPath.row]
-//        cell.playlist = playlist
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
+            
+            //        let playlist = playlists[indexPath.row]
+            //        cell.playlist = playlist
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-        let height = width + 90
-        
-        print("Width \(width)")
-        print("Length \(height)")
-        
-        return CGSize(width: width, height: height)
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: 100, height: 100)
+        case 1:
+            let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
+            let height = width + 90
+            
+            print("Width \(width)")
+            print("Length \(height)")
+            
+            return CGSize(width: width, height: height)
+        default:
+            return CGSize(width: 0, height: 0)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch section {
+        case 0:
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        case 1:
+            return UIEdgeInsetsMake(0, cellSpacing, 0, cellSpacing)
+        default:
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        }
         return UIEdgeInsetsMake(0, cellSpacing, 0, cellSpacing)
     }
     
