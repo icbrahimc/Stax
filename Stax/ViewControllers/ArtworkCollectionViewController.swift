@@ -11,8 +11,9 @@ import FirebaseFirestore
 import SwiftyJSON
 import UIKit
 
-private let reuseIdentifier = "AddCell"
-private let artworkIdentifier = "Cell"
+private let reuseIdentifier = "Cell"
+private let addIdentifier = "AddCell"
+private let artworkIdentifier = "ArtworkCell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var cellSpacing: CGFloat = 25
@@ -39,13 +40,14 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
+        self.collectionView!.register(AddPlaylistCell.self, forCellWithReuseIdentifier: addIdentifier)
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-//        fetchPlaylists()
+        fetchPlaylists()
     }
     
     /////////////////* Custom Methods */////////////////
@@ -101,7 +103,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             if playlists.count != 0 {
                 return playlists.count
             }
-            return 15
+            return playlists.count
         default:
             return 0
         }
@@ -109,15 +111,18 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
+            
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: addIdentifier, for: indexPath) as! AddPlaylistCell
             return cell
+            
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
             
-            //        let playlist = playlists[indexPath.row]
-            //        cell.playlist = playlist
+            let playlist = playlists[indexPath.row]
+            cell.playlist = playlist
             return cell
+            
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
             return cell
@@ -127,7 +132,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return CGSize(width: 100, height: 100)
+            return CGSize(width: view.frame.width, height: 75)
+            
         case 1:
             let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
             let height = width + 90
@@ -136,6 +142,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             print("Length \(height)")
             
             return CGSize(width: width, height: height)
+            
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -143,14 +150,16 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch section {
+            
         case 0:
             return UIEdgeInsetsMake(0, 0, 0, 0)
+            
         case 1:
             return UIEdgeInsetsMake(0, cellSpacing, 0, cellSpacing)
+            
         default:
             return UIEdgeInsetsMake(0, 0, 0, 0)
         }
-        return UIEdgeInsetsMake(0, cellSpacing, 0, cellSpacing)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
