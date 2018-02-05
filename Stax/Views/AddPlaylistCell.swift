@@ -21,6 +21,7 @@ class AddPlaylistCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     let addCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -38,17 +39,31 @@ class AddPlaylistCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         return line
     }()
     
+    let dividerLineViewOne: UIView = {
+        let line = UIView()
+        line.backgroundColor = UIColor.init(white: 0.4, alpha: 0.4)
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
     func setupViews() {
         addSubview(dividerLineView)
+        addSubview(dividerLineViewOne)
         addSubview(addCollectionView)
         
         addCollectionView.dataSource = self
         addCollectionView.delegate = self
         addCollectionView.register(MusicServiceCell.self, forCellWithReuseIdentifier: addIdentifier)
-        addCollectionView.autoPinEdge(toSuperviewEdge: .top)
+        addCollectionView.autoPinEdge(toSuperviewEdge: .top, withInset: 5.0)
         addCollectionView.autoPinEdge(toSuperviewEdge: .left)
         addCollectionView.autoPinEdge(toSuperviewEdge: .right)
         addCollectionView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5.0)
+        
+        dividerLineViewOne.autoPinEdge(.bottom, to: .top, of: addCollectionView)
+        dividerLineViewOne.autoPinEdge(toSuperviewEdge: .left)
+        dividerLineViewOne.autoPinEdge(toSuperviewEdge: .right)
+        dividerLineViewOne.autoSetDimension(.height, toSize: 1)
+        dividerLineViewOne.autoSetDimension(.width, toSize: frame.width)
         
         dividerLineView.autoPinEdge(.top, to: .bottom, of: addCollectionView)
         dividerLineView.autoPinEdge(toSuperviewEdge: .left)
@@ -78,7 +93,7 @@ class AddPlaylistCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
             
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: addIdentifier, for: indexPath) as! MusicServiceCell
-            
+
             return cell
         }
     }

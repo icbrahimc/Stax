@@ -37,15 +37,19 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         // self.clearsSelectionOnViewWillAppear = false
 
         collectionView?.backgroundColor = .white
+        collectionView?.showsVerticalScrollIndicator = false
         
         // Register cell classes
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: artworkIdentifier)
         self.collectionView!.register(AddPlaylistCell.self, forCellWithReuseIdentifier: addIdentifier)
+        self.collectionView!.register(FeedReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerView")
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
+        
+        navigationController?.navigationBar.isHidden = true
         
         fetchPlaylists()
     }
@@ -89,6 +93,26 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     // MARK: UICollectionViewDataSource
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as! FeedReusableView
+            
+            return headerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        switch section {
+        case 0:
+            return CGSize(width: self.view.frame.width, height: 100)
+        default:
+            return CGSize(width: 0, height: 0)
+        }
+    }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2

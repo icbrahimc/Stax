@@ -46,6 +46,7 @@
 		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
 		AAE38EFC202526F300ADFB40 /* AddPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */; };
+		AAE38F142028C8F900ADFB40 /* FeedReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCell.swift; sourceTree = "<group>"; };
+		AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedReusableView.swift; path = /Users/icbrahimc/Stax/Stax/Views/FeedReusableView.swift; sourceTree = "<absolute>"; };
 		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +222,7 @@
 				AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */,
 				AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */,
 				AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */,
+				AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 				AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */,
 			);
@@ -603,6 +606,7 @@
 				AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */,
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
 				AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */,
+				AAE38F142028C8F900ADFB40 /* FeedReusableView.swift in Sources */,
 				AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */,
 				AA3A10122004ECEE0039333E /* Extensions.swift in Sources */,
 				AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */,
