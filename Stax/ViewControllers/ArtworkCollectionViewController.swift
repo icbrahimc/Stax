@@ -51,7 +51,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         
         navigationController?.navigationBar.isHidden = true
         
-        fetchPlaylists()
+//        fetchPlaylists()
     }
     
     /////////////////* Custom Methods */////////////////
@@ -127,7 +127,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             if playlists.count != 0 {
                 return playlists.count
             }
-            return playlists.count
+            return 10
         default:
             return 0
         }
@@ -143,8 +143,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
             
-            let playlist = playlists[indexPath.row]
-            cell.playlist = playlist
+//            let playlist = playlists[indexPath.row]
+//            cell.playlist = playlist
             return cell
             
         default:
