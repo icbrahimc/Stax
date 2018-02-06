@@ -45,6 +45,8 @@
 		AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC8D5871FD7A89600020122 /* LaunchScreen.storyboard */; };
 		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
+		F0336469202A5F0900F3EAC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA4116CC201FE0B000C601FC /* GoogleService-Info.plist */; };
+		F033646A202A5F0900F3EAC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA4116CC201FE0B000C601FC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -438,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0336469202A5F0900F3EAC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F033646A202A5F0900F3EAC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

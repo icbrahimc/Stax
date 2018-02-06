@@ -28,6 +28,9 @@ class ProfileManager: NSObject {
     /* Like ids associated with this particular user */
     var likeIds: Set<String> = Set()
     
+    /* Save ids associated with this particular user */
+    var savedPlaylistIds: NSMutableArray = NSMutableArray()
+    
     /* Apple music id associated with the user */
     var appleMusicID: String = ""
     
@@ -48,14 +51,12 @@ class ProfileManager: NSObject {
                 userInfo.username = username
             }
             
-            if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
-                userInfo.favoritedPlaylists = playlist
-            }
-            
             if let id = userData["id"] as? String {
                 userInfo.id = id
                 self.fetchUserLikes(id, completion: { (truthValue) in
-                    completion(userInfo)
+                    self.fetchUserSavedPlaylists(id, completion: { (truthValue) in
+                        completion(userInfo)
+                    })
                 })
             } else {
                 completion(userInfo)
@@ -77,6 +78,23 @@ class ProfileManager: NSObject {
                 for ids in document.data().keys {
                     self.likeIds.insert(ids)
                 }
+            }
+            completion(true)
+        }
+    }
+    
+    /* Fetch user saved playlists */
+    func fetchUserSavedPlaylists(_ uid: String, completion: @escaping (Bool) -> ()) {
+        api.db.collection("users").document(uid).collection("savedPlaylists").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
+            if let error = err {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            for document in (querySnapshot?.documents)! {
+                // get playlist ids and put in arraylist in order of timestamp
+                self.savedPlaylistIds.add(document.documentID)
             }
             completion(true)
         }
