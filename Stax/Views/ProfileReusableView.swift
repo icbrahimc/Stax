@@ -123,10 +123,12 @@ class ProfileReusableView: UICollectionReusableView {
     }()
     
     let editProfileButtton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: UIButtonType.roundedRect)
         button.setTitle("Edit Profile", for: .normal)
         button.backgroundColor = UIColor(red:211.0/255.0, green:72.0/255.0, blue:54.0/255.0, alpha:1.0)
         button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1.0
         return button
     }()
     
@@ -172,7 +174,7 @@ class ProfileReusableView: UICollectionReusableView {
         profilePic.layer.cornerRadius = frame.height * 0.20
         
         firstNameLabel.autoSetDimension(.width, toSize: 100)
-        firstNameLabel.autoPinEdge(.left, to: .left, of: profilePic, withOffset: 5.0)
+        firstNameLabel.autoPinEdge(.left, to: .left, of: profilePic, withOffset: 0.0)
         firstNameLabel.autoPinEdge(.top, to: .bottom, of: profilePic, withOffset: 10.0)
         firstNameLabel.font = UIFont.boldSystemFont(ofSize: nameLabelSize)
         
@@ -185,7 +187,6 @@ class ProfileReusableView: UICollectionReusableView {
         editProfileButtton.autoPinEdge(.left, to: .left, of: playlistLabel, withOffset: 0.0)
         editProfileButtton.autoSetDimension(.height, toSize: lastNameLabel.frame.height)
         editProfileButtton.autoSetDimension(.width, toSize: 100)
-        editProfileButtton.backgroundColor = UIColor(red:211.0/255.0, green:72.0/255.0, blue:54.0/255.0, alpha:1.0)
         
         usernameLabel.autoPinEdge(.top, to: .bottom, of: lastNameLabel)
         usernameLabel.autoPinEdge(.left, to: .left, of: lastNameLabel)

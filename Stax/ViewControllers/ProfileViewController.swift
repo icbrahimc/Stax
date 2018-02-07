@@ -20,9 +20,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Profile"
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settings))
+        navigationController?.navigationBar.isHidden = true
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settings))
 
         collectionView?.backgroundColor = .white
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
