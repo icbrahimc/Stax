@@ -7,6 +7,7 @@
 //
 
 import PromiseKit
+import SpotifyLogin
 import UIKit
 
 let UserInfoUpdated = "UserInfoUpdated"
@@ -30,6 +31,9 @@ class ProfileManager: NSObject {
     
     /* Apple music id associated with the user */
     var appleMusicID: String = ""
+    
+    /* Spotify id asscoiated with the user */
+    var spotifyMusicID: String = ""
     
     /* Clear user info */
     func clearUserInfo(_ completion: @escaping () -> ()) {
