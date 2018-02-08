@@ -70,7 +70,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "moon")
-        imageView.layer.cornerRadius = 20.0
+        imageView.layer.cornerRadius = 15.0
         imageView.layer.masksToBounds = true
         return imageView
     }()

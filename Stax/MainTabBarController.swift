@@ -41,18 +41,18 @@ class MainTabBarController: UITabBarController {
     
     func setup() {
         let navVCArtwork = UINavigationController(rootViewController: artworkVC)
-        navVCArtwork.tabBarItem =  UITabBarItem(title: nil, image: UIImage(named: "feed"), tag: 1)
+        navVCArtwork.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "feed"), tag: 1)
         navVCArtwork.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
         let navVCSave = UINavigationController(rootViewController: UIViewController())
         navVCSave.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "saveTab"), tag: 2)
         navVCSave.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
-        let navVCSearch = UINavigationController(rootViewController: UIViewController())
+        let navVCSearch = UINavigationController(rootViewController: SearchViewController())
         navVCSearch.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "search"), tag: 3)
         navVCSearch.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
-        let navVCAddPlaylist = UINavigationController(rootViewController: UIViewController())
+        let navVCAddPlaylist = UINavigationController(rootViewController: NotificationsViewController())
         navVCAddPlaylist.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "notifications"), tag: 4)
         navVCAddPlaylist.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
