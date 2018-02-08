@@ -24,6 +24,7 @@
 		AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */; };
 		AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8920101CA900AB171B /* Constants.swift */; };
 		AA2D3B8C201475F900AB171B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8B201475F900AB171B /* Helpers.swift */; };
+		AA323AED202C134500589023 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA323AEC202C134500589023 /* Song.swift */; };
 		AA3A10122004ECEE0039333E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10112004ECEE0039333E /* Extensions.swift */; };
 		AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10142006F9BD0039333E /* LaunchViewController.swift */; };
 		AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A1016200714870039333E /* OnboardingViewController.swift */; };
@@ -87,6 +88,7 @@
 		AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		AA2D3B8920101CA900AB171B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA2D3B8B201475F900AB171B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		AA323AEC202C134500589023 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		AA3A10112004ECEE0039333E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA3A10142006F9BD0039333E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AA3A1016200714870039333E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				AAA1689820179E3B001A2005 /* Comment.swift */,
 				AAA3BAA71FE3689B0083E71A /* Playlist.swift */,
+				AA323AEC202C134500589023 /* Song.swift */,
 				AA3A501C1FE6442F00F3918D /* User.swift */,
 			);
 			path = Models;
@@ -602,6 +605,7 @@
 				AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */,
 				AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */,
 				AA3A10122004ECEE0039333E /* Extensions.swift in Sources */,
+				AA323AED202C134500589023 /* Song.swift in Sources */,
 				AA0A64961FF2ADBF002251DC /* OnboardingNavigationController.swift in Sources */,
 				AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */,
 				AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */,
