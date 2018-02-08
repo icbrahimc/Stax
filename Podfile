@@ -17,6 +17,7 @@ target 'Stax' do
 	pod 'GoogleSignIn'
 	pod 'PromiseKit'
 	pod 'PureLayout'
+	pod 'SpotifyLogin'
 	pod 'SwiftyJSON'
 	pod 'TTTAttributedLabel'
   target 'StaxTests' do

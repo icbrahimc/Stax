@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1024230593076-ur9pu8jmn6a8h8l2adf7p0jca2l45q5m.apps.googleusercontent.com</string>
+	<string>1024230593076-ha1rvbfgb7j6a698ph7mea5pd40evhki.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1024230593076-ur9pu8jmn6a8h8l2adf7p0jca2l45q5m</string>
+	<string>com.googleusercontent.apps.1024230593076-ha1rvbfgb7j6a698ph7mea5pd40evhki</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCHxdZ95oUjV8jZ9g2zgD1-Z4IZlO5s7mY</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,23 +17,23 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mobile.Stax</string>
+	<string>com.mobile.PushPlaylist</string>
 	<key>PROJECT_ID</key>
 	<string>stax-62647</string>
 	<key>STORAGE_BUCKET</key>
 	<string>stax-62647.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1024230593076:ios:0cca116f91a852b3</string>
+	<string>1:1024230593076:ios:40df3005a752f4cf</string>
 	<key>DATABASE_URL</key>
 	<string>https://stax-62647.firebaseio.com</string>
 </dict>
