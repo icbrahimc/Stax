@@ -105,12 +105,77 @@ class BaseAPI: NSObject {
         commentRef.setData([commentID : commentDataDic], options: SetOptions.merge()) { (err) in
             if let error = err {
                 print(error.localizedDescription)
-                completion(nil)
+                completion(JSON.null)
                 return
             }
             print("Successfully added comment to playlist \(playlist.id!)")
             let commentJSON = JSON(commentDataDic)
             completion(commentJSON)
+        }
+    }
+    
+    /* Follow */
+    func follow(_ user: User, userToFollow: User, completion: @escaping (String) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
+        // This data corresponds to the data of the followed (user who is being followed).
+        let followingData = [
+            "id" : userToFollow.id ?? "",
+            "username" : userToFollow.username ?? "",
+            "date" : time
+        ] as [String : Any]
+        
+        // This data corresponds to the data of the follower (user who follows another).
+        let followerData = [
+            "id" : user.id ?? "",
+            "username" : user.username ?? "",
+            "date" : time
+        ] as [String : Any]
+        
+        let followingRef = db.collection("users").document(user.id!).collection("following").document(userToFollow.id!)
+        let followRef = db.collection("users").document(userToFollow.id!).collection("followers").document(user.id!)
+        
+        followingRef.setData(followingData) { (err) in
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            
+            print("Successfully followed user")
+            followRef.setData(followerData, completion: { (err) in
+                if let error = err {
+                    print(error.localizedDescription)
+                    return
+                }
+                completion(userToFollow.id!)
+            })
+        }
+    }
+    
+    /* Unfollow */
+    func unfollow(_ user: User, userToUnfollow: User, completion: @escaping (String) -> ()) {
+        let followingRef = db.collection("users").document(user.id!).collection("following").document(userToUnfollow.id!)
+        let followRef = db.collection("users").document(userToUnfollow.id!).collection("followers").document(user.id!)
+        
+        followingRef.delete { (err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
+            
+            print("Successfully removed user from following category")
+            followRef.delete { (err) in
+                if let err = err {
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                print("Successfully removed user from followers category")
+                completion(userToUnfollow.id!)
+            }
         }
     }
     

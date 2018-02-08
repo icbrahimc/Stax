@@ -16,6 +16,7 @@ import MediaPlayer
 import PureLayout
 import SpotifyLogin
 import StoreKit
+import SwiftyJSON
 import UIKit
 
 @UIApplicationMain
