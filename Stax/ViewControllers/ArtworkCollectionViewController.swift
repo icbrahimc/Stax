@@ -108,6 +108,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
+//            return CGSize(width: self.view.frame.width, height: self.view.frame.height * 0.25)
             return CGSize(width: self.view.frame.width, height: 100)
         default:
             return CGSize(width: 0, height: 0)

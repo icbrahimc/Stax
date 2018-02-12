@@ -44,9 +44,10 @@ class MainTabBarController: UITabBarController {
         navVCArtwork.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "feed"), tag: 1)
         navVCArtwork.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         
-        let navVCSave = UINavigationController(rootViewController: UIViewController())
+        let navVCSave = UINavigationController(rootViewController: SavedViewController())
         navVCSave.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "saveTab"), tag: 2)
         navVCSave.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        navVCSave.isNavigationBarHidden = true
         
         let navVCSearch = UINavigationController(rootViewController: SearchViewController())
         navVCSearch.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "search"), tag: 3)
