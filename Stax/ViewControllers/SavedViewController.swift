@@ -13,6 +13,7 @@ private let saveIdentifier = "SaveCell"
 class SavedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var cellSpacing: CGFloat = 25
     
+    let dividerView = UIView.newAutoLayout()
     let headerLabel = UILabel.newAutoLayout()
     let headerView = UIView.newAutoLayout()
     let segment = UISegmentedControl.newAutoLayout()
@@ -79,7 +80,7 @@ extension SavedViewController {
         headerView.autoPinEdge(toSuperviewEdge: .top)
         headerView.autoPinEdge(toSuperviewEdge: .left)
         headerView.autoPinEdge(toSuperviewEdge: .right)
-        headerView.autoSetDimensions(to: CGSize(width: view.frame.width, height: 120))
+        headerView.autoSetDimensions(to: CGSize(width: view.frame.width, height: 135))
         
         setupHeaderLabel()
         headerView.addSubview(headerLabel)
@@ -89,13 +90,21 @@ extension SavedViewController {
         headerView.addSubview(segment)
         segment.insertSegment(withTitle: "Saved", at: 0, animated: true)
         segment.insertSegment(withTitle: "History", at: 1, animated: true)
-        segment.autoPinEdge(.top, to: .bottom, of: headerLabel, withOffset: 10.0)
+        segment.autoPinEdge(.top, to: .bottom, of: headerLabel, withOffset: 5.0)
         segment.autoPinEdge(.left, to: .left, of: headerLabel, withOffset: 0.0)
         segment.autoPinEdge(toSuperviewEdge: .right, withInset: 15.0)
         segment.autoSetDimension(.width, toSize: view.frame.width)
         segment.autoSetDimension(.height, toSize: 30)
         segment.tintColor = .black
         segment.selectedSegmentIndex = 0
+        
+        setupDividerView()
+        headerView.addSubview(dividerView)
+        dividerView.autoSetDimension(.width, toSize: view.frame.width)
+        dividerView.autoSetDimension(.height, toSize: 1.0)
+        dividerView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 1.0)
+        dividerView.autoPinEdge(toSuperviewEdge: .left, withInset: 0.0)
+        dividerView.autoPinEdge(toSuperviewEdge: .right, withInset: 0.0)
         
         savedPlaylistCollectionView.autoPinEdge(toSuperviewEdge: .left, withInset: 0.0)
         savedPlaylistCollectionView.autoPinEdge(toSuperviewEdge: .right, withInset: 0.0)
@@ -111,5 +120,10 @@ extension SavedViewController {
     func setupHeaderLabel() {
         headerLabel.text = "Saved"
         headerLabel.font = UIFont.boldSystemFont(ofSize: 32)
+    }
+    
+    func setupDividerView() {
+        dividerView.backgroundColor = UIColor.init(white: 0.4, alpha: 0.4)
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
