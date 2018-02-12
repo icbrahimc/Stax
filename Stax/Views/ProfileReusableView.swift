@@ -112,6 +112,7 @@ class ProfileReusableView: UICollectionReusableView {
         label.text = "@icbrahimc"
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.textColor = UIColor.init(white: 0.4, alpha: 0.6)
+        label.textAlignment = .center
         return label
     }()
     
@@ -173,12 +174,12 @@ class ProfileReusableView: UICollectionReusableView {
         profilePic.autoPinEdge(toSuperviewEdge: .left, withInset: 20)
         profilePic.layer.cornerRadius = frame.height * 0.20
         
-        firstNameLabel.autoSetDimension(.width, toSize: 100)
+        firstNameLabel.autoSetDimension(.width, toSize: frame.height * 0.40)
         firstNameLabel.autoPinEdge(.left, to: .left, of: profilePic, withOffset: 0.0)
         firstNameLabel.autoPinEdge(.top, to: .bottom, of: profilePic, withOffset: 10.0)
         firstNameLabel.font = UIFont.boldSystemFont(ofSize: nameLabelSize)
         
-        lastNameLabel.autoSetDimension(.width, toSize: 100)
+        lastNameLabel.autoSetDimension(.width, toSize: frame.height * 0.40)
         lastNameLabel.autoPinEdge(.left, to: .left, of: firstNameLabel, withOffset: 0.0)
         lastNameLabel.autoPinEdge(.top, to: .bottom, of: firstNameLabel, withOffset: 0.0)
         lastNameLabel.font = UIFont.boldSystemFont(ofSize: nameLabelSize)
@@ -191,6 +192,7 @@ class ProfileReusableView: UICollectionReusableView {
         usernameLabel.autoPinEdge(.top, to: .bottom, of: lastNameLabel)
         usernameLabel.autoPinEdge(.left, to: .left, of: lastNameLabel)
         usernameLabel.autoSetDimension(.width, toSize: frame.width)
+        usernameLabel.autoSetDimension(.width, toSize: frame.height * 0.40)
         
         playlistNumberLabel.autoPinEdge(.top, to: .top, of: profilePic, withOffset: 0.0)
         playlistNumberLabel.autoPinEdge(.left, to: .right, of: profilePic, withOffset: 25.0)

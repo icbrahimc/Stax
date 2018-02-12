@@ -15,7 +15,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class ProfileViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    var cellSpacing: CGFloat = 10
+    var cellSpacing: CGFloat = 25
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 10
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +62,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-        let height = width
+        let height = width + 90
         
         return CGSize(width: width, height: height)
     }
