@@ -31,6 +31,7 @@
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
+		AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A259F2031DE7200075DFE /* SavedViewController.swift */; };
 		AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */; };
 		AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */; };
 		AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */; };
@@ -46,6 +47,10 @@
 		AAC8D5941FD7A89600020122 /* StaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D5931FD7A89600020122 /* StaxTests.swift */; };
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
 		AAE38F18202A681E00ADFB40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */; };
+		AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */; };
+		AAE38F1A202AB6F800ADFB40 /* FeedReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */; };
+		AAE38F1C202B485400ADFB40 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */; };
+		AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +100,7 @@
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
+		AA7A259F2031DE7200075DFE /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReusableView.swift; sourceTree = "<group>"; };
 		AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDivider.swift; sourceTree = "<group>"; };
@@ -115,7 +121,11 @@
 		AAC8D59A1FD7A89600020122 /* StaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCell.swift; sourceTree = "<group>"; };
+		AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedReusableView.swift; path = /Users/icbrahimc/Stax/Stax/Views/FeedReusableView.swift; sourceTree = "<absolute>"; };
 		AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,9 +227,11 @@
 		AA9DAF741FE08E000052D4D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */,
 				AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */,
 				AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */,
 				AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */,
+				AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 				AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */,
 			);
@@ -229,13 +241,16 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA0A64921FF23C74002251DC /* Onboarding */,
+				AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */,
 				AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
-				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
-				AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */,
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
+				AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */,
+				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
+				AA7A259F2031DE7200075DFE /* SavedViewController.swift */,
+				AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */,
 				AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */,
+				AA0A64921FF23C74002251DC /* Onboarding */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -596,6 +611,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */,
+				AAE38F1A202AB6F800ADFB40 /* FeedReusableView.swift in Sources */,
+				AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */,
+				AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */,
 				AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */,
 				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
 				AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */,
@@ -621,6 +640,7 @@
 				AAA1689920179E3B001A2005 /* Comment.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
 				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
+				AAE38F1C202B485400ADFB40 /* NotificationsViewController.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
 				AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */,
 			);
