@@ -122,7 +122,7 @@
 		AAC8D59E1FD7A89600020122 /* StaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxUITests.swift; sourceTree = "<group>"; };
 		AAC8D5A01FD7A89600020122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCell.swift; sourceTree = "<group>"; };
-		AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedReusableView.swift; path = /Users/icbrahimc/Stax/Stax/Views/FeedReusableView.swift; sourceTree = "<absolute>"; };
+		AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedReusableView.swift; path = /Users/omarbaradei/Desktop/dev/Startup/Stax/Stax/Views/FeedReusableView.swift; sourceTree = "<absolute>"; };
 		AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -456,7 +456,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0336469202A5F0900F3EAC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +463,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F033646A202A5F0900F3EAC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
