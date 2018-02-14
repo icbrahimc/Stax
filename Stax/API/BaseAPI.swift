@@ -179,7 +179,7 @@ class BaseAPI: NSObject {
         }
     }
     
-    /* Favorite a playlist */
+    /* Like a playlist */
     func likePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
         // Time stamps.
         let timestamp = NSDate().timeIntervalSince1970
@@ -205,7 +205,7 @@ class BaseAPI: NSObject {
         }
     }
     
-    /* Unfavorite a playlist */
+    /* Unlike a playlist */
     func unlikePlaylist(_ uid: String, playlist: Playlist, completion: @escaping (String) -> ()) {
         // Time stamps.
         let timestamp = NSDate().timeIntervalSince1970
@@ -230,6 +230,43 @@ class BaseAPI: NSObject {
             })
         })
         //TODO: get current favorited playlists, remove the playlistRef from that list, then set the favorited playlists to the list with the one removed
+    }
+    
+    /* Save a playlist */
+    func savePlaylist(user: User, playlist: Playlist, completion: @escaping (String) -> ()) {
+        // Time stamps. TODO: Update timestamp code to style from official docs
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        print("User ID: \(user.id!)")
+        let savedRef = db.collection("users").document(user.id!).collection("savedPlaylists").document(playlist.id!)
+        let data: [String: Any] = [
+            "id" : playlist.id!,
+            "date" : time,
+        ]
+        savedRef.setData(data) { (err) in
+            if let error = err {
+                print("Error saving document: \(error.localizedDescription)")
+                return
+            } else {
+                print("Playlist scuccessfully saved!")
+            }
+            completion(playlist.id!)    // not sure what to return in completion block
+        }
+        
+    }
+    
+    /* Unsave a playlist */
+    func unsavePlaylist(user: User, playlist: Playlist, completion: @escaping (String) -> ()) {
+        let savedRef = db.collection("users").document(user.id!).collection("savedPlaylists").document(playlist.id!)
+        savedRef.delete() { (err) in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Playlist successfully unsaved!")
+            }
+            completion(playlist.id!)    // not sure what to return in completion block
+        }
     }
     
     ///////////////* Database Queries *///////////////////////

@@ -24,10 +24,30 @@ class ProfileManager: NSObject {
     init(api: BaseAPI) {
         self.api = api
         self.user = User(username: "", id: "", favoritedPlaylists: NSMutableArray())
+        
+        /* test code for saving and unsaving playlists */
+        
+//        let fakePlaylist1: Playlist = Playlist(id: "777", title: "Fake Playlist Title", description: "The worst playlist", creatorUsername: "icbrahimc", spotifyLink: "", appleLink: "", cloudLink: "", youtubeLink: "", coverArtLink: "", likes: NSMutableArray())
+//
+//        let fakePlaylist2: Playlist = Playlist(id: "123", title: "Some playlist title", description: "The best playlist", creatorUsername: "omarb97", spotifyLink: "", appleLink: "", cloudLink: "", youtubeLink: "", coverArtLink: "", likes: NSMutableArray())
+//        let fakeUser: User = User(username: "Dev", id: "HZyauwX54NhRP1All1PGKaYVXJy1", favoritedPlaylists: NSMutableArray())
+//        api.savePlaylist(user: fakeUser, playlist: fakePlaylist1, completion: { (playlistID) in
+//            print(playlistID)
+//        })
+//        api.savePlaylist(user: fakeUser, playlist: fakePlaylist2, completion: { (playlistID) in
+//            print(playlistID)
+//        })
+//        api.unsavePlaylist(user: fakeUser, playlist: fakePlaylist, completion: { (playlistId) in
+//            print(playlistId)
+//        })
+        
     }
     
     /* Like ids associated with this particular user */
     var likeIds: Set<String> = Set()
+    
+    /* Save ids associated with this particular user */
+    var savedPlaylistIds: NSMutableArray = NSMutableArray()
     
     /* Apple music id associated with the user */
     var appleMusicID: String = ""
@@ -52,14 +72,12 @@ class ProfileManager: NSObject {
                 userInfo.username = username
             }
             
-            if let playlist = userData["favoritedPlaylists"] as? NSMutableArray {
-                userInfo.favoritedPlaylists = playlist
-            }
-            
             if let id = userData["id"] as? String {
                 userInfo.id = id
                 self.fetchUserLikes(id, completion: { (truthValue) in
-                    completion(userInfo)
+                    self.fetchUserSavedPlaylists(id, completion: { (truthValue) in
+                        completion(userInfo)
+                    })
                 })
             } else {
                 completion(userInfo)
@@ -70,8 +88,8 @@ class ProfileManager: NSObject {
     /* Fetch users likes */
     func fetchUserLikes(_ uid: String, completion: @escaping (Bool) -> ()) {
         api.db.collection("likes").document(uid).getDocument { (querySnapshot, err) in
-            if let err = err {
-                print(err.localizedDescription)
+            if let error = err {
+                print(error.localizedDescription)
                 completion(false)
                 return
             }
@@ -81,6 +99,24 @@ class ProfileManager: NSObject {
                 for ids in document.data().keys {
                     self.likeIds.insert(ids)
                 }
+            }
+            completion(true)
+        }
+    }
+    
+    /* Fetch user saved playlists */
+    func fetchUserSavedPlaylists(_ uid: String, completion: @escaping (Bool) -> ()) {
+        api.db.collection("users").document(uid).collection("savedPlaylists").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
+            if let error = err {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            for document in (querySnapshot?.documents)! {
+                print(document.documentID)
+                // get playlist ids and put in arraylist in order of timestamp
+                self.savedPlaylistIds.add(document.documentID)
             }
             completion(true)
         }
