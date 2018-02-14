@@ -31,7 +31,6 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
                 } else {
                     like.alpha = 0.5
                 }
-                
             }
         }
     }

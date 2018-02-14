@@ -79,6 +79,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             }
             
             ProfileManager.sharedInstance.spotifyMusicID = token
+            ProfileManager.sharedInstance.spotifyUsername = SpotifyLogin.shared.username!
             self.navigationController?.present(SpotifyViewController(), animated: true, completion: nil)
         })
     }

@@ -32,6 +32,9 @@ class ProfileManager: NSObject {
     /* Apple music id associated with the user */
     var appleMusicID: String = ""
     
+    /* Spotify username associated with the user */
+    var spotifyUsername: String = ""
+    
     /* Spotify id asscoiated with the user */
     var spotifyMusicID: String = ""
     

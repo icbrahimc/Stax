@@ -9,6 +9,19 @@
 import UIKit
 
 class SpotifyTableViewCell: UITableViewCell {
+    var playlist : Playlist? {
+        didSet {
+            guard let playlist = playlist else { return }
+            
+            if let title = playlist.title {
+                titleLabel.text = title
+            }
+            
+            if let imageURL = playlist.coverArtLink {
+                artwork.loadImageUsingCacheWithUrlString(imageURL)
+            }
+        }
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "spotify")

@@ -6,6 +6,7 @@
 //  Copyright © 2018 icbrahimc. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 private let spotifyIdentifier = "spotify"
@@ -23,11 +24,33 @@ class SpotifyViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.register(SpotifyTableViewCell.self, forCellReuseIdentifier: spotifyIdentifier)
+        getPlaylists()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    /* Playlist mutators */
+    func getPlaylists() {
+        SPTPlaylistList.playlists(forUser: ProfileManager.sharedInstance.spotifyUsername, withAccessToken: ProfileManager.sharedInstance.spotifyMusicID) { (err, response) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
+            
+            if let listPage = response as? SPTPlaylistList, let spotPlaylists = listPage.items as? [SPTPartialPlaylist] {
+                for playlist in spotPlaylists {
+                    var spotPlaylist = Playlist()
+                    spotPlaylist.title = playlist.name
+                    spotPlaylist.spotifyLink = playlist.uri.absoluteString
+                    spotPlaylist.coverArtLink = playlist.largestImage.imageURL.absoluteString
+                    self.playlists.append(spotPlaylist)
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -39,14 +62,14 @@ class SpotifyViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 20
+        return playlists.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: spotifyIdentifier, for: indexPath) as! SpotifyTableViewCell
 
-        // Configure the cell...
+        cell.playlist = playlists[indexPath.row]
 
         return cell
     }
