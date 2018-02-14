@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let spotifyIdentifier = "spotify"
+
 class SpotifyViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -18,6 +20,7 @@ class SpotifyViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.register(SpotifyTableViewCell.self, forCellReuseIdentifier: spotifyIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +32,23 @@ class SpotifyViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: spotifyIdentifier, for: indexPath) as! SpotifyTableViewCell
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
