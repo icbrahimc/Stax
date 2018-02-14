@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 //        let user = User(username: "icbrahim", id: "456", favoritedPlaylists: NSMutableArray())
 //        
 //        BaseAPI.sharedInstance.comment(user, playlist: playlist, commentText: "Conteh") { (streets) in
-//            print(streets)x
+//            print(streets)
 //        }
 
         // The main view controller for the application.
