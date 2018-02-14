@@ -98,6 +98,19 @@ class AddPlaylistCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            print("Apple Music")
+            
+        case 1:
+            print("Spotify")
+            
+        default:
+            print("None")
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width / 2, height: frame.height - 32)
     }

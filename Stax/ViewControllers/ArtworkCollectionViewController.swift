@@ -51,7 +51,22 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         
         navigationController?.navigationBar.isHidden = true
         
+        setupNotifications()
 //        fetchPlaylists()
+    }
+    
+    /* Setup notifications */
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapSpotifyBtn), name: NSNotification.Name(rawValue: "TapSpotifyButton"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapAppleBtn), name: NSNotification.Name(rawValue: "TapAppleButton"), object: nil)
+    }
+    
+    @objc func didTapAppleBtn() {
+        
+    }
+    
+    @objc func didTapSpotifyBtn() {
+        
     }
     
     /////////////////* Custom Methods */////////////////
