@@ -71,10 +71,14 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         SpotifyLogin.shared.getAccessToken(completion: { (token, err) in
             if let err = err {
                 print(err.localizedDescription)
-                SpotifyLoginPresenter.login(from: self, scopes: [.playlistReadPrivate, .playlistReadCollaborative])
             }
             
-            ProfileManager.sharedInstance.spotifyMusicID = token!
+            guard let token = token else {
+                SpotifyLoginPresenter.login(from: self, scopes: [.playlistReadPrivate, .playlistReadCollaborative])
+                return
+            }
+            
+            ProfileManager.sharedInstance.spotifyMusicID = token
             self.navigationController?.present(SpotifyViewController(), animated: true, completion: nil)
         })
     }

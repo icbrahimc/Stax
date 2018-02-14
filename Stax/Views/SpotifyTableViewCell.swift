@@ -12,7 +12,8 @@ class SpotifyTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "spotify")
-        backgroundColor = .black
+        backgroundColor = .white
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,5 +30,31 @@ class SpotifyTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    let artwork: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "moon")
+        return imageView
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "MB3Stacks Vol. VI: Moon Care"
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        return label
+    }()
 
+    func setupViews() {
+        addSubview(artwork)
+        addSubview(titleLabel)
+        
+        artwork.autoPinEdge(toSuperviewEdge: .left, withInset: 5.0)
+        artwork.autoAlignAxis(toSuperviewAxis: .horizontal)
+        artwork.autoSetDimension(.height, toSize: 90)
+        artwork.autoSetDimension(.width, toSize: 90)
+        
+        titleLabel.autoPinEdge(.left, to: .right, of: artwork, withOffset: 5.0)
+        titleLabel.autoSetDimension(.width, toSize: frame.width)
+        titleLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
+    }
 }
