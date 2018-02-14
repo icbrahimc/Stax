@@ -16,6 +16,7 @@ import MediaPlayer
 import PureLayout
 import SpotifyLogin
 import StoreKit
+import SwiftyJSON
 import UIKit
 
 @UIApplicationMain
@@ -65,8 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
-        //window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
-        window!.rootViewController = UINavigationController(rootViewController: MainTabBarController())
+        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
+//        let artworkLayout = UICollectionViewFlowLayout()
+//        let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
+//        window!.rootViewController = UINavigationController(rootViewController: artworkVC)
         window?.makeKeyAndVisible()
         return true
     }

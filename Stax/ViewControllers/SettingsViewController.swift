@@ -101,6 +101,7 @@ class SettingsViewController: UITableViewController {
                     }
                     
                     print("Client token \(token)")
+                    ProfileManager.sharedInstance.spotifyMusicID = token!
                 })
                 break
                 

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let APPLE = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkcyNjdDRjkyNTgifQ.eyJpc3MiOiIyQlo3NUdUMjJYIiwiaWF0IjoxNTE3NDU2MTM4LCJleHAiOjE1NDg1NjAxMzh9.TvqaOzeidtKhYPbVwy_QW1pqzQWZHDgOOKHp-W16rtfjtBrfatcd9XATk3QHNxAOK99CcIiUGxdSePkBbus3eg"
+    static let APPLE = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpBOFU5VzNWNUIifQ.eyJpc3MiOiIyQlo3NUdUMjJYIiwiaWF0IjoxNTE4MjQxMzM5LCJleHAiOjE1NDczMTQ5Mzl9._BsBc5aEpUXzaVdxQESTU57bkTGgdf3Ihqxq-UZjrVf75TPlXRG_f004Y_pIpAPtFwsm0yGm2_OQjV2-YFxCqg"
     
     /* Spotify constants */
     static let SPOTCLIENTID = "909d311de7ff4b9b84252482d9931598"
