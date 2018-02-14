@@ -173,6 +173,7 @@ class BaseAPI: NSObject {
         let timestamp = NSDate().timeIntervalSince1970
         let myTimeInterval = TimeInterval(timestamp)
         let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        print("User ID: \(user.id!)")
         let savedRef = db.collection("users").document(user.id!).collection("savedPlaylists").document(playlist.id!)
         let data: [String: Any] = [
             "id" : playlist.id!,
@@ -180,10 +181,10 @@ class BaseAPI: NSObject {
         ]
         savedRef.setData(data) { (err) in
             if let error = err {
-                print("Error removing document: \(error.localizedDescription)")
+                print("Error saving document: \(error.localizedDescription)")
                 return
             } else {
-                print("Playlist successfully saved!")
+                print("Playlist scuccessfully saved!")
             }
             completion(playlist.id!)    // not sure what to return in completion block
         }

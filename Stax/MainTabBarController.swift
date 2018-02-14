@@ -29,6 +29,14 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /* test code for saving and unsaving playlists */
+//        ProfileManager.sharedInstance.fetchUserSavedPlaylists("HZyauwX54NhRP1All1PGKaYVXJy1", completion: { (res) in
+//            print("Result: \(res)")
+//            for playlist in (ProfileManager.sharedInstance.savedPlaylistIds) {
+//                print(playlist)
+//            }
+//        })
         setup()
     }
 

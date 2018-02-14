@@ -60,12 +60,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 //        let user = User(username: "icbrahim", id: "456", favoritedPlaylists: NSMutableArray())
 //        
 //        BaseAPI.sharedInstance.comment(user, playlist: playlist, commentText: "Conteh") { (streets) in
-//            print(streets)
+//            print(streets)x
 //        }
 
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
+        //window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
+        window!.rootViewController = UINavigationController(rootViewController: MainTabBarController())
         window?.makeKeyAndVisible()
         return true
     }
