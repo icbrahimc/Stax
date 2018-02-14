@@ -102,10 +102,10 @@ class AddPlaylistCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         switch indexPath.row {
         case 0:
             print("Apple Music")
-            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "TapAppleButton"), object: nil)
         case 1:
             print("Spotify")
-            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "TapSpotifyButton"), object: nil)
         default:
             print("None")
         }

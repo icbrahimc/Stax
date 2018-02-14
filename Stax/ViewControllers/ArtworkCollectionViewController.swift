@@ -8,6 +8,7 @@
 
 import Alamofire
 import FirebaseFirestore
+import SpotifyLogin
 import SwiftyJSON
 import UIKit
 
@@ -62,11 +63,20 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     @objc func didTapAppleBtn() {
-        
+        print("Do actions")
     }
     
     @objc func didTapSpotifyBtn() {
-        
+        print("Do actions 2")
+        SpotifyLogin.shared.getAccessToken(completion: { (token, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                SpotifyLoginPresenter.login(from: self, scopes: [.playlistReadPrivate, .playlistReadCollaborative])
+            }
+            
+            ProfileManager.sharedInstance.spotifyMusicID = token!
+            self.navigationController?.present(SpotifyViewController(), animated: true, completion: nil)
+        })
     }
     
     /////////////////* Custom Methods */////////////////

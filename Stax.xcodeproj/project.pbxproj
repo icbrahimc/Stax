@@ -51,6 +51,7 @@
 		AAE38F1A202AB6F800ADFB40 /* FeedReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */; };
 		AAE38F1C202B485400ADFB40 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */; };
 		AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */; };
+		AAEE7D3020340BCA00F17EBE /* SpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEE7D2F20340BCA00F17EBE /* SpotifyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AAEE7D2F20340BCA00F17EBE /* SpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyViewController.swift; sourceTree = "<group>"; };
 		BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA7AFB463C8A523B8FC0C98 /* Pods-StaxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxUITests/Pods-StaxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +252,7 @@
 				AA7A259F2031DE7200075DFE /* SavedViewController.swift */,
 				AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */,
 				AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */,
+				AAEE7D2F20340BCA00F17EBE /* SpotifyViewController.swift */,
 				AA0A64921FF23C74002251DC /* Onboarding */,
 			);
 			path = ViewControllers;
@@ -613,6 +616,7 @@
 			files = (
 				AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */,
 				AAE38F1A202AB6F800ADFB40 /* FeedReusableView.swift in Sources */,
+				AAEE7D3020340BCA00F17EBE /* SpotifyViewController.swift in Sources */,
 				AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */,
 				AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */,
 				AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */,
