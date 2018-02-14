@@ -11,7 +11,9 @@ import UIKit
 private let spotifyIdentifier = "spotify"
 
 class SpotifyViewController: UITableViewController {
-
+    /* Playlist array */
+    var playlists = [Playlist]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +39,7 @@ class SpotifyViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 20
     }
 
     
