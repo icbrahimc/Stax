@@ -20,11 +20,17 @@ class SpotifyViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        title = "Spotify"
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         tableView.register(SpotifyTableViewCell.self, forCellReuseIdentifier: spotifyIdentifier)
         getPlaylists()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +57,10 @@ class SpotifyViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    @objc func cancel() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

@@ -50,8 +50,6 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-        navigationController?.navigationBar.isHidden = true
-        
         setupNotifications()
 //        fetchPlaylists()
     }
@@ -80,7 +78,10 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             
             ProfileManager.sharedInstance.spotifyMusicID = token
             ProfileManager.sharedInstance.spotifyUsername = SpotifyLogin.shared.username!
-            self.navigationController?.present(SpotifyViewController(), animated: true, completion: nil)
+            
+            let newVC = SpotifyViewController()
+            let navVC = UINavigationController(rootViewController: newVC)
+            self.navigationController?.present(navVC, animated: true, completion: nil)
         })
     }
     
