@@ -47,15 +47,31 @@ class SpotifyViewController: UITableViewController {
             }
             
             if let listPage = response as? SPTPlaylistList, let spotPlaylists = listPage.items as? [SPTPartialPlaylist] {
-                for playlist in spotPlaylists {
-                    var spotPlaylist = Playlist()
-                    spotPlaylist.title = playlist.name
-                    spotPlaylist.spotifyLink = playlist.uri.absoluteString
-                    spotPlaylist.coverArtLink = playlist.largestImage.imageURL.absoluteString
-                    self.playlists.append(spotPlaylist)
-                }
+                self.parseSpotifyPlaylists(spotPlaylists)
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    func getNextPlaylistPage(_ currentPage: SPTListPage) {
+        currentPage.requestNextPage(withAccessToken: ProfileManager.sharedInstance.spotifyMusicID, callback: { (error, response) in
+            if let page = response as? SPTListPage, let spotPlaylists = page.items as? [SPTPartialPlaylist] {
+                self.parseSpotifyPlaylists(spotPlaylists)
+                self.tableView.reloadData()
+                if page.hasNextPage {
+                    self.getNextPlaylistPage(page)
+                }
+            }
+        })
+    }
+    
+    func parseSpotifyPlaylists(_ spotifyData: [SPTPartialPlaylist]) {
+        for playlist in spotifyData {
+            var spotPlaylist = Playlist()
+            spotPlaylist.title = playlist.name
+            spotPlaylist.spotifyLink = playlist.uri.absoluteString
+            spotPlaylist.coverArtLink = playlist.largestImage.imageURL.absoluteString
+            self.playlists.append(spotPlaylist)
         }
     }
     
