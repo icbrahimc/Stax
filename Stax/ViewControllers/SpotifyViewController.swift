@@ -49,6 +49,9 @@ class SpotifyViewController: UITableViewController {
             if let listPage = response as? SPTPlaylistList, let spotPlaylists = listPage.items as? [SPTPartialPlaylist] {
                 self.parseSpotifyPlaylists(spotPlaylists)
                 self.tableView.reloadData()
+                if listPage.hasNextPage {
+                    self.getNextPlaylistPage(listPage)
+                }
             }
         }
     }
