@@ -66,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
 
         // The main view controller for the application.
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // skip login if not working
+        //window!.rootViewController = UINavigationController(rootViewController: MainTabBarController())
+        
         window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
 //        let artworkLayout = UICollectionViewFlowLayout()
 //        let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
