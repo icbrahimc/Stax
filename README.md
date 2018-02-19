@@ -64,10 +64,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Ibrahim**
-* **Faisal**
+* [**Faisal**](https://github.com/faisalgedi)
 * **Omar**
 * **Nashawn**
-* **Malik**
+* [**Malik**]
 **Other Works** - [Push](https://itunes.apple.com/us/app/push-app/id1289067497?mt=8)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
