@@ -52,14 +52,9 @@ Explain what these tests test and why
 Give an example
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [Swift](https://developer.apple.com/swift/) - The iOS language used
-
 
 
 ## Versioning
@@ -68,12 +63,12 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Ibrahim** -
-* **Faisal** -
-* **Omar** -
+* **Ibrahim**
+* **Faisal**
+* **Omar**
 * **Nashawn**
 * **Malik**
-*Other Works* - [Push](https://itunes.apple.com/us/app/push-app/id1289067497?mt=8)
+**Other Works** - [Push](https://itunes.apple.com/us/app/push-app/id1289067497?mt=8)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
