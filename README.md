@@ -68,7 +68,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * [**Omar**](https://github.com/OmarB97)
 * [**Nashawn**](https://github.com/nashawnch)
 * [**Malik**](https://github.com/malikbunton)
-**Other Works** - [Push](https://itunes.apple.com/us/app/push-app/id1289067497?mt=8)
+
+*Other Works* - [Push](https://itunes.apple.com/us/app/push-app/id1289067497?mt=8)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
