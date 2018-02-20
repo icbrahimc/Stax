@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SwiftyJSON
 import UIKit
 
 private let spotifyIdentifier = "spotify"
@@ -92,7 +93,13 @@ class SpotifyViewController: UITableViewController {
         // Include completion handler for when you retrieve all the tracks.
         // Leave blank for now.
         Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (response) in
-            print(response)
+            
+            guard let data = response.result.value else {
+                return
+            }
+            
+            let JSON = data as! NSDictionary
+            print(JSON)
         }
     }
     
