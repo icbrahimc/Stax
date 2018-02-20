@@ -79,9 +79,22 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             ProfileManager.sharedInstance.spotifyMusicID = token
             ProfileManager.sharedInstance.spotifyUsername = SpotifyLogin.shared.username!
             
-            let newVC = SpotifyViewController()
-            let navVC = UINavigationController(rootViewController: newVC)
-            self.navigationController?.present(navVC, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Spotify", message: "Are you \(ProfileManager.sharedInstance.spotifyUsername)", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let alertActionOne = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                let newVC = SpotifyViewController()
+                let navVC = UINavigationController(rootViewController: newVC)
+                self.navigationController?.present(navVC, animated: true, completion: nil)
+            })
+            
+            let alertActionTwo = UIAlertAction(title: "No, Sign Out", style: UIAlertActionStyle.cancel, handler: { (alert) in
+                SpotifyLogin.shared.logout()
+            })
+            
+            alert.addAction(alertActionOne)
+            alert.addAction(alertActionTwo)
+            
+            self.present(alert, animated: true, completion: nil)
         })
     }
     
