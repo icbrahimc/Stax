@@ -124,6 +124,14 @@ class SpotifyViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectPlaylist = playlists[indexPath.row]
+        let spotUID = parseSpotifyLink(selectPlaylist.spotifyLink!)
+        print(spotUID)
+        getSpotifyTracks(spotUID)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

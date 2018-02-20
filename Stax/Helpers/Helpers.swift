@@ -37,3 +37,11 @@ func parseAppleLink(_ url: String) -> [String] {
     
     return stringList
 }
+
+func parseSpotifyLink(_ url: String) -> String {
+    if let idx = url.range(of: "playlist:") {
+        return String(url[idx.upperBound...])
+    }
+    
+    return ""
+}
