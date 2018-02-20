@@ -128,7 +128,6 @@ class SpotifyViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectPlaylist = playlists[indexPath.row]
         let spotUID = parseSpotifyLink(selectPlaylist.spotifyLink!)
-        print(spotUID)
         getSpotifyTracks(spotUID)
         tableView.deselectRow(at: indexPath, animated: true)
     }
