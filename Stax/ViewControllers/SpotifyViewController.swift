@@ -78,6 +78,24 @@ class SpotifyViewController: UITableViewController {
         }
     }
     
+    func getSpotifyTracks(_ spotUID: String) {
+        let headers: HTTPHeaders = [
+            "Authorization" : "Bearer \(ProfileManager.sharedInstance.spotifyMusicID)"
+        ]
+        
+        let username = ProfileManager.sharedInstance.spotifyUsername
+        
+        let spotURL = "https://api.spotify.com/v1/users/\(username)/playlists/\(spotUID)/tracks"
+        
+        let url = URL(string: spotURL)
+        
+        // Include completion handler for when you retrieve all the tracks.
+        // Leave blank for now.
+        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (response) in
+            print(response)
+        }
+    }
+    
     @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
     }
