@@ -66,6 +66,10 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     @objc func didTapAppleBtn() {
         let alert = UIAlertController(title: "Apple Music Link", message: "Please enter your playlist share link", preferredStyle: .alert)
         
+        alert.addTextField { (textField) in
+            textField.placeholder = "Add Apple Music Link"
+        }
+        
         let actionOne = UIAlertAction(title: "Retrieve Playlist", style: .default) { (action) in
             print("Nothing")
         }
