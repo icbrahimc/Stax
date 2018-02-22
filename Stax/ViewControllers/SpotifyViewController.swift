@@ -135,7 +135,11 @@ class SpotifyViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectPlaylist = playlists[indexPath.row]
         let spotUID = parseSpotifyLink(selectPlaylist.spotifyLink!)
-        getSpotifyTracks(spotUID)
+//        getSpotifyTracks(spotUID)
         tableView.deselectRow(at: indexPath, animated: true)
+        BaseAPI.sharedInstance.addPlaylist(selectPlaylist) { (id) in
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "NewPlaylist"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
