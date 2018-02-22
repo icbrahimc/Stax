@@ -8,6 +8,7 @@
 
 import Alamofire
 import FirebaseFirestore
+import SpotifyLogin
 import SwiftyJSON
 import UIKit
 
@@ -49,9 +50,55 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         collectionView?.reloadData()
         collectionView?.addSubview(refreshControl)
         
-        navigationController?.navigationBar.isHidden = true
-        
-//        fetchPlaylists()
+        setupNotifications()
+        fetchPlaylists {
+            print("Fetch initial playlists!")
+        }
+    }
+    
+    /* Setup notifications */
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapSpotifyBtn), name: NSNotification.Name(rawValue: "TapSpotifyButton"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapAppleBtn), name: NSNotification.Name(rawValue: "TapAppleButton"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshPlaylists), name: NSNotification.Name(rawValue: "NewPlaylist"), object: nil)
+    }
+    
+    @objc func didTapAppleBtn() {
+        print("Do actions")
+    }
+    
+    @objc func didTapSpotifyBtn() {
+        print("Open spotify client")
+        SpotifyLogin.shared.getAccessToken(completion: { (token, err) in
+            if let err = err {
+                print(err.localizedDescription)
+            }
+            
+            guard let token = token else {
+                SpotifyLoginPresenter.login(from: self, scopes: [.playlistReadPrivate, .playlistReadCollaborative])
+                return
+            }
+            
+            ProfileManager.sharedInstance.spotifyMusicID = token
+            ProfileManager.sharedInstance.spotifyUsername = SpotifyLogin.shared.username!
+            
+            let alert = UIAlertController(title: "Spotify", message: "Are you \(ProfileManager.sharedInstance.spotifyUsername)", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let alertActionOne = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                let newVC = SpotifyViewController()
+                let navVC = UINavigationController(rootViewController: newVC)
+                self.navigationController?.present(navVC, animated: true, completion: nil)
+            })
+            
+            let alertActionTwo = UIAlertAction(title: "No, Sign Out", style: UIAlertActionStyle.cancel, handler: { (alert) in
+                SpotifyLogin.shared.logout()
+            })
+            
+            alert.addAction(alertActionOne)
+            alert.addAction(alertActionTwo)
+            
+            self.present(alert, animated: true, completion: nil)
+        })
     }
     
     /////////////////* Custom Methods */////////////////
@@ -59,11 +106,20 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     /* Handle refresh */
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         // TODO (icbrahimc): Add handle refresh code when the api is connected.
-        refreshControl.endRefreshing()
+        fetchPlaylists {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc func refreshPlaylists() {
+        playlists.removeAll()
+        fetchPlaylists {
+            print("Refreshed playlists")
+        }
     }
 
     /* Fetch users playlist */
-    func fetchPlaylists() {
+    @objc func fetchPlaylists(_ completion: @escaping () -> ()) {
         BaseAPI.sharedInstance.db.collection("playlists").addSnapshotListener({ (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("Error fetching documents: \(error!)")
@@ -89,6 +145,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         
         DispatchQueue.main.async(execute: {
             self.collectionView?.reloadData()
+            completion()
         })
     }
 
@@ -108,7 +165,6 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
-//            return CGSize(width: self.view.frame.width, height: self.view.frame.height * 0.25)
             return CGSize(width: self.view.frame.width, height: 100)
         default:
             return CGSize(width: 0, height: 0)
@@ -125,10 +181,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         case 0:
             return 1
         case 1:
-            if playlists.count != 0 {
-                return playlists.count
-            }
-            return 10
+            return playlists.count
         default:
             return 0
         }
@@ -144,8 +197,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: artworkIdentifier, for: indexPath) as! ArtworkCollectionViewCell
             
-//            let playlist = playlists[indexPath.row]
-//            cell.playlist = playlist
+            let playlist = playlists[indexPath.row]
+            cell.playlist = playlist
             return cell
             
         default:
