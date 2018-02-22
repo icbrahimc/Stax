@@ -6,6 +6,7 @@
 //  Copyright © 2017 icbrahimc. All rights reserved.
 //
 
+import Alamofire
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
