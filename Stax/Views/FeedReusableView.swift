@@ -12,6 +12,7 @@ class FeedReusableView: UICollectionReusableView {
         super.init(frame: frame)
         backgroundColor = .white
         setupViews()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
