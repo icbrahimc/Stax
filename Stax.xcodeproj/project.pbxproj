@@ -10,6 +10,7 @@
 		137916942DDE51A06755F85E /* Pods_Stax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908CD34861562F14B9719762 /* Pods_Stax.framework */; };
 		1725D129C3303CEB74BA6FE4 /* Pods_StaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA38AFD66A37191DCA4B1E45 /* Pods_StaxTests.framework */; };
 		78E71946155B45F2317EF08C /* Pods_StaxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281A158073B935A8ADE732E /* Pods_StaxUITests.framework */; };
+		AA010A83203E968B0097EF4D /* FeedReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA010A82203E968B0097EF4D /* FeedReusableView.swift */; };
 		AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648C1FF1F785002251DC /* BaseAPI.swift */; };
 		AA0A648F1FF2316C002251DC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A648E1FF2316C002251DC /* MainController.swift */; };
 		AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A64901FF23668002251DC /* MainTabBarController.swift */; };
@@ -48,7 +49,6 @@
 		AAC8D59F1FD7A89600020122 /* StaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8D59E1FD7A89600020122 /* StaxUITests.swift */; };
 		AAE38F18202A681E00ADFB40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */; };
 		AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38EFB202526F300ADFB40 /* AddPlaylistCell.swift */; };
-		AAE38F1A202AB6F800ADFB40 /* FeedReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */; };
 		AAE38F1C202B485400ADFB40 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */; };
 		AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */; };
 		AAEE7D3020340BCA00F17EBE /* SpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEE7D2F20340BCA00F17EBE /* SpotifyViewController.swift */; };
@@ -80,6 +80,7 @@
 		6D2CF005BACBAB776A869AEF /* Pods-StaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B7ADBC8C2B3D9DCB4AD17C1 /* Pods-StaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StaxTests/Pods-StaxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		908CD34861562F14B9719762 /* Pods_Stax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA010A82203E968B0097EF4D /* FeedReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReusableView.swift; sourceTree = "<group>"; };
 		AA0A648C1FF1F785002251DC /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		AA0A648E1FF2316C002251DC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		AA0A64901FF23668002251DC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				AAE38F17202A681E00ADFB40 /* GoogleService-Info.plist */,
 				AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */,
 				AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */,
+				AA010A82203E968B0097EF4D /* FeedReusableView.swift */,
 				AAE38F132028C8F900ADFB40 /* FeedReusableView.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 				AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */,
@@ -617,9 +619,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA010A83203E968B0097EF4D /* FeedReusableView.swift in Sources */,
 				AAEE7D322034881E00F17EBE /* SpotifyTableViewCell.swift in Sources */,
 				AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */,
-				AAE38F1A202AB6F800ADFB40 /* FeedReusableView.swift in Sources */,
 				AAEE7D3020340BCA00F17EBE /* SpotifyViewController.swift in Sources */,
 				AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */,
 				AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */,
