@@ -64,7 +64,18 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     @objc func didTapAppleBtn() {
-        print("Do actions")
+        let alert = UIAlertController(title: "Apple Music Link", message: "Please enter your playlist share link", preferredStyle: .alert)
+        
+        let actionOne = UIAlertAction(title: "Retrieve Playlist", style: .default) { (action) in
+            print("Nothing")
+        }
+        
+        let actionTwo = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(actionOne)
+        alert.addAction(actionTwo)
+        
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
     
     @objc func didTapSpotifyBtn() {
