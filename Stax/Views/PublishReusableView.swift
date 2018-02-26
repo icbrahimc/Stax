@@ -9,6 +9,24 @@
 import UIKit
 
 class PublishReusableView: UICollectionReusableView {
+    
+    var playlist : Playlist? {
+        didSet {
+            guard let playlist = playlist else { return }
+            
+            if let title = playlist.title {
+                titleLabel.text = title
+            }
+            
+//            if let creatorUsername = playlist.creatorUsername {
+//                creatorLabel.text = "Curated by: \(creatorUsername)"
+//            }
+            
+            if let imageURL = playlist.coverArtLink {
+                coverImage.loadImageUsingCacheWithUrlString(imageURL)
+            }
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white

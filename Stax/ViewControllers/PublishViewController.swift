@@ -6,6 +6,8 @@
 //  Copyright © 2018 icbrahimc. All rights reserved.
 //
 
+import Alamofire
+import SwiftyJSON
 import UIKit
 
 private let reuseIdentifier = "Cell"
@@ -13,6 +15,7 @@ private let reuseIdentifier = "Cell"
 class PublishViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var playlistToPublish: Playlist?
+    var tracks: [Song] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,11 @@ class PublishViewController: UICollectionViewController, UICollectionViewDelegat
         self.collectionView!.register(PublishReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerView")
         
         collectionView?.backgroundColor = .white
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     // MARK: UICollectionViewDataSource
@@ -40,12 +47,16 @@ class PublishViewController: UICollectionViewController, UICollectionViewDelegat
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 20
+        return tracks.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TrackViewCell
     
+        if tracks.count != 0 {
+            cell.track = tracks[indexPath.row]
+        }
+        
         // Configure the cell
         return cell
     }
@@ -58,7 +69,7 @@ class PublishViewController: UICollectionViewController, UICollectionViewDelegat
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as! PublishReusableView
-            
+            headerView.playlist = playlistToPublish
             return headerView
         default:
             assert(false, "Unexpected element kind")

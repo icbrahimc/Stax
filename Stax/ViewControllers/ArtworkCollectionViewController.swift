@@ -56,6 +56,11 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     /* Setup notifications */
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(didTapSpotifyBtn), name: NSNotification.Name(rawValue: "TapSpotifyButton"), object: nil)
@@ -71,7 +76,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         }
         
         let actionOne = UIAlertAction(title: "Retrieve Playlist", style: .default) { (action) in
-            print("Nothing")
+            
+            var appleMusicPlaylist: Playlist = Playlist()
+            
             let textField = alert.textFields![0] as UITextField
             
             if let linkText = textField.text {
@@ -88,9 +95,17 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                     "Authorization" : "Bearer \(Constants.APPLE)"
                 ]
                 
+                appleMusicPlaylist.appleLink = linkText
+                
                 Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+                    
                     guard let response = data.data else {
                         print("Error no data present")
+                        return
+                    }
+                    
+                    if let err = data.error {
+                        print(err.localizedDescription)
                         return
                     }
                     
@@ -106,20 +121,32 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                         var finalImageURL = imageURL.replacingOccurrences(of: "{w}", with: width)
                         finalImageURL = finalImageURL.replacingOccurrences(of: "{h}", with: height)
                         
-                        
+                        appleMusicPlaylist.coverArtLink = finalImageURL
                     }
                     
                     if let name = attributes["name"].string {
-                        
+                        appleMusicPlaylist.title = name
                     }
                     
-                    if let curatorName = attributes["curatorName"].string {
+                    var songs: [Song] = []
+                    let tracks = data["relationships"]["tracks"]["data"]
+                    for track in tracks.arrayValue {
+                        var song = Song()
+                        let trackAttr = track["attributes"]
                         
+                        song.artistName = trackAttr["artistName"].stringValue
+                        song.albumName = trackAttr["albumName"].stringValue
+                        song.sharingURL = trackAttr["url"].stringValue
+                        songs.append(song)
                     }
                     
-                    if let description = attributes["description"]["standard"].string {
-                        
-                    }
+                    
+                    let vc = PublishViewController(collectionViewLayout: UICollectionViewFlowLayout())
+                    vc.playlistToPublish = appleMusicPlaylist
+                    vc.tracks = songs
+                    
+//                    let navVC = UINavigationController(rootViewController: vc)
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
         }

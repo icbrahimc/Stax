@@ -9,6 +9,19 @@
 import UIKit
 
 class TrackViewCell: UICollectionViewCell {
+    var track : Song? {
+        didSet {
+            guard let track = track else { return }
+            
+            if let title = track.albumName {
+                titleLabel.text = title
+            }
+            
+            if let artist = track.artistName {
+                artistLabel.text = artist
+            }
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
