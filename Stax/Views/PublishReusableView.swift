@@ -18,12 +18,12 @@ class PublishReusableView: UICollectionReusableView {
                 titleLabel.text = title
             }
             
-//            if let creatorUsername = playlist.creatorUsername {
-//                creatorLabel.text = "Curated by: \(creatorUsername)"
-//            }
-            
             if let imageURL = playlist.coverArtLink {
                 coverImage.loadImageUsingCacheWithUrlString(imageURL)
+            }
+            
+            if let username = playlist.creatorUsername {
+                postLabel.text = "Post by: \(username)"
             }
         }
     }
@@ -38,13 +38,19 @@ class PublishReusableView: UICollectionReusableView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "MB3Stacks"
+        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     let postLabel: UILabel = {
         let label = UILabel()
-        label.text = "Post by: icbrahimc"
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 1
+        label.textColor = UIColor.init(white: 0.2, alpha: 0.5)
+        label.font = UIFont.systemFont(ofSize: 18.0)
         return label
     }()
     
@@ -60,13 +66,14 @@ class PublishReusableView: UICollectionReusableView {
         addSubview(postLabel)
         addSubview(coverImage)
         
-        coverImage.autoPinEdge(toSuperviewEdge: .top, withInset: 5.0)
-        coverImage.autoPinEdge(toSuperviewEdge: .left, withInset: 5.0)
-        coverImage.autoSetDimension(.height, toSize: frame.height * 0.9)
-        coverImage.autoSetDimension(.width, toSize: frame.height * 0.9)
+        coverImage.autoPinEdge(toSuperviewEdge: .top, withInset: 7.5)
+        coverImage.autoPinEdge(toSuperviewEdge: .left, withInset: 7.5)
+        coverImage.autoSetDimension(.height, toSize: frame.height * 0.85)
+        coverImage.autoSetDimension(.width, toSize: frame.height * 0.85)
         
         titleLabel.autoPinEdge(.top, to: .top, of: coverImage)
         titleLabel.autoPinEdge(.left, to: .right, of: coverImage, withOffset: 5.0)
+        titleLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 5.0)
         
         postLabel.autoPinEdge(.top, to: .bottom, of: titleLabel)
         postLabel.autoPinEdge(.left, to: .left, of: titleLabel)

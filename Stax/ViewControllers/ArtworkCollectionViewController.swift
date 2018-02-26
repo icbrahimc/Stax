@@ -114,6 +114,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                     let data = appleJSON["data"][0]
                     let attributes = data["attributes"]
                     
+                    // Add data to the playlist object.
                     if let imageURL = attributes["artwork"]["url"].string {
                         let height = attributes["artwork"]["height"].stringValue
                         let width = attributes["artwork"]["width"].stringValue
@@ -127,6 +128,8 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                     if let name = attributes["name"].string {
                         appleMusicPlaylist.title = name
                     }
+                    
+                    appleMusicPlaylist.creatorUsername = ProfileManager.sharedInstance.user?.username
                     
                     var songs: [Song] = []
                     let tracks = data["relationships"]["tracks"]["data"]
