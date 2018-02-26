@@ -35,6 +35,8 @@
 		AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A259F2031DE7200075DFE /* SavedViewController.swift */; };
 		AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */; };
 		AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */; };
+		AA983D692043A7F300B7802D /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA983D682043A7F300B7802D /* PublishViewController.swift */; };
+		AA983D6B2043A8BB00B7802D /* PublishReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */; };
 		AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */; };
 		AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */; };
 		AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */; };
@@ -106,6 +108,8 @@
 		AA7A259F2031DE7200075DFE /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReusableView.swift; sourceTree = "<group>"; };
+		AA983D682043A7F300B7802D /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishReusableView.swift; sourceTree = "<group>"; };
 		AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDivider.swift; sourceTree = "<group>"; };
 		AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewController.swift; sourceTree = "<group>"; };
 		AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				AA010A82203E968B0097EF4D /* FeedReusableView.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 				AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */,
+				AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */,
 				AAEE7D312034881E00F17EBE /* SpotifyTableViewCell.swift */,
 			);
 			path = Views;
@@ -252,6 +257,7 @@
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
 				AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */,
 				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
+				AA983D682043A7F300B7802D /* PublishViewController.swift */,
 				AA7A259F2031DE7200075DFE /* SavedViewController.swift */,
 				AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */,
 				AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */,
@@ -622,6 +628,8 @@
 				AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */,
 				AAEE7D3020340BCA00F17EBE /* SpotifyViewController.swift in Sources */,
 				AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */,
+				AA983D6B2043A8BB00B7802D /* PublishReusableView.swift in Sources */,
+				AA983D692043A7F300B7802D /* PublishViewController.swift in Sources */,
 				AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */,
 				AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */,
 				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
