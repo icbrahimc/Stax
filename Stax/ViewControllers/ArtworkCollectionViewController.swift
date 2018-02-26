@@ -72,6 +72,56 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         
         let actionOne = UIAlertAction(title: "Retrieve Playlist", style: .default) { (action) in
             print("Nothing")
+            let textField = alert.textFields![0] as UITextField
+            
+            if let linkText = textField.text {
+                // Parse the linkText for the URLS.
+                let linkParams = parseAppleLink(linkText)
+                
+                let storeFront = linkParams[0]
+                let id = linkParams[1]
+                
+                let apiCall = "https://api.music.apple.com/v1/catalog/\(storeFront)/playlists/\(id)"
+                
+                let url = URL(string: apiCall)
+                let headers: HTTPHeaders = [
+                    "Authorization" : "Bearer \(Constants.APPLE)"
+                ]
+                
+                Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+                    guard let response = data.data else {
+                        print("Error no data present")
+                        return
+                    }
+                    
+                    let appleJSON = JSON(response)
+                    
+                    let data = appleJSON["data"][0]
+                    let attributes = data["attributes"]
+                    
+                    if let imageURL = attributes["artwork"]["url"].string {
+                        let height = attributes["artwork"]["height"].stringValue
+                        let width = attributes["artwork"]["width"].stringValue
+                        
+                        var finalImageURL = imageURL.replacingOccurrences(of: "{w}", with: width)
+                        finalImageURL = finalImageURL.replacingOccurrences(of: "{h}", with: height)
+                        
+                        
+                    }
+                    
+                    if let name = attributes["name"].string {
+                        
+                    }
+                    
+                    if let curatorName = attributes["curatorName"].string {
+                        
+                    }
+                    
+                    if let description = attributes["description"]["standard"].string {
+                        
+                    }
+                }
+            }
         }
         
         let actionTwo = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
