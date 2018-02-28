@@ -14,7 +14,10 @@ private let reuseIdentifier = "Cell"
 
 class PublishViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    /* Playlist that is prepped to publish in the database */
     var playlistToPublish: Playlist?
+    
+    /* Existing tracks in the playlist */
     var tracks: [Song] = []
     
     override func viewDidLoad() {

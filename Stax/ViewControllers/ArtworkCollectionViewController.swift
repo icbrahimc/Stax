@@ -68,6 +68,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         NotificationCenter.default.addObserver(self, selector: #selector(refreshPlaylists), name: NSNotification.Name(rawValue: "NewPlaylist"), object: nil)
     }
     
+    /* Handle the tap apple button action. Pass on playlist information to the publishvc. */
     @objc func didTapAppleBtn() {
         let alert = UIAlertController(title: "Apple Music Link", message: "Please enter your playlist share link", preferredStyle: .alert)
         
@@ -76,7 +77,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         }
         
         let actionOne = UIAlertAction(title: "Retrieve Playlist", style: .default) { (action) in
-            
+            // Instantiate a new playlist to pass on to the next vc.
             var appleMusicPlaylist: Playlist = Playlist()
             
             let textField = alert.textFields![0] as UITextField
@@ -97,6 +98,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                 
                 appleMusicPlaylist.appleLink = linkText
                 
+                // Make the request.
                 Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
                     
                     guard let response = data.data else {
@@ -109,6 +111,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                         return
                     }
                     
+                    // Parse JSON data.
                     let appleJSON = JSON(response)
                     
                     let data = appleJSON["data"][0]
@@ -143,7 +146,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                         songs.append(song)
                     }
                     
-                    
+                    // Pass the playlist to the next vc.
                     let vc = PublishViewController(collectionViewLayout: UICollectionViewFlowLayout())
                     vc.playlistToPublish = appleMusicPlaylist
                     vc.tracks = songs
@@ -161,6 +164,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         self.navigationController?.present(alert, animated: true, completion: nil)
     }
     
+    /* Handle the tap spotify button action. Go on to the spotifyVC. */
     @objc func didTapSpotifyBtn() {
         print("Open spotify client")
         SpotifyLogin.shared.getAccessToken(completion: { (token, err) in
