@@ -148,7 +148,6 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
                     vc.playlistToPublish = appleMusicPlaylist
                     vc.tracks = songs
                     
-//                    let navVC = UINavigationController(rootViewController: vc)
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
