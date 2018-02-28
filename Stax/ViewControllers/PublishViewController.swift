@@ -29,12 +29,32 @@ class PublishViewController: UICollectionViewController, UICollectionViewDelegat
         self.collectionView!.register(TrackViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView!.register(PublishReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerView")
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(submitPlaylist))
+        
         collectionView?.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    @objc func submitPlaylist() {
+        let alert = UIAlertController(title: "Publish Playlist?", message: "Would you like to publish \(playlistToPublish?.title)", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Yes", style: .default) { (submit) in
+            BaseAPI.sharedInstance.addPlaylist(self.playlistToPublish!, completionBlock: { (documentID) in
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewPlaylist"), object: nil)
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+        }
+        
+        let cancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        alert.addAction(cancel)
+        
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
 
     // MARK: UICollectionViewDataSource
