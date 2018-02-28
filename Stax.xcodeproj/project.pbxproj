@@ -232,6 +232,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AA983D6E2046F2D500B7802D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		AA9DAF741FE08E000052D4D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,12 +264,12 @@
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
 				AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */,
-				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
 				AA983D682043A7F300B7802D /* PublishViewController.swift */,
 				AA7A259F2031DE7200075DFE /* SavedViewController.swift */,
 				AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */,
 				AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */,
 				AAEE7D2F20340BCA00F17EBE /* SpotifyViewController.swift */,
+				AA983D6E2046F2D500B7802D /* Profile */,
 				AA0A64921FF23C74002251DC /* Onboarding */,
 			);
 			path = ViewControllers;
