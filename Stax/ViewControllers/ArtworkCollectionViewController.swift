@@ -218,7 +218,9 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     /* Fetch users playlist */
     @objc func fetchPlaylists(_ completion: @escaping () -> ()) {
-        BaseAPI.sharedInstance.db.collection("playlists").addSnapshotListener({ (querySnapshot, error) in
+        let playlistRef = BaseAPI.sharedInstance.db.collection("playlists").limit(to: 5)
+        
+        playlistRef.addSnapshotListener({ (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("Error fetching documents: \(error!)")
                 return
