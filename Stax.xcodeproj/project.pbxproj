@@ -20,7 +20,6 @@
 		AA226B8D1FFCC60900027089 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8A1FFCC60800027089 /* SpotifyAudioPlayback.framework */; };
 		AA226B8E1FFCC60900027089 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */; };
 		AA226B8F1FFCC60900027089 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */; };
-		AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */; };
 		AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */; };
 		AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */; };
 		AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8920101CA900AB171B /* Constants.swift */; };
@@ -94,7 +93,6 @@
 		AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		AA226B901FFCC62300027089 /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
-		AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		AA2D3B8920101CA900AB171B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */,
 				AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
@@ -637,7 +634,6 @@
 				AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */,
 				AA983D6D2043B30300B7802D /* TrackViewCell.swift in Sources */,
 				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
-				AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */,
 				AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */,
 				AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */,
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
