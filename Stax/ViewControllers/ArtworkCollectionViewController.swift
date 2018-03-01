@@ -210,7 +210,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return CGSize(width: view.frame.width, height: 75)
+            return CGSize(width: view.frame.width, height: 70)
             
         case 1:
             let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2

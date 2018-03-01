@@ -42,13 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
-            timestampString = "540885613.994709"
+            timestampString = "541570292.380625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "248"
+            endingLineNumber = "248">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,7 +56,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "540821728.6221271"
+            timestampString = "541303049.797274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
@@ -72,7 +70,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "540821728.622173"
+            timestampString = "541303049.79734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
@@ -86,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
-            timestampString = "540885613.9951659"
+            timestampString = "541570292.382081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -102,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/Helpers/Extensions.swift"
-            timestampString = "539021457.274961"
+            timestampString = "541552435.555432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -118,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/Helpers/Extensions.swift"
-            timestampString = "539021457.27502"
+            timestampString = "541552435.559777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -134,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/Helpers/Extensions.swift"
-            timestampString = "539021457.275071"
+            timestampString = "541552435.5600179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -150,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/Helpers/Extensions.swift"
-            timestampString = "539021457.2751499"
+            timestampString = "541552435.560222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -178,7 +176,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/AddPlaylistViewController.swift"
@@ -214,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/API/BaseAPI.swift"
-            timestampString = "540831926.325774"
+            timestampString = "541003403.094183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -230,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/AppDelegate.swift"
-            timestampString = "540973780.699983"
+            timestampString = "541552435.560493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "AppDelegate"
             landmarkType = "3">
          </BreakpointContent>
@@ -246,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "540821728.6225621"
+            timestampString = "541303049.797816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -262,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "540821728.6226259"
+            timestampString = "541303049.797861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -278,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SettingsViewController.swift"
-            timestampString = "540821728.622667"
+            timestampString = "541303049.797902"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -290,7 +288,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/AddPlaylistViewController.swift"
@@ -306,7 +304,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/AddPlaylistViewController.swift"
@@ -322,7 +320,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/AddPlaylistViewController.swift"
@@ -338,7 +336,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/AddPlaylistViewController.swift"
@@ -358,13 +356,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
-            timestampString = "540885613.995671"
+            timestampString = "541570292.382712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "didTapSpotifyBtn()"
-            landmarkType = "7">
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "ArtworkCollectionViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -374,13 +372,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/AppDelegate.swift"
-            timestampString = "540973780.7006"
+            timestampString = "541552435.560894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "application(_:open:sourceApplication:annotation:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stax.AppDelegate.application(__ObjC.UIApplication, open: Foundation.URL, sourceApplication: Swift.Optional&lt;Swift.String&gt;, annotation: Any) -&gt; Swift.Bool"
+                  moduleName = "Stax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/icbrahimc/Stax/Stax/AppDelegate.swift"
+                  timestampString = "541570292.6436141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "2897">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Stax.AppDelegate.application(__ObjC.UIApplication, open: Foundation.URL, sourceApplication: Swift.Optional&lt;Swift.String&gt;, annotation: Any) -&gt; Swift.Bool"
+                  moduleName = "Stax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/icbrahimc/Stax/Stax/AppDelegate.swift"
+                  timestampString = "541570292.646245"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "505">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -390,7 +420,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.4929889"
+            timestampString = "541552435.560972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -406,12 +436,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.493064"
+            timestampString = "541552435.5611809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
-            landmarkName = "getSpotifyTracks(_:)"
+            landmarkName = "getSpotifyTracks(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -422,12 +452,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.493122"
+            timestampString = "541552435.5612299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "getSpotifyTracks(_:)"
+            landmarkName = "getSpotifyTracks(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -438,60 +468,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.493176"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "getSpotifyTracks(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Stax.SpotifyViewController.getSpotifyTracks(Swift.String) -&gt; ()"
-                  moduleName = "Stax"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/icbrahimc/Stax/Stax/ViewControllers/SpotifyViewController.swift"
-                  timestampString = "540825797.14696"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "1866">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Stax.SpotifyViewController.getSpotifyTracks(Swift.String) -&gt; ()"
-                  moduleName = "Stax"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/icbrahimc/Stax/Stax/ViewControllers/SpotifyViewController.swift"
-                  timestampString = "540825797.149065"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "693">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.493225"
+            timestampString = "541552435.5612741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "getSpotifyTracks(_:)"
+            landmarkName = "getSpotifyTracks(_:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -533,13 +515,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.4932719"
+            filePath = "Stax/ViewControllers/AddPlaylistViewController.swift"
+            timestampString = "541000065.165904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "getSpotifyTracks(_:)"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "addAppleMusicLink()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -549,13 +531,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Stax/ViewControllers/SpotifyViewController.swift"
-            timestampString = "540836488.493318"
+            filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
+            timestampString = "541570292.383099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "getSpotifyTracks(_:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "ArtworkCollectionViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
+            timestampString = "541570292.383386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "ArtworkCollectionViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stax/ViewControllers/ArtworkCollectionViewController.swift"
+            timestampString = "541570292.383656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "fetchPlaylists(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
