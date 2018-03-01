@@ -27,14 +27,15 @@ class FeedReusableView: UICollectionReusableView {
     let playlistLabel: UILabel = {
         let label = UILabel()
         label.text = "PLAYLISTS"
-        label.font = UIFont.boldSystemFont(ofSize: 32.0)
+        label.font = UIFont.init().heavyBlackFont(32.0)
         return label
     }()
     
     let toFollowLabel: UILabel = {
         let label = UILabel()
         label.text = "TO DISCOVER"
-        label.font = UIFont.boldSystemFont(ofSize: 32.0)
+        label.font = UIFont.init().heavyBlackFont(32.0)
+        label.textColor = UIColor.red
         return label
     }()
     

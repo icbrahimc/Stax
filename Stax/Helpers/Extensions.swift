@@ -79,3 +79,25 @@ extension UIButton {
         }).resume()
     }
 }
+
+extension UIFont {
+    func defaultFont(_ size: CGFloat) -> UIFont {
+        return UIFont.init(name: "SFProDisplay-Regular", size: size)!
+    }
+    
+    func mediumFont(_ size: CGFloat) -> UIFont {
+        return UIFont.init(name: "SFProDisplay-Medium", size: size)!
+    }
+    
+    func lightFont(_ size: CGFloat) -> UIFont {
+        return UIFont.init(name: "SFProDisplay-Light", size: size)!
+    }
+    
+    func heavyFont(_ size: CGFloat) -> UIFont {
+        return UIFont.init(name: "SFProDisplay-Heavy", size: size)!
+    }
+    
+    func heavyBlackFont(_ size: CGFloat) -> UIFont {
+        return UIFont.init(name: "SFProDisplay-Black", size: size)!
+    }
+}
