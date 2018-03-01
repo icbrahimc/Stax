@@ -17,7 +17,7 @@ private let addIdentifier = "AddCell"
 private let artworkIdentifier = "ArtworkCell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    var cellSpacing: CGFloat = 25
+    var cellSpacing: CGFloat = 35
     
     /* Playlist array */
     var playlists = [Playlist]()
@@ -214,10 +214,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             
         case 1:
             let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-            let height = width + 90
-            
-            print("Width \(width)")
-            print("Length \(height)")
+            let height = width + 130
             
             return CGSize(width: width, height: height)
             
