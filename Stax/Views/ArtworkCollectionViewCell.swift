@@ -50,7 +50,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "MB3Stacks Vol. VI: Take Care"
-        label.font = UIFont.boldSystemFont(ofSize: 14.0)
+        label.font = UIFont.init().mediumFont(ofSize: 15.0)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 3
         return label
@@ -59,10 +59,10 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     var creatorLabel: UILabel = {
         let label = UILabel()
         label.text = "Posted by: icbrahimc"
-        label.font = UIFont.italicSystemFont(ofSize: 12.0)
+        label.font = UIFont.init().lightFont(ofSize: 15.0)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
-        label.alpha = 0.5
+        label.textColor = UIColor.init().fontGrey()
         return label
     }()
     
@@ -93,7 +93,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         imageView.addSubview(saveButton)
         
         /* Setup the imageview */
-        imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.height * 0.70))
+        imageView.autoSetDimensions(to: CGSize(width: frame.width, height: frame.height * 0.65))
         imageView.autoAlignAxis(toSuperviewAxis: .vertical)
         imageView.autoPinEdge(toSuperviewEdge: .top, withInset: 10.0)
         
