@@ -316,9 +316,6 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
             let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
             let height = width + 90
             
-            print("Width \(width)")
-            print("Length \(height)")
-            
             return CGSize(width: width, height: height)
             
         default:

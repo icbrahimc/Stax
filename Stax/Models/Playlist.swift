@@ -32,6 +32,9 @@ struct Playlist {
     
     /* The users who liked the playlist */
     var likes: NSMutableArray?
+    
+    /* Date */
+    let date: Date?
 
     init() {
         self.id = ""
@@ -44,6 +47,7 @@ struct Playlist {
         self.youtubeLink = ""
         self.coverArtLink = ""
         self.likes = []
+        self.date = Date()
     }
     
     init(id: String, title: String, description: String, creatorUsername: String, spotifyLink: String, appleLink: String, cloudLink: String, youtubeLink: String, coverArtLink: String, likes: NSMutableArray) {
@@ -57,6 +61,7 @@ struct Playlist {
         self.youtubeLink = youtubeLink
         self.coverArtLink = coverArtLink
         self.likes = likes
+        self.date = Date()
     }
 }
 
