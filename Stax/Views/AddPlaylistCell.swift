@@ -141,6 +141,7 @@ class MusicServiceCell: UICollectionViewCell {
     let musicServiceLabel: UILabel = {
         let label = UILabel()
         label.text = "Apple Music"
+//        label.font = UIFont.init().defaultFont(ofSize: 15.0)
         return label
     }()
     
