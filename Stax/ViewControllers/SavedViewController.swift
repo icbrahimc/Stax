@@ -119,7 +119,7 @@ extension SavedViewController {
     
     func setupHeaderLabel() {
         headerLabel.text = "Saved"
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        headerLabel.font = UIFont.init().heavyBlackFont(ofSize: 32.0)
     }
     
     func setupDividerView() {
