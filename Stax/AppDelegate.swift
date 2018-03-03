@@ -70,9 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, SPTAud
         
         // skip login if not working
         //window!.rootViewController = UINavigationController(rootViewController: MainTabBarController())
-        let artworkLayout = UICollectionViewFlowLayout()
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
         window!.rootViewController = UINavigationController(rootViewController: LaunchViewController())
-//        window!.rootViewController = UINavigationController(rootViewController: PublishViewController(collectionViewLayout: artworkLayout))
 //        let artworkLayout = UICollectionViewFlowLayout()
 //        let artworkVC = ArtworkCollectionViewController(collectionViewLayout: artworkLayout)
 //        window!.rootViewController = UINavigationController(rootViewController: artworkVC)

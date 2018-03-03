@@ -79,7 +79,7 @@ class SpotifyViewController: UITableViewController {
         }
     }
     
-    func getSpotifyTracks(_ spotUID: String, completion: @escaping ([Song]) -> ()) {
+    func getSpotifyTracks(_ spotUID: String) {
         let headers: HTTPHeaders = [
             "Authorization" : "Bearer \(ProfileManager.sharedInstance.spotifyMusicID)"
         ]
@@ -98,33 +98,8 @@ class SpotifyViewController: UITableViewController {
                 return
             }
             
-            var songs: [Song] = []
-            let spotJSON = JSON(data)
-            let tracks = spotJSON["items"]
-            
-            for track in tracks {
-                var newTrack = Song()
-                let trackJSON = track.1["track"]
-                let trackTitle = trackJSON["name"].stringValue
-                let trackURL = trackJSON["preview_url"].stringValue
-                
-                var artistName = ""
-                for artist in trackJSON["artists"] {
-                    if artistName == "" {
-                        artistName += artist.1.stringValue
-                    } else {
-                        artistName += ", \(artist.1.stringValue)"
-                    }
-                }
-                
-                newTrack.albumName = trackTitle
-                newTrack.artistName = artistName
-                newTrack.sharingURL = trackURL
-                
-                songs.append(newTrack)
-            }
-            
-            completion(songs)
+            let JSON = data as! NSDictionary
+            print(JSON)
         }
     }
     
@@ -158,16 +133,13 @@ class SpotifyViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var selectPlaylist = playlists[indexPath.row]
+        let selectPlaylist = playlists[indexPath.row]
         let spotUID = parseSpotifyLink(selectPlaylist.spotifyLink!)
+//        getSpotifyTracks(spotUID)
         tableView.deselectRow(at: indexPath, animated: true)
-        selectPlaylist.creatorUsername = ProfileManager.sharedInstance.user?.username
-        
-        getSpotifyTracks(spotUID) { (tracks) in
-            let vc = PublishViewController(collectionViewLayout: UICollectionViewFlowLayout())
-            vc.playlistToPublish = selectPlaylist
-            vc.tracks = tracks
-            self.navigationController?.pushViewController(vc, animated: true)
+        BaseAPI.sharedInstance.addPlaylist(selectPlaylist) { (id) in
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "NewPlaylist"), object: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
