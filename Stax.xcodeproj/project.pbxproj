@@ -20,7 +20,6 @@
 		AA226B8D1FFCC60900027089 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8A1FFCC60800027089 /* SpotifyAudioPlayback.framework */; };
 		AA226B8E1FFCC60900027089 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */; };
 		AA226B8F1FFCC60900027089 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */; };
-		AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */; };
 		AA2D3B86200F7D7B00AB171B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */; };
 		AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */; };
 		AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8920101CA900AB171B /* Constants.swift */; };
@@ -32,14 +31,12 @@
 		AA3A501D1FE6442F00F3918D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501C1FE6442F00F3918D /* User.swift */; };
 		AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */; };
 		AA3A50211FE84EB100F3918D /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */; };
-		AA5FA3C72048810D0077B0CB /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA983D722047B97A00B7802D /* SF-Pro-Display-Light.otf */; };
-		AA5FA3C82048810D0077B0CB /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA983D712047B96800B7802D /* SF-Pro-Display-Heavy.otf */; };
-		AA5FA3C92048810D0077B0CB /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA983D702047B94F00B7802D /* SF-Pro-Display-Black.otf */; };
-		AA5FA3CC204884DE0077B0CB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA5FA3CA204884CA0077B0CB /* SF-Pro-Display-Medium.otf */; };
-		AA5FA3CD204884DE0077B0CB /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA5FA3CB204884D50077B0CB /* SF-Pro-Display-Regular.otf */; };
 		AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A259F2031DE7200075DFE /* SavedViewController.swift */; };
 		AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */; };
 		AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */; };
+		AA983D692043A7F300B7802D /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA983D682043A7F300B7802D /* PublishViewController.swift */; };
+		AA983D6B2043A8BB00B7802D /* PublishReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */; };
+		AA983D6D2043B30300B7802D /* TrackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA983D6C2043B30300B7802D /* TrackViewCell.swift */; };
 		AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */; };
 		AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */; };
 		AA9DAF7D1FE1C40A0052D4D6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */; };
@@ -96,7 +93,6 @@
 		AA226B8B1FFCC60900027089 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		AA226B8C1FFCC60900027089 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		AA226B901FFCC62300027089 /* Stax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stax-Bridging-Header.h"; sourceTree = "<group>"; };
-		AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		AA2D3B8920101CA900AB171B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -108,14 +104,12 @@
 		AA3A501C1FE6442F00F3918D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewController.swift; sourceTree = "<group>"; };
 		AA3A50201FE84EB100F3918D /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
-		AA5FA3CA204884CA0077B0CB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
-		AA5FA3CB204884D50077B0CB /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		AA7A259F2031DE7200075DFE /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReusableView.swift; sourceTree = "<group>"; };
-		AA983D702047B94F00B7802D /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
-		AA983D712047B96800B7802D /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
-		AA983D722047B97A00B7802D /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		AA983D682043A7F300B7802D /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishReusableView.swift; sourceTree = "<group>"; };
+		AA983D6C2043B30300B7802D /* TrackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewCell.swift; sourceTree = "<group>"; };
 		AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDivider.swift; sourceTree = "<group>"; };
 		AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewController.swift; sourceTree = "<group>"; };
 		AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -238,16 +232,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AA983D6F2047B86900B7802D /* Fonts */ = {
+		AA983D6E2046F2D500B7802D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				AA983D722047B97A00B7802D /* SF-Pro-Display-Light.otf */,
-				AA5FA3CA204884CA0077B0CB /* SF-Pro-Display-Medium.otf */,
-				AA5FA3CB204884D50077B0CB /* SF-Pro-Display-Regular.otf */,
-				AA983D712047B96800B7802D /* SF-Pro-Display-Heavy.otf */,
-				AA983D702047B94F00B7802D /* SF-Pro-Display-Black.otf */,
+				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
 			);
-			path = Fonts;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		AA9DAF741FE08E000052D4D6 /* Views */ = {
@@ -260,7 +250,9 @@
 				AA010A82203E968B0097EF4D /* FeedReusableView.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
 				AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */,
+				AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */,
 				AAEE7D312034881E00F17EBE /* SpotifyTableViewCell.swift */,
+				AA983D6C2043B30300B7802D /* TrackViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,16 +260,16 @@
 		AA9DAF751FE08E130052D4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA226B941FFCC85500027089 /* AddPlaylistViewController.swift */,
 				AA3A501E1FE83F8700F3918D /* ArtworkCollectionViewController.swift */,
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
 				AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */,
-				AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */,
+				AA983D682043A7F300B7802D /* PublishViewController.swift */,
 				AA7A259F2031DE7200075DFE /* SavedViewController.swift */,
 				AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */,
 				AA2D3B85200F7D7B00AB171B /* SettingsViewController.swift */,
 				AAEE7D2F20340BCA00F17EBE /* SpotifyViewController.swift */,
+				AA983D6E2046F2D500B7802D /* Profile */,
 				AA0A64921FF23C74002251DC /* Onboarding */,
 			);
 			path = ViewControllers;
@@ -319,7 +311,6 @@
 		AAC8D57D1FD7A89600020122 /* Stax */ = {
 			isa = PBXGroup;
 			children = (
-				AA983D6F2047B86900B7802D /* Fonts */,
 				AA3A10132004ECF90039333E /* Helpers */,
 				AA0A648B1FF1F761002251DC /* API */,
 				AA0A64971FF31AB3002251DC /* Manager */,
@@ -474,11 +465,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA5FA3CC204884DE0077B0CB /* SF-Pro-Display-Medium.otf in Resources */,
-				AA5FA3CD204884DE0077B0CB /* SF-Pro-Display-Regular.otf in Resources */,
-				AA5FA3C72048810D0077B0CB /* SF-Pro-Display-Light.otf in Resources */,
-				AA5FA3C82048810D0077B0CB /* SF-Pro-Display-Heavy.otf in Resources */,
-				AA5FA3C92048810D0077B0CB /* SF-Pro-Display-Black.otf in Resources */,
 				AAC8D5891FD7A89600020122 /* LaunchScreen.storyboard in Resources */,
 				AAE38F18202A681E00ADFB40 /* GoogleService-Info.plist in Resources */,
 				AAC8D5861FD7A89600020122 /* Assets.xcassets in Resources */,
@@ -650,10 +636,12 @@
 				AAE38F1E202B48B200ADFB40 /* SearchViewController.swift in Sources */,
 				AAEE7D3020340BCA00F17EBE /* SpotifyViewController.swift in Sources */,
 				AAE38F19202AB6F400ADFB40 /* AddPlaylistCell.swift in Sources */,
+				AA983D6B2043A8BB00B7802D /* PublishReusableView.swift in Sources */,
+				AA983D692043A7F300B7802D /* PublishViewController.swift in Sources */,
 				AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */,
 				AA9DAF771FE0943B0052D4D6 /* FeaturedCollectionViewController.swift in Sources */,
+				AA983D6D2043B30300B7802D /* TrackViewCell.swift in Sources */,
 				AAC8D5811FD7A89600020122 /* WelcomeViewController.swift in Sources */,
-				AA226B951FFCC85500027089 /* AddPlaylistViewController.swift in Sources */,
 				AA9DAF731FDF34EF0052D4D6 /* FormDivider.swift in Sources */,
 				AA3A1017200714870039333E /* OnboardingViewController.swift in Sources */,
 				AAC8D57F1FD7A89600020122 /* AppDelegate.swift in Sources */,
