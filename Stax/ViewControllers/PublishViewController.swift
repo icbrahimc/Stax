@@ -43,10 +43,10 @@ class PublishViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     @objc func submitPlaylist() {
-        let alert = UIAlertController(title: "Publish Playlist?", message: "Would you like to publish \(playlistToPublish?.title)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Publish Playlist?", message: "Would you like to publish \(String(describing: playlistToPublish?.title!))", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Yes", style: .default) { (submit) in
-            BaseAPI.sharedInstance.addPlaylist(self.playlistToPublish!, completionBlock: { (documentID) in
+            BaseAPI.sharedInstance.addPlaylist(playlist: self.playlistToPublish!, user: ProfileManager.sharedInstance.user!, completionBlock: { (documentID) in
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewPlaylist"), object: nil)
                 self.navigationController?.popToRootViewController(animated: true)
             })
