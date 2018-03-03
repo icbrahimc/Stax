@@ -16,6 +16,11 @@ class MainTabBarController: UITabBarController {
         return artworkVC
     }()
     
+    fileprivate lazy var addPlaylistVC: UIViewController = {
+        let vc = AddPlaylistViewController()
+        return vc
+    }()
+    
     fileprivate lazy var profileVC: UICollectionViewController = {
         let profileLayout = UICollectionViewFlowLayout()
         let profileVC = ProfileViewController(collectionViewLayout: profileLayout)

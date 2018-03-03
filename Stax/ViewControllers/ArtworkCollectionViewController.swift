@@ -17,7 +17,7 @@ private let addIdentifier = "AddCell"
 private let artworkIdentifier = "ArtworkCell"
 
 class ArtworkCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    var cellSpacing: CGFloat = 25
+    var cellSpacing: CGFloat = 35
     
     /* Playlist array */
     var playlists = [Playlist]()
@@ -56,11 +56,6 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
     /* Setup notifications */
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(didTapSpotifyBtn), name: NSNotification.Name(rawValue: "TapSpotifyButton"), object: nil)
@@ -68,103 +63,10 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         NotificationCenter.default.addObserver(self, selector: #selector(refreshPlaylists), name: NSNotification.Name(rawValue: "NewPlaylist"), object: nil)
     }
     
-    /* Handle the tap apple button action. Pass on playlist information to the publishvc. */
     @objc func didTapAppleBtn() {
-        let alert = UIAlertController(title: "Apple Music Link", message: "Please enter your playlist share link", preferredStyle: .alert)
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Add Apple Music Link"
-        }
-        
-        let actionOne = UIAlertAction(title: "Retrieve Playlist", style: .default) { (action) in
-            // Instantiate a new playlist to pass on to the next vc.
-            var appleMusicPlaylist: Playlist = Playlist()
-            
-            let textField = alert.textFields![0] as UITextField
-            
-            if let linkText = textField.text {
-                // Parse the linkText for the URLS.
-                let linkParams = parseAppleLink(linkText)
-                
-                let storeFront = linkParams[0]
-                let id = linkParams[1]
-                
-                let apiCall = "https://api.music.apple.com/v1/catalog/\(storeFront)/playlists/\(id)"
-                
-                let url = URL(string: apiCall)
-                let headers: HTTPHeaders = [
-                    "Authorization" : "Bearer \(Constants.APPLE)"
-                ]
-                
-                appleMusicPlaylist.appleLink = linkText
-                
-                // Make the request.
-                Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
-                    
-                    guard let response = data.data else {
-                        print("Error no data present")
-                        return
-                    }
-                    
-                    if let err = data.error {
-                        print(err.localizedDescription)
-                        return
-                    }
-                    
-                    // Parse JSON data.
-                    let appleJSON = JSON(response)
-                    
-                    let data = appleJSON["data"][0]
-                    let attributes = data["attributes"]
-                    
-                    // Add data to the playlist object.
-                    if let imageURL = attributes["artwork"]["url"].string {
-                        let height = attributes["artwork"]["height"].stringValue
-                        let width = attributes["artwork"]["width"].stringValue
-                        
-                        var finalImageURL = imageURL.replacingOccurrences(of: "{w}", with: width)
-                        finalImageURL = finalImageURL.replacingOccurrences(of: "{h}", with: height)
-                        
-                        appleMusicPlaylist.coverArtLink = finalImageURL
-                    }
-                    
-                    if let name = attributes["name"].string {
-                        appleMusicPlaylist.title = name
-                    }
-                    
-                    appleMusicPlaylist.creatorUsername = ProfileManager.sharedInstance.user?.username
-                    
-                    var songs: [Song] = []
-                    let tracks = data["relationships"]["tracks"]["data"]
-                    for track in tracks.arrayValue {
-                        var song = Song()
-                        let trackAttr = track["attributes"]
-                        
-                        song.artistName = trackAttr["artistName"].stringValue
-                        song.albumName = trackAttr["albumName"].stringValue
-                        song.sharingURL = trackAttr["url"].stringValue
-                        songs.append(song)
-                    }
-                    
-                    // Pass the playlist to the next vc.
-                    let vc = PublishViewController(collectionViewLayout: UICollectionViewFlowLayout())
-                    vc.playlistToPublish = appleMusicPlaylist
-                    vc.tracks = songs
-                    
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            }
-        }
-        
-        let actionTwo = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(actionOne)
-        alert.addAction(actionTwo)
-        
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        print("Do actions")
     }
     
-    /* Handle the tap spotify button action. Go on to the spotifyVC. */
     @objc func didTapSpotifyBtn() {
         print("Open spotify client")
         SpotifyLogin.shared.getAccessToken(completion: { (token, err) in
@@ -218,9 +120,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
 
     /* Fetch users playlist */
     @objc func fetchPlaylists(_ completion: @escaping () -> ()) {
-        let playlistRef = BaseAPI.sharedInstance.db.collection("playlists").limit(to: 5)
-        
-        playlistRef.addSnapshotListener({ (querySnapshot, error) in
+        BaseAPI.sharedInstance.db.collection("playlists").addSnapshotListener({ (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("Error fetching documents: \(error!)")
                 return
@@ -310,11 +210,11 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return CGSize(width: view.frame.width, height: 75)
+            return CGSize(width: view.frame.width, height: 70)
             
         case 1:
             let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-            let height = width + 90
+            let height = width + 130
             
             return CGSize(width: width, height: height)
             
