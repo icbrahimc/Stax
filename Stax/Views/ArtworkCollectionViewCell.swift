@@ -50,7 +50,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "MB3Stacks Vol. VI: Take Care"
-        label.font = UIFont.init().mediumFont(ofSize: 15.0)
+        label.font = UIFont.boldSystemFont(ofSize: 15.0)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 3
         return label
@@ -59,17 +59,17 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
     var creatorLabel: UILabel = {
         let label = UILabel()
         label.text = "Posted by: icbrahimc"
-        label.font = UIFont.init().lightFont(ofSize: 15.0)
+        label.font = UIFont.italicSystemFont(ofSize: 12.0)
         label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 1
-        label.textColor = UIColor.init().fontGrey()
+        label.numberOfLines = 3
+        label.alpha = 0.5
         return label
     }()
     
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "moon")
-        imageView.layer.cornerRadius = 10.0
+        imageView.layer.cornerRadius = 15.0
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -86,6 +86,30 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    let btnOne: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "appleMusic"), for: UIControlState.normal)
+        return button
+    }()
+    
+    let btnTwo: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "spotify"), for: UIControlState.normal)
+        return button
+    }()
+    
+    let btnThree: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "soundcloud"), for: UIControlState.normal)
+        return button
+    }()
+    
+    let btnFour: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "youtubeLogo"), for: UIControlState.normal)
+        return button
+    }()
+    
     func setupViews() {
         addSubview(creatorLabel)
         addSubview(titleLabel)
@@ -99,8 +123,8 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         
         /* Setup the title label */
         titleLabel.autoSetDimension(.width, toSize: frame.width)
-        titleLabel.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 15.0)
-        titleLabel.autoPinEdge(.left, to: .left, of: imageView, withOffset: 10.0)
+        titleLabel.autoPinEdge(.top, to: .bottom, of: imageView, withOffset: 5)
+        titleLabel.autoPinEdge(.left, to: .left, of: imageView, withOffset: 5)
         titleLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         
         /* Setup the creator label */
