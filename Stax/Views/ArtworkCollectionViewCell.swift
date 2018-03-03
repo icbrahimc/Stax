@@ -18,7 +18,7 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
             }
             
             if let creatorUsername = playlist.creatorUsername {
-                creatorLabel.text = "Curated by: \(creatorUsername)"
+                creatorLabel.text = "Posted by: \(creatorUsername)"
             }
             
             if let imageURL = playlist.coverArtLink {
