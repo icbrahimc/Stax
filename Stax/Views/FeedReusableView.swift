@@ -1,6 +1,6 @@
 //
 //  FeedReusableView.swift
-//  
+//
 //
 //  Created by icbrahimc on 2/5/18.
 //
@@ -27,14 +27,15 @@ class FeedReusableView: UICollectionReusableView {
     let playlistLabel: UILabel = {
         let label = UILabel()
         label.text = "PLAYLISTS"
-        label.font = UIFont.boldSystemFont(ofSize: 32.0)
+        label.font = UIFont.init().heavyBlackFont(ofSize: 32.0)
         return label
     }()
     
     let toFollowLabel: UILabel = {
         let label = UILabel()
         label.text = "TO DISCOVER"
-        label.font = UIFont.boldSystemFont(ofSize: 32.0)
+        label.font = UIFont.init().heavyBlackFont(ofSize: 32.0)
+        label.textColor = UIColor.red
         return label
     }()
     
@@ -47,7 +48,7 @@ class FeedReusableView: UICollectionReusableView {
         playlistLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 15.0)
         playlistLabel.autoSetDimension(.width, toSize: frame.width)
         
-        toFollowLabel.autoPinEdge(.top, to: .bottom, of: playlistLabel, withOffset: 5.0)
+        toFollowLabel.autoPinEdge(.top, to: .bottom, of: playlistLabel, withOffset: 2.5)
         toFollowLabel.autoPinEdge(.left, to: .left, of: playlistLabel, withOffset: 0.0)
         
         icon.autoAlignAxis(toSuperviewAxis: .horizontal)
@@ -56,3 +57,4 @@ class FeedReusableView: UICollectionReusableView {
         icon.autoSetDimension(.width, toSize: 65)
     }
 }
+

@@ -11,7 +11,7 @@ import UIKit
 private let saveIdentifier = "SaveCell"
 
 class SavedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var cellSpacing: CGFloat = 25
+    var cellSpacing: CGFloat = 35
     
     let dividerView = UIView.newAutoLayout()
     let headerLabel = UILabel.newAutoLayout()
@@ -55,7 +55,7 @@ class SavedViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-        let height = width + 90
+        let height = width + 130
         
         return CGSize(width: width, height: height)
     }
@@ -119,7 +119,7 @@ extension SavedViewController {
     
     func setupHeaderLabel() {
         headerLabel.text = "Saved"
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        headerLabel.font = UIFont.init().heavyBlackFont(ofSize: 32.0)
     }
     
     func setupDividerView() {
