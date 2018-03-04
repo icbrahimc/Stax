@@ -27,14 +27,20 @@ class BaseAPI: NSObject {
     /////////////////* Adding to Database */////////////////
     
     /* add a playlist to the database */
-    func addPlaylist(_ playlist: Playlist, completionBlock: @escaping (String) -> ()) {
-        let user = "icbrahimc"
+    func addPlaylist(playlist: Playlist, user: User, completionBlock: @escaping (String) -> ()) {
+        // Time stamps.
+        let timestamp = NSDate().timeIntervalSince1970
+        let myTimeInterval = TimeInterval(timestamp)
+        let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
+        
         var playlistRef: DocumentReference? = nil
         playlistRef = db.collection("playlists").addDocument(data: [
             "id": playlistRef?.documentID,
+            "userId" : user.id,
             "title" : playlist.title,
             "description": playlist.description,
-            "creatorUsername": user,
+            "date" : time,
+            "creatorUsername": user.username,
             "appleMusicLink": playlist.appleLink,
             "spotifyMusicLink": playlist.spotifyLink,
             "soundcloudLink": playlist.cloudLink,

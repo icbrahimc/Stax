@@ -48,45 +48,44 @@ class ProfileReusableView: UICollectionReusableView {
     let playlistNumberLabel: UILabel = {
         let label = UILabel()
         label.text = "15"
-        label.font = UIFont.init().mediumFont(ofSize: 15.0)
         return label
     }()
     
     let playlistLabel: UILabel = {
         let label = UILabel()
         label.text = "playlists"
-        label.font = UIFont.init().lightFont(ofSize: 15.0)
-        label.textColor = UIColor.init().fontGrey()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor.init(white: 0.4, alpha: 0.6)
         return label
     }()
     
     let followersNumberLabel: UILabel = {
         let label = UILabel()
         label.text = "640"
-        label.font = UIFont.init().mediumFont(ofSize: 15.0)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
     let followersLabel: UILabel = {
         let label = UILabel()
         label.text = "followers"
-        label.font = UIFont.init().lightFont(ofSize: 15.0)
-        label.textColor = UIColor.init().fontGrey()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor.init(white: 0.4, alpha: 0.6)
         return label
     }()
     
     let followingNumberLabel: UILabel = {
         let label = UILabel()
         label.text = "780"
-        label.font = UIFont.init().mediumFont(ofSize: 15.0)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
     let followingLabel: UILabel = {
         let label = UILabel()
         label.text = "following"
-        label.font = UIFont.init().lightFont(ofSize: 15.0)
-        label.textColor = UIColor.init().fontGrey()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor.init(white: 0.4, alpha: 0.6)
         return label
     }()
     
@@ -111,9 +110,8 @@ class ProfileReusableView: UICollectionReusableView {
     let usernameLabel: UILabel = {
         let label = UILabel()
         label.text = "@icbrahimc"
-        label.font = UIFont.init().lightFont(ofSize: 15.0)
-        label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.init().fontGrey()
+        label.font = UIFont.systemFont(ofSize: 10.0)
+        label.textColor = UIColor.init(white: 0.4, alpha: 0.6)
         label.textAlignment = .center
         return label
     }()
@@ -128,9 +126,10 @@ class ProfileReusableView: UICollectionReusableView {
     let editProfileButtton: UIButton = {
         let button = UIButton(type: UIButtonType.roundedRect)
         button.setTitle("Edit Profile", for: .normal)
-        button.backgroundColor = .black
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 5.0
+        button.backgroundColor = UIColor(red:211.0/255.0, green:72.0/255.0, blue:54.0/255.0, alpha:1.0)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1.0
         return button
     }()
     
@@ -172,7 +171,7 @@ class ProfileReusableView: UICollectionReusableView {
         profilePic.autoSetDimension(.height, toSize: frame.height * 0.40)
         profilePic.autoSetDimension(.width, toSize: frame.height * 0.40)
         profilePic.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
-        profilePic.autoPinEdge(toSuperviewEdge: .left, withInset: 30)
+        profilePic.autoPinEdge(toSuperviewEdge: .left, withInset: 20)
         profilePic.layer.cornerRadius = frame.height * 0.20
         
         firstNameLabel.autoSetDimension(.width, toSize: frame.height * 0.40)
@@ -185,11 +184,10 @@ class ProfileReusableView: UICollectionReusableView {
         lastNameLabel.autoPinEdge(.top, to: .bottom, of: firstNameLabel, withOffset: 0.0)
         lastNameLabel.font = UIFont.boldSystemFont(ofSize: nameLabelSize)
         
-        editProfileButtton.autoPinEdge(.top, to: .top, of: firstNameLabel, withOffset: 10.0)
+        editProfileButtton.autoPinEdge(.top, to: .top, of: lastNameLabel)
         editProfileButtton.autoPinEdge(.left, to: .left, of: playlistLabel, withOffset: 0.0)
-        editProfileButtton.autoPinEdge(toSuperviewEdge: .right, withInset: 15.0)
-        editProfileButtton.autoSetDimension(.height, toSize: frame.height * 0.15)
-        editProfileButtton.autoSetDimension(.width, toSize: frame.width)
+        editProfileButtton.autoSetDimension(.height, toSize: lastNameLabel.frame.height)
+        editProfileButtton.autoSetDimension(.width, toSize: 100)
         
         usernameLabel.autoPinEdge(.top, to: .bottom, of: lastNameLabel)
         usernameLabel.autoPinEdge(.left, to: .left, of: lastNameLabel)
@@ -197,7 +195,7 @@ class ProfileReusableView: UICollectionReusableView {
         usernameLabel.autoSetDimension(.width, toSize: frame.height * 0.40)
         
         playlistNumberLabel.autoPinEdge(.top, to: .top, of: profilePic, withOffset: 0.0)
-        playlistNumberLabel.autoPinEdge(.left, to: .right, of: profilePic, withOffset: 55.0)
+        playlistNumberLabel.autoPinEdge(.left, to: .right, of: profilePic, withOffset: 25.0)
         playlistNumberLabel.autoSetDimension(.width, toSize: 60)
         playlistNumberLabel.font = UIFont.boldSystemFont(ofSize: numberSize)
         
@@ -220,7 +218,7 @@ class ProfileReusableView: UICollectionReusableView {
         followingNumberLabel.font = UIFont.boldSystemFont(ofSize: numberSize)
         
         followingLabel.autoPinEdge(.bottom, to: .bottom, of: profilePic)
-        followingLabel.autoPinEdge(.left, to: .right, of: followersLabel, withOffset: 35.0)
+        followingLabel.autoPinEdge(.left, to: .right, of: followersLabel, withOffset: 25.0)
         followingLabel.autoSetDimension(.width, toSize: 60)
         
         dividerLineView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)

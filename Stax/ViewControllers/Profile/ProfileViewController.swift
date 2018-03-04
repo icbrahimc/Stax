@@ -15,7 +15,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class ProfileViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    var cellSpacing: CGFloat = 35
+    var cellSpacing: CGFloat = 25
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (UIScreen.main.bounds.size.width - 3 * cellSpacing) / 2
-        let height = width + 130
+        let height = width + 90
         
         return CGSize(width: width, height: height)
     }
