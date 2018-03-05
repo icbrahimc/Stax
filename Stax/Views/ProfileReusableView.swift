@@ -146,13 +146,12 @@ class ProfileReusableView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        editProfileButtton.addTarget(self, action: #selector(didPressProfileBtn), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     override func layoutSubviews() {
         addSubview(profilePic)
@@ -228,6 +227,10 @@ class ProfileReusableView: UICollectionReusableView {
         dividerLineView.autoPinEdge(toSuperviewEdge: .right, withInset: 0.0)
         dividerLineView.autoSetDimension(.height, toSize: 1)
         dividerLineView.autoSetDimension(.width, toSize: frame.width)
+    }
+    
+    @objc func didPressProfileBtn() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "Settings"), object: nil)
     }
 }
 

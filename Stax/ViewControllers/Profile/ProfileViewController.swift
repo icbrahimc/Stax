@@ -25,6 +25,17 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView?.backgroundColor = .white
         self.collectionView!.register(ArtworkCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView!.register(ProfileReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerView")
+        setupNotifications()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    /* Setup notifications */
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(settings), name: NSNotification.Name(rawValue: "Settings"), object: nil)
     }
 
     // MARK: UICollectionViewDataSource
