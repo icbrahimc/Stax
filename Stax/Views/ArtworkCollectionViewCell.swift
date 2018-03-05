@@ -113,6 +113,8 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         saveButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
         saveButton.autoSetDimension(.height, toSize: frame.height * 0.15)
         saveButton.autoSetDimension(.width, toSize: frame.height * 0.15)
+        // Remove this later.
+        saveButton.alpha = 0.0
     }
     
     @objc func pressLikeBTN() {
