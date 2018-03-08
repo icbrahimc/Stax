@@ -106,14 +106,14 @@ class SpotifyViewController: UITableViewController {
                 var newTrack = Song()
                 let trackJSON = track.1["track"]
                 let trackTitle = trackJSON["name"].stringValue
-                let trackURL = trackJSON["preview_url"].stringValue
+                let trackURL = trackJSON["uri"].stringValue
                 
                 var artistName = ""
                 for artist in trackJSON["artists"] {
                     if artistName == "" {
-                        artistName += artist.1.stringValue
+                        artistName += artist.1["name"].stringValue
                     } else {
-                        artistName += ", \(artist.1.stringValue)"
+                        artistName += ", \(artist.1["name"].stringValue)"
                     }
                 }
                 
