@@ -34,13 +34,16 @@ class TrackViewCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.init().mediumFont(ofSize: 15.0)
         label.text = "Girls Love Beyonce"
         return label
     }()
     
     let artistLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.init().lightFont(ofSize: 15.0)
         label.text = "Drake"
+        label.textColor = UIColor.init().fontGrey()
         return label
     }()
     
