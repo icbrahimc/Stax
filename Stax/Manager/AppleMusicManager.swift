@@ -154,6 +154,77 @@ class AppleMusicManager: NSObject {
         }
     }
     
+    func getAppleMusicTracks(link: String, completion: @escaping ([Song], Playlist?) -> ()) {
+        // Instantiate a new playlist to pass on to the next vc.
+        var appleMusicPlaylist: Playlist = Playlist()
+        
+        // Parse the linkText for the URLS.
+        let linkParams = parseAppleLink(link)
+        
+        let storeFront = linkParams[0]
+        let id = linkParams[1]
+        
+        let apiCall = "https://api.music.apple.com/v1/catalog/\(storeFront)/playlists/\(id)"
+        
+        let url = URL(string: apiCall)
+        let headers: HTTPHeaders = [
+            "Authorization" : "Bearer \(Constants.APPLE)"
+        ]
+        
+        appleMusicPlaylist.appleLink = link
+        
+        // Make the request.
+        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (data) in
+            
+            guard let response = data.data else {
+                print("Error no data present")
+                return
+            }
+            
+            if let err = data.error {
+                print(err.localizedDescription)
+                completion([], nil)
+                return
+            }
+            
+            // Parse JSON data.
+            let appleJSON = JSON(response)
+            
+            let data = appleJSON["data"][0]
+            let attributes = data["attributes"]
+            
+            // Add data to the playlist object.
+            if let imageURL = attributes["artwork"]["url"].string {
+                let height = attributes["artwork"]["height"].stringValue
+                let width = attributes["artwork"]["width"].stringValue
+                
+                var finalImageURL = imageURL.replacingOccurrences(of: "{w}", with: width)
+                finalImageURL = finalImageURL.replacingOccurrences(of: "{h}", with: height)
+                
+                appleMusicPlaylist.coverArtLink = finalImageURL
+            }
+            
+            if let name = attributes["name"].string {
+                appleMusicPlaylist.title = name
+            }
+            
+            appleMusicPlaylist.creatorUsername = ProfileManager.sharedInstance.user?.username
+            
+            var songs: [Song] = []
+            let tracks = data["relationships"]["tracks"]["data"]
+            for track in tracks.arrayValue {
+                var song = Song()
+                let trackAttr = track["attributes"]
+                
+                song.artistName = trackAttr["artistName"].stringValue
+                song.albumName = trackAttr["albumName"].stringValue
+                song.sharingURL = trackAttr["url"].stringValue
+                songs.append(song)
+            }
+            completion(songs, appleMusicPlaylist)
+        }
+    }
+    
     /* Spotfiy functions */
     
     /* Get all spotify tracks for a particular playlist */
