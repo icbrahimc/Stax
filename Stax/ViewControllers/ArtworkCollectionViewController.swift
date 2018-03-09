@@ -310,6 +310,7 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let playlistVC = PlaylistViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            playlistVC.playlist = playlists[indexPath.row]
             self.navigationController?.pushViewController(playlistVC, animated: true)
         }
     }

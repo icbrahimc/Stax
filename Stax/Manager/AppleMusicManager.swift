@@ -6,8 +6,10 @@
 //  Copyright © 2018 icbrahimc. All rights reserved.
 //
 
+import Alamofire
 import MediaPlayer
 import StoreKit
+import SwiftyJSON
 import UIKit
 
 class AppleMusicManager: NSObject {
@@ -149,6 +151,58 @@ class AppleMusicManager: NSObject {
             
             print("Success! The user's storefront ID is: \(trimmedId)")
             completion(String(trimmedId))
+        }
+    }
+    
+    /* Spotfiy functions */
+    
+    /* Get all spotify tracks for a particular playlist */
+    func getSpotifyTracks(_ spotUID: String, completion: @escaping ([Song]) -> ()) {
+        let headers: HTTPHeaders = [
+            "Authorization" : "Bearer \(ProfileManager.sharedInstance.spotifyMusicID)"
+        ]
+        
+        let username = ProfileManager.sharedInstance.spotifyUsername
+        
+        let spotURL = "https://api.spotify.com/v1/users/\(username)/playlists/\(spotUID)/tracks"
+        
+        let url = URL(string: spotURL)
+        
+        // Include completion handler for when you retrieve all the tracks.
+        // Leave blank for now.
+        Alamofire.request(url!, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers).validate().responseJSON { (response) in
+            
+            guard let data = response.result.value else {
+                return
+            }
+            
+            var songs: [Song] = []
+            let spotJSON = JSON(data)
+            let tracks = spotJSON["items"]
+            
+            for track in tracks {
+                var newTrack = Song()
+                let trackJSON = track.1["track"]
+                let trackTitle = trackJSON["name"].stringValue
+                let trackURL = trackJSON["uri"].stringValue
+                
+                var artistName = ""
+                for artist in trackJSON["artists"] {
+                    if artistName == "" {
+                        artistName += artist.1["name"].stringValue
+                    } else {
+                        artistName += ", \(artist.1["name"].stringValue)"
+                    }
+                }
+                
+                newTrack.albumName = trackTitle
+                newTrack.artistName = artistName
+                newTrack.sharingURL = trackURL
+                
+                songs.append(newTrack)
+            }
+            
+            completion(songs)
         }
     }
 }
