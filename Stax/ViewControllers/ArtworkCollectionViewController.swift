@@ -307,6 +307,13 @@ class ArtworkCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let playlistVC = PlaylistViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            self.navigationController?.pushViewController(playlistVC, animated: true)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:

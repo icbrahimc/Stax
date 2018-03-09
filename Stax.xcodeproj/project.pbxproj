@@ -24,6 +24,7 @@
 		AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */; };
 		AA2D3B8A20101CA900AB171B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8920101CA900AB171B /* Constants.swift */; };
 		AA2D3B8C201475F900AB171B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D3B8B201475F900AB171B /* Helpers.swift */; };
+		AA30372320526AD1006CF1EF /* PlaylistReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30372220526AD1006CF1EF /* PlaylistReusableView.swift */; };
 		AA323AED202C134500589023 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA323AEC202C134500589023 /* Song.swift */; };
 		AA3A10122004ECEE0039333E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10112004ECEE0039333E /* Extensions.swift */; };
 		AA3A10152006F9BD0039333E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A10142006F9BD0039333E /* LaunchViewController.swift */; };
@@ -36,6 +37,7 @@
 		AA5FA3D6204C48510077B0CB /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA5FA3D1204C48500077B0CB /* SF-Pro-Display-Light.otf */; };
 		AA5FA3D7204C48510077B0CB /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA5FA3D2204C48500077B0CB /* SF-Pro-Display-Medium.otf */; };
 		AA5FA3D8204C48510077B0CB /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA5FA3D3204C48500077B0CB /* SF-Pro-Display-Regular.otf */; };
+		AA5FA3DA205116390077B0CB /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5FA3D9205116390077B0CB /* PlaylistViewController.swift */; };
 		AA7A25A02031DE7200075DFE /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A259F2031DE7200075DFE /* SavedViewController.swift */; };
 		AA9384221FEF435E00FA45B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */; };
 		AA9384241FEF9C1A00FA45B3 /* ProfileReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */; };
@@ -102,6 +104,7 @@
 		AA2D3B87200FF6CE00AB171B /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		AA2D3B8920101CA900AB171B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA2D3B8B201475F900AB171B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		AA30372220526AD1006CF1EF /* PlaylistReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistReusableView.swift; sourceTree = "<group>"; };
 		AA323AEC202C134500589023 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		AA3A10112004ECEE0039333E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA3A10142006F9BD0039333E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		AA5FA3D1204C48500077B0CB /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		AA5FA3D2204C48500077B0CB /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		AA5FA3D3204C48500077B0CB /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		AA5FA3D9205116390077B0CB /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		AA7A259F2031DE7200075DFE /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		AA9384211FEF435E00FA45B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReusableView.swift; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 				AA9DAF7C1FE1C40A0052D4D6 /* CategoryCell.swift */,
 				AA010A82203E968B0097EF4D /* FeedReusableView.swift */,
 				AA9DAF721FDF34EF0052D4D6 /* FormDivider.swift */,
+				AA30372220526AD1006CF1EF /* PlaylistReusableView.swift */,
 				AA9384231FEF9C1A00FA45B3 /* ProfileReusableView.swift */,
 				AA983D6A2043A8BB00B7802D /* PublishReusableView.swift */,
 				AAEE7D312034881E00F17EBE /* SpotifyTableViewCell.swift */,
@@ -286,6 +291,7 @@
 				AA9DAF761FE0943B0052D4D6 /* FeaturedCollectionViewController.swift */,
 				AA3A10142006F9BD0039333E /* LaunchViewController.swift */,
 				AAE38F1B202B485400ADFB40 /* NotificationsViewController.swift */,
+				AA5FA3D9205116390077B0CB /* PlaylistViewController.swift */,
 				AA983D682043A7F300B7802D /* PublishViewController.swift */,
 				AA7A259F2031DE7200075DFE /* SavedViewController.swift */,
 				AAE38F1D202B48B200ADFB40 /* SearchViewController.swift */,
@@ -687,10 +693,12 @@
 				AA0A648D1FF1F785002251DC /* BaseAPI.swift in Sources */,
 				AA0A64941FF23E1D002251DC /* UsernameViewController.swift in Sources */,
 				AA0A64991FF31B99002251DC /* ProfileManager.swift in Sources */,
+				AA5FA3DA205116390077B0CB /* PlaylistViewController.swift in Sources */,
 				AA2D3B88200FF6CE00AB171B /* AppleMusicManager.swift in Sources */,
 				AA0A64911FF23668002251DC /* MainTabBarController.swift in Sources */,
 				AAA1689920179E3B001A2005 /* Comment.swift in Sources */,
 				AA3A501D1FE6442F00F3918D /* User.swift in Sources */,
+				AA30372320526AD1006CF1EF /* PlaylistReusableView.swift in Sources */,
 				AA0A648F1FF2316C002251DC /* MainController.swift in Sources */,
 				AAE38F1C202B485400ADFB40 /* NotificationsViewController.swift in Sources */,
 				AA3A501F1FE83F8700F3918D /* ArtworkCollectionViewController.swift in Sources */,
